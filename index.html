@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>运转记录册 Beta · Rail Log</title>
+  <meta name="description" content="按日期查看历次铁路运行记录，交互探索速度、速度精度、跨站和停车区间。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23155b9b'/%3E%3Cpath d='M5 23L11 13L17 16L27 7' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<main class="catalog">
+  <header class="catalog-head"><p class="eyebrow">RAIL LOG</p><h1>运转记录册 <span class="beta-badge">Beta 版</span></h1><p class="subtitle">查看速度、速度精度与沿途跨站和停车区间。</p></header>
+  <div class="catalog-label"><h2>运行记录</h2><span id="record-count"></span></div>
+  <p id="catalog-message" class="notice" role="status">正在载入记录目录…</p>
+  <div id="records" class="record-list" aria-label="运行记录目录"></div>
+  <p class="footnote">所有记录使用北京时间（UTC+8）。进入记录后可沿时间轴放大，悬停查看逐点数据。</p>
+</main>
+<script src="assets/catalog.js"></script>
+</body>
+</html>

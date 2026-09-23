@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>查看运行记录 · 运转记录册 Beta</title>
+  <meta name="description" content="查看列车速度、速度精度与停车和跨站区间，沿时间轴缩放并查看逐秒数据。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23155b9b'/%3E%3Cpath d='M5 23L11 13L17 16L27 7' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<main>
+  <a class="back-link" href="index.html">← 全部运行记录</a>
+  <p id="load-message" class="notice" role="status">正在载入运行记录…</p>
+  <div id="viewer-content" hidden>
+  <header class="page-head">
+    <div><p class="eyebrow">运行记录 <span id="trip-date"></span></p><h1><span id="trip-title"></span> <span class="beta-badge">Beta 版</span></h1><p class="subtitle" id="trip-summary"></p></div>
+    <div class="export-actions"><button id="export-record" class="secondary">导出记录数据</button><button id="save-page" class="secondary" hidden>保存离线网页</button></div>
+  </header>
+  <section class="chart-card" aria-label="速度与区间交互图">
+    <div class="toolbar">
+      <div class="modes" role="group" aria-label="鼠标操作"><button id="select-mode" aria-pressed="true">框选放大</button><button id="pan-mode" aria-pressed="false">拖动平移</button></div>
+      <div class="zoom-buttons" role="group" aria-label="时间轴缩放"><button id="zoom-in" aria-label="放大时间轴">＋</button><button id="zoom-out" aria-label="缩小时间轴">−</button><button id="reset-view">全程</button></div>
+      <div class="legend"><span><i class="line-key"></i>实时速度</span><span><i class="band-key"></i>速度精度范围</span></div>
+    </div>
+    <div class="chart-wrap" id="chart-wrap">
+      <div id="chart" tabindex="0" role="application" aria-label="速度图。滚轮缩放时间轴，拖动框选放大，左右方向键平移，加减键缩放，Home 键显示全程。"></div>
+      <div id="hover-span" class="hover-span" hidden></div><div id="crosshair" class="crosshair" hidden></div><div id="hover-dot" class="hover-dot" hidden></div><div id="selection" class="selection" hidden></div>
+      <div id="tooltip" class="tooltip" role="status" hidden></div>
+    </div>
+    <div class="chart-footer"><span id="view-range"></span><span>滚轮缩放 · 拖动框选 · 双击还原 · 悬停查看数值与区间</span></div>
+  </section>
+  <div id="editor-root"></div>
+  <p class="footnote">色带为速度 ± 设备报告的速度精度（约 68% 置信水平），下限取 0。保留原始采样与数据中断，不做平滑。</p>
+  <p class="sr-only" id="status" aria-live="polite"></p>
+  </div>
+</main>
+<script src="assets/echarts.min.js"></script>
+<script id="trip-data"></script>
+<script src="assets/viewer.js"></script>
+</body>
+</html>
