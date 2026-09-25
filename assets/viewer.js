@@ -5,7 +5,7 @@
   if (!trip) {
     const id = new URLSearchParams(location.search).get('id');
     if (!id || !/^\d{12}$/.test(id)) throw new Error('请从记录目录选择一条运行记录。');
-    const response = await fetch(`records/${id}.json`);
+    const response = await fetch(`records/${id}.json`,{cache:'no-cache'});
     if (!response.ok) throw new Error('没有找到这条运行记录，请返回目录重新选择。');
     trip = await response.json();
   }
@@ -14,7 +14,7 @@
   const samples = trip.samples;
   const full = [trip.logStart, trip.logEnd];
   let view = [...full], mode = 'select', drag = null;
-  let events = trip.events.map(event => ({...event}));
+  const events = trip.events.map(event => ({...event})).sort((a,b)=>a.start-b.start);
   const dateFormatter = new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'});
   const timeFormatter = new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Shanghai',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
   const formatDate = t => dateFormatter.format(t);
@@ -22,8 +22,9 @@
   const dateTime = t => `${formatDate(t)} ${formatTime(t)}`;
   const duration = ms => {const seconds=Math.round(ms/1000);return seconds<60?`${seconds} 秒`:seconds<3600?`${Math.floor(seconds/60)} 分 ${seconds%60} 秒`:`${Math.floor(seconds/3600)} 小时 ${Math.floor(seconds%3600/60)} 分 ${seconds%60} 秒`;};
   const escape = text => String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  document.title=`${trip.title} · 运转记录册 Beta`;
+  document.title=`${trip.title} · 运转记录册${trip.beta===true?' Beta':''}`;
   $('trip-title').textContent=trip.title;
+  $('trip-beta').hidden=trip.beta!==true;
   $('trip-date').textContent=`${formatDate(samples[0].t)} · 北京时间 UTC+8`;
   const crossDate=formatDate(samples[0].t)!==formatDate(samples.at(-1).t);
   $('trip-summary').textContent=`${trip.partial?'部分记录':'运行记录'} ${formatTime(samples[0].t)}—${crossDate?formatDate(samples.at(-1).t)+' ':''}${formatTime(samples.at(-1).t)} · ${samples.length.toLocaleString()} 个采样点`;
@@ -112,46 +113,13 @@
   $('chart').addEventListener('keydown',e=>{const step=(view[1]-view[0])*.2;if(e.key==='ArrowLeft')zoom(view[0]-step,view[1]-step);else if(e.key==='ArrowRight')zoom(view[0]+step,view[1]+step);else if(['+','='].includes(e.key))scale(.5);else if(e.key==='-')scale(2);else if(e.key==='Home')zoom(...full);else return;e.preventDefault();});
   new ResizeObserver(()=>{chart.resize();hideTip();}).observe($('chart-wrap'));
   setMode('select');updateRange();
-  $('editor-root').innerHTML=`<details class="event-editor"><summary>区间标记 <span>添加或调整停车、跨站的起止时间</span></summary><div class="editor-body"><p class="editor-intro">${trip.eventNote?escape(trip.eventNote)+" ":""}时间均为北京时间；起止相同可记为时间点。修改后可导出记录数据以更新网站，或保存为离线网页。</p><form class="event-form" id="event-form"><label>站名<input id="event-name" maxlength="80" placeholder="例如：徐州东站" required></label><label>类型<select id="event-type"><option value="pass">跨站区间</option><option value="stop">停车区间</option></select></label><label>开始时间<input id="event-start" type="datetime-local" step="1" required></label><label>结束时间<input id="event-end" type="datetime-local" step="1" required></label><div class="form-actions"><button class="primary" id="submit-event" type="submit">添加区间</button><button id="cancel-edit" type="button" hidden>取消</button></div></form><p id="form-error" class="form-error" role="alert"></p><div class="event-list"><table><thead><tr><th>站名</th><th>类型</th><th>时间范围</th><th>时长</th><th class="actions">操作</th></tr></thead><tbody id="event-rows"></tbody></table></div></div></details>`;
-  let editingId=null;
-  const inputTime=t=>`${formatDate(t)}T${formatTime(t)}`;
-  $('event-start').value=inputTime(samples[0].t);$('event-end').value=inputTime(samples[0].t+10000);
-  function validateEvent(input){
-    const name=String(input.name||'').trim(),start=Number(input.start),end=Number(input.end);
-    if(!name||name.length>80)throw new Error('请填写 1–80 字的站名。');
-    if(!['pass','stop'].includes(input.type))throw new Error('请选择跨站或停车区间。');
-    if(!Number.isFinite(start)||!Number.isFinite(end))throw new Error('请填写完整的开始与结束时间。');
-    if(end<start)throw new Error('结束时间不能早于开始时间。');
-    if(start<full[0]||end>full[1])throw new Error(`区间须位于 ${dateTime(full[0])} 至 ${dateTime(full[1])} 的记录范围内。`);
-    return {id:input.id||crypto.randomUUID(),name,type:input.type,start,end};
-  }
-  function resetForm(){editingId=null;$('event-name').value='';$('submit-event').textContent='添加区间';$('cancel-edit').hidden=true;$('form-error').textContent='';}
-  function renderEvents(){
-    events.sort((a,b)=>a.start-b.start);
-    $('event-rows').innerHTML=events.map(e=>`<tr><td>${escape(e.name)}</td><td><span class="type-tag ${e.type}">${e.type==='stop'?'停车':'跨站'}</span></td><td>${crossDate?formatDate(e.start)+' ':''}${formatTime(e.start)} — ${crossDate?formatDate(e.end)+' ':''}${formatTime(e.end)}</td><td>${e.start===e.end?'时间点':duration(e.end-e.start)}</td><td class="actions"><button type="button" data-action="view" data-id="${escape(e.id)}" aria-label="查看${escape(e.name)}区间">查看</button><button type="button" data-action="edit" data-id="${escape(e.id)}" aria-label="编辑${escape(e.name)}区间">编辑</button><button type="button" class="danger" data-action="delete" data-id="${escape(e.id)}" aria-label="删除${escape(e.name)}区间">删除</button></td></tr>`).join('')||'<tr><td colspan="5">尚无区间标记</td></tr>';
-    chart.setOption({series:[eventSeries()]});hideTip();
-  }
-  $('cancel-edit').onclick=resetForm;
-  $('event-form').onsubmit=e=>{
-    e.preventDefault();
-    try{
-      const event=validateEvent({id:editingId,name:$('event-name').value,type:$('event-type').value,start:Date.parse($('event-start').value+'+08:00'),end:Date.parse($('event-end').value+'+08:00')});
-      if(editingId)events=events.map(item=>item.id===editingId?event:item);else events.push(event);
-      renderEvents();resetForm();$('status').textContent='区间标记已更新';
-    }catch(error){$('form-error').textContent=error.message;}
-  };
+  $('events-root').innerHTML=`<details class="event-details"><summary>区间标记 <span>查看停车、跨站的起止时间</span></summary><div class="event-body"><p class="event-note">${trip.eventNote?escape(trip.eventNote)+" ":""}时间均为北京时间；起止相同表示时间点。</p><div class="event-list"><table><thead><tr><th>站名</th><th>类型</th><th>时间范围</th><th>时长</th><th class="actions">查看</th></tr></thead><tbody id="event-rows"></tbody></table></div></div></details>`;
+  $('event-rows').innerHTML=events.map(e=>`<tr><td>${escape(e.name)}</td><td><span class="type-tag ${e.type}">${e.type==='stop'?'停车':'跨站'}</span></td><td>${crossDate?formatDate(e.start)+' ':''}${formatTime(e.start)} — ${crossDate?formatDate(e.end)+' ':''}${formatTime(e.end)}</td><td>${e.start===e.end?'时间点':duration(e.end-e.start)}</td><td class="actions"><button type="button" data-id="${escape(e.id)}" aria-label="查看${escape(e.name)}区间">查看</button></td></tr>`).join('')||'<tr><td colspan="5">尚无区间标记</td></tr>';
   $('event-rows').onclick=e=>{
-    const button=e.target.closest('button[data-action]');if(!button)return;
+    const button=e.target.closest('button[data-id]');if(!button)return;
     const event=events.find(item=>item.id===button.dataset.id);if(!event)return;
-    if(button.dataset.action==='view'){
-      const padding=Math.max(10000,(event.end-event.start)*.5);zoom(event.start-padding,event.end+padding);$('chart').scrollIntoView({block:'center',behavior:'smooth'});
-    }else if(button.dataset.action==='edit'){
-      editingId=event.id;$('event-name').value=event.name;$('event-type').value=event.type;$('event-start').value=inputTime(event.start);$('event-end').value=inputTime(event.end);$('submit-event').textContent='保存修改';$('cancel-edit').hidden=false;$('form-error').textContent='';$('event-name').focus();
-    }else{
-      events=events.filter(item=>item.id!==event.id);renderEvents();if(editingId===event.id)resetForm();
-    }
+    const padding=Math.max(10000,(event.end-event.start)*.5);zoom(event.start-padding,event.end+padding);$('chart').scrollIntoView({block:'center',behavior:'smooth'});
   };
-  renderEvents();
   async function portableHtml(){
     const doc=new DOMParser().parseFromString(initialPage,'text/html');
     for(const link of doc.querySelectorAll('link[rel="stylesheet"]')){
@@ -177,17 +145,18 @@
   $('save-page').hidden=false;
   $('save-page').onclick=async()=>{
     const button=$('save-page');button.disabled=true;button.textContent='正在保存…';
+    $('download-error').hidden=true;
     try{
       const html=await portableHtml(),url=URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));
       const link=document.createElement('a');link.href=url;link.download=`${trip.train||"rail-log"}_${trip.id}.html`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent='已生成包含当前区间的离线网页';
-    }catch(error){$('status').textContent='保存失败：'+error.message;$('form-error').textContent='保存失败：'+error.message;}
+    }catch(error){$('status').textContent='保存失败：'+error.message;$('download-error').textContent='保存失败：'+error.message;$('download-error').hidden=false;}
     finally{button.disabled=false;button.textContent='保存离线网页';}
   };
   $('export-record').onclick=()=>{
     const payload={...trip,events};
     const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)+'\n'],{type:'application/json;charset=utf-8'}));
     const link=document.createElement('a');link.href=url;link.download=trip.id+'.json';link.click();
-    setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent='已导出记录数据，替换仓库 records 中的同名文件即可更新网站';
+    setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent='已导出记录数据';
   };
   const getState=()=>({view:[...view],events:events.map(e=>({...e})),samples:samples.length});
   window.TRIP_VIEWER={chart,zoom,getState,nearest,portableHtml};

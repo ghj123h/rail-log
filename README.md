@@ -1,4 +1,4 @@
-# Rail Log · 运转记录册（Beta 版）
+# Rail Log · 运转记录册
 
 一个 GitHub Pages 网站保存多次列车运行记录，共用互动图表，每次只新增记录数据。
 
@@ -9,12 +9,12 @@
 
 点击首页记录进入图表。滚轮或横向框选缩放时间轴，切换“拖动平移”查看相邻时段；双击或点击“全程”还原。
 
-悬停速度曲线可查看北京时间、速度和速度精度；跨站与停车标记放在独立时间带，悬停才显示名称和起止时间。展开“区间标记”可编辑时间点或区间。
+悬停速度曲线可查看北京时间、速度和速度精度；跨站与停车标记放在独立时间带，悬停才显示名称和起止时间。展开“区间标记”可查看时间点或区间，点击“查看”可放大到对应时段。页面只读，不提供新增、编辑或删除标记的功能。
 
-- **导出记录数据**：下载包含全部速度点和当前区间的 `YYMMDDHHMMSS.json`。将其替换到 `records/` 的同名文件并提交，即可更新网站。页面编辑本身不会修改仓库。
+- **导出记录数据**：下载包含全部速度点和区间标记的 `YYMMDDHHMMSS.json` 副本。
 - **保存离线网页**：将图表组件、数据和当前标记打包为单文件 HTML，可用系统浏览器离线打开。
 
-G797 的两段跨站区间是按已知通过时刻前后各 5 秒生成的测试数据：滕州东站 16:36:16–16:36:26，枣庄站 16:44:28–16:44:38。没有预填真实停车区间。
+G797 保留 Beta 标识，其两段跨站区间是按已知通过时刻前后各 5 秒生成的测试数据：滕州东站 16:36:16–16:36:26，枣庄站 16:44:28–16:44:38。没有预填真实停车区间。Beta 标识由每条记录的 `beta` 字段决定，首页和详情页一致；新导入记录默认不显示。
 
 ## 新增运行记录
 
@@ -36,7 +36,7 @@ git commit -m "Add running record"
 git push
 ```
 
-如果手工添加、删除或修改记录的车次、区间等信息，重新生成目录：
+记录内容在本地 JSON 文件中维护，再经复核后发布。如果添加、删除记录，或修改车次、展示区间、`beta` 等首页摘要信息，重新生成目录：
 
 ```powershell
 python tools/manage_records.py rebuild
@@ -63,9 +63,9 @@ records/<ID>.json          一次运行的数据与标记
 tools/manage_records.py    导入日志与更新目录
 ```
 
-每条记录包含 `id`、`title`、`train`、`origin`、`destination`、`partial`、`logStart`、`logEnd`、`sampleIntervalMs`、`samples` 和 `events`。
+每条记录包含 `id`、`title`、`train`、`origin`、`destination`、`partial`、`beta`、`logStart`、`logEnd`、`sampleIntervalMs`、`samples` 和 `events`。`beta` 为 `true` 时显示 Beta 标识，缺省或为 `false` 时不显示。
 
-`samples` 的每个元素为 `{t, v, a}`：UTC Unix 毫秒时间戳、km/h 速度、km/h 速度不确定度。`events` 的每个元素为 `{id, name, type, start, end}`，`type` 为 `pass` 或 `stop`，起止为 UTC Unix 毫秒时间戳。显示与输入时间均为北京时间 UTC+8，支持跨日期。
+`samples` 的每个元素为 `{t, v, a}`：UTC Unix 毫秒时间戳、km/h 速度、km/h 速度不确定度。`events` 的每个元素为 `{id, name, type, start, end}`，`type` 为 `pass` 或 `stop`，起止为 UTC Unix 毫秒时间戳。页面显示北京时间 UTC+8，支持跨日期。
 
 曲线保留原始采样，不做平滑。超过正常采样间隔 1.5 倍的间断留空。色带为速度 ± 设备报告的速度精度（约 68% 置信水平），下限取 0。
 

@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>查看运行记录 · 运转记录册 Beta</title>
+  <title>查看运行记录 · 运转记录册</title>
   <meta name="description" content="查看列车速度、速度精度与停车和跨站区间，沿时间轴缩放并查看逐秒数据。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23155b9b'/%3E%3Cpath d='M5 23L11 13L17 16L27 7' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/styles.css?v=2">
 </head>
 <body>
 <main>
@@ -14,7 +14,7 @@
   <p id="load-message" class="notice" role="status">正在载入运行记录…</p>
   <div id="viewer-content" hidden>
   <header class="page-head">
-    <div><p class="eyebrow">运行记录 <span id="trip-date"></span></p><h1><span id="trip-title"></span> <span class="beta-badge">Beta 版</span></h1><p class="subtitle" id="trip-summary"></p></div>
+    <div><p class="eyebrow">运行记录 <span id="trip-date"></span></p><h1><span id="trip-title"></span> <span id="trip-beta" class="beta-badge" hidden>Beta 版</span></h1><p class="subtitle" id="trip-summary"></p></div>
     <div class="export-actions"><button id="export-record" class="secondary">导出记录数据</button><button id="save-page" class="secondary" hidden>保存离线网页</button></div>
   </header>
   <section class="chart-card" aria-label="速度与区间交互图">
@@ -30,13 +30,14 @@
     </div>
     <div class="chart-footer"><span id="view-range"></span><span>滚轮缩放 · 拖动框选 · 双击还原 · 悬停查看数值与区间</span></div>
   </section>
-  <div id="editor-root"></div>
+  <div id="events-root"></div>
+  <p id="download-error" class="download-error" role="alert" hidden></p>
   <p class="footnote">色带为速度 ± 设备报告的速度精度（约 68% 置信水平），下限取 0。保留原始采样与数据中断，不做平滑。</p>
   <p class="sr-only" id="status" aria-live="polite"></p>
   </div>
 </main>
 <script src="assets/echarts.min.js"></script>
 <script id="trip-data"></script>
-<script src="assets/viewer.js"></script>
+<script src="assets/viewer.js?v=2"></script>
 </body>
 </html>

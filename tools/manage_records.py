@@ -28,6 +28,7 @@ def rebuild():
             "id": trip["id"], "title": trip["title"], "train": trip["train"],
             "origin": trip["origin"], "destination": trip["destination"],
             "partial": bool(trip.get("partial", False)),
+            "beta": bool(trip.get("beta", False)),
             "start": samples[0]["t"], "end": samples[-1]["t"], "sampleCount": len(samples),
         })
     entries.sort(key=lambda entry: entry["start"], reverse=True)
@@ -72,7 +73,7 @@ def import_log(args):
     trip = {
         "id": record_id, "title": f"{args.train} 次（{args.origin}—{args.destination}）",
         "train": args.train, "origin": args.origin, "destination": args.destination,
-        "partial": args.partial, "logStart": min(timestamps), "logEnd": max(timestamps),
+        "partial": args.partial, "beta": False, "logStart": min(timestamps), "logEnd": max(timestamps),
         "sampleIntervalMs": statistics.median(intervals) if intervals else 1000,
         "samples": samples, "events": [],
     }
