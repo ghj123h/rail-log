@@ -95,7 +95,7 @@
       const start=Math.min(...hits.map(e=>e.start)),end=Math.max(...hits.map(e=>e.end));
       const left=Math.max(rect.x,chart.convertToPixel({xAxisIndex:0},start)),right=Math.min(rect.x+rect.width,chart.convertToPixel({xAxisIndex:0},end));
       $('hover-span').hidden=false;Object.assign($('hover-span').style,{left:`${left}px`,top:`${rect.y}px`,width:`${Math.max(1,right-left)}px`,height:`${rect.height}px`});
-      placeTip(hits.map(e=>`<div class="event-item"><div class="event-title">${escape(e.name)}${e.type==='stop'?'停车':'通过'}</div><div class="tip-time">${formatDate(e.start)}</div><div>${formatTime(e.start)}${e.end===e.start?' · 时间点':` — ${formatDate(e.end)!==formatDate(e.start)?formatDate(e.end)+' ':''}${formatTime(e.end)}`}</div>${e.end===e.start?'':`<div class="tip-row"><span>时长</span><strong>${duration(e.end-e.start)}</strong></div>`}</div>`).join(''),x,y);
+      placeTip(hits.map(e=>`<div class="event-item"><div class="event-title">${escape(e.name)}</div><div class="tip-time">${formatDate(e.start)}</div><div>${formatTime(e.start)}${e.end===e.start?' · 时间点':` — ${formatDate(e.end)!==formatDate(e.start)?formatDate(e.end)+' ':''}${formatTime(e.end)}`}</div>${e.end===e.start?'':`<div class="tip-row"><span>时长</span><strong>${duration(e.end-e.start)}</strong></div>`}</div>`).join(''),x,y);
     }
   }
   chart.getZr().on('mousemove',e=>showAt(e.offsetX,e.offsetY));
