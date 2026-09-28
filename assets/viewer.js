@@ -54,7 +54,7 @@
       axisLabel:{show:i===0,color:'#65758a',fontSize:12,hideOverlap:true,formatter:t=>formatTime(t)},
       splitLine:{show:i===0,lineStyle:{color:'#f0f3f7'}}})),
     yAxis:[{type:'value',min:0,max:Math.ceil(samples.reduce((max,s)=>Math.max(max,s.v+s.a),0)/50)*50,name:'速度 / km/h',nameTextStyle:{color:'#65758a',fontSize:12},axisLabel:{color:'#65758a',fontSize:12},splitLine:{lineStyle:{color:'#e8edf4'}}},
-      {type:'category',gridIndex:1,data:['跨站','停车'],inverse:true,axisLine:{show:false},axisTick:{show:false},axisLabel:{color:'#65758a',fontSize:12},splitLine:{show:true,lineStyle:{color:'#f1f4f8'}}}],
+      {type:'category',gridIndex:1,data:['通过','停车'],inverse:true,axisLine:{show:false},axisTick:{show:false},axisLabel:{color:'#65758a',fontSize:12},splitLine:{show:true,lineStyle:{color:'#f1f4f8'}}}],
     dataZoom:[{id:'inside',type:'inside',xAxisIndex:[0,1],filterMode:'none',minValueSpan:2000,zoomOnMouseWheel:true,moveOnMouseMove:false,moveOnMouseWheel:false,preventDefaultMouseMove:true},
       {id:'slider',type:'slider',xAxisIndex:[0,1],filterMode:'none',minValueSpan:2000,bottom:14,left:66,right:28,height:26,showDetail:false,brushSelect:false,borderColor:'#dce4ee',backgroundColor:'#f7f9fc',fillerColor:'#155b9b18',handleStyle:{color:'#fff',borderColor:'#7193b9'},dataBackground:{lineStyle:{color:'#9fb2c8'},areaStyle:{color:'#dde7f2'}},selectedDataBackground:{lineStyle:{color:colors.speed},areaStyle:{color:'#c7d9ee'}}}],
     series:[{...commonLine,id:'lower',stack:'band',lineStyle:{opacity:0},areaStyle:{opacity:0},data:data.map(d=>[d[0],d[2]])},
@@ -113,8 +113,8 @@
   $('chart').addEventListener('keydown',e=>{const step=(view[1]-view[0])*.2;if(e.key==='ArrowLeft')zoom(view[0]-step,view[1]-step);else if(e.key==='ArrowRight')zoom(view[0]+step,view[1]+step);else if(['+','='].includes(e.key))scale(.5);else if(e.key==='-')scale(2);else if(e.key==='Home')zoom(...full);else return;e.preventDefault();});
   new ResizeObserver(()=>{chart.resize();hideTip();}).observe($('chart-wrap'));
   setMode('select');updateRange();
-  $('events-root').innerHTML=`<details class="event-details"><summary>区间标记 <span>查看停车、跨站的起止时间</span></summary><div class="event-body"><p class="event-note">${trip.eventNote?escape(trip.eventNote)+" ":""}时间均为北京时间；起止相同表示时间点。</p><div class="event-list"><table><thead><tr><th>站名</th><th>类型</th><th>时间范围</th><th>时长</th><th class="actions">查看</th></tr></thead><tbody id="event-rows"></tbody></table></div></div></details>`;
-  $('event-rows').innerHTML=events.map(e=>`<tr><td>${escape(e.name)}</td><td><span class="type-tag ${e.type}">${e.type==='stop'?'停车':'跨站'}</span></td><td>${crossDate?formatDate(e.start)+' ':''}${formatTime(e.start)} — ${crossDate?formatDate(e.end)+' ':''}${formatTime(e.end)}</td><td>${e.start===e.end?'时间点':duration(e.end-e.start)}</td><td class="actions"><button type="button" data-id="${escape(e.id)}" aria-label="查看${escape(e.name)}区间">查看</button></td></tr>`).join('')||'<tr><td colspan="5">尚无区间标记</td></tr>';
+  $('events-root').innerHTML=`<details class="event-details"><summary>区间标记 <span>查看停车、通过的起止时间</span></summary><div class="event-body"><p class="event-note">${trip.eventNote?escape(trip.eventNote)+" ":""}时间均为北京时间；起止相同表示时间点。</p><div class="event-list"><table><thead><tr><th>名称</th><th>类型</th><th>时间范围</th><th>时长</th><th class="actions">查看</th></tr></thead><tbody id="event-rows"></tbody></table></div></div></details>`;
+  $('event-rows').innerHTML=events.map(e=>`<tr><td>${escape(e.name)}</td><td><span class="type-tag ${e.type}">${e.type==='stop'?'停车':'通过'}</span></td><td>${crossDate?formatDate(e.start)+' ':''}${formatTime(e.start)} — ${crossDate?formatDate(e.end)+' ':''}${formatTime(e.end)}</td><td>${e.start===e.end?'时间点':duration(e.end-e.start)}</td><td class="actions"><button type="button" data-id="${escape(e.id)}" aria-label="查看${escape(e.name)}区间">查看</button></td></tr>`).join('')||'<tr><td colspan="5">尚无区间标记</td></tr>';
   $('event-rows').onclick=e=>{
     const button=e.target.closest('button[data-id]');if(!button)return;
     const event=events.find(item=>item.id===button.dataset.id);if(!event)return;
@@ -163,7 +163,7 @@
   if(document.modelContext?.registerTool){
     const lifecycle=new AbortController();
     const register=tool=>{try{Promise.resolve(document.modelContext.registerTool(tool,{signal:lifecycle.signal})).catch(()=>{});}catch{}};
-    register({name:'get_trip_view',description:'读取当前时间窗口、停车和跨站区间。',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},execute:getState});
+    register({name:'get_trip_view',description:'读取当前时间窗口、停车和通过区间。',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},execute:getState});
     register({name:'set_time_window',description:'将速度图放大到指定北京时间范围。只调整图表视窗，不修改记录。',inputSchema:{type:'object',properties:{start:{type:'string',description:'带时区的 ISO 开始时间，例如 2026-09-23T16:36:10+08:00'},end:{type:'string',description:'带时区的 ISO 结束时间'}},required:['start','end'],additionalProperties:false},annotations:{readOnlyHint:false},execute:input=>{if(!input||typeof input.start!=='string'||typeof input.end!=='string'||!/[+-]\d\d:\d\d$|Z$/.test(input.start)||!/[+-]\d\d:\d\d$|Z$/.test(input.end))throw new Error('时间必须包含时区');return zoom(Date.parse(input.start),Date.parse(input.end));}});
     window.addEventListener('pagehide',()=>lifecycle.abort(),{once:true});
   }
