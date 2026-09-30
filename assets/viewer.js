@@ -22,6 +22,16 @@
   const dateTime = t => `${formatDate(t)} ${formatTime(t)}`;
   const duration = ms => {const seconds=Math.round(ms/1000);return seconds<60?`${seconds} 秒`:seconds<3600?`${Math.floor(seconds/60)} 分 ${seconds%60} 秒`:`${Math.floor(seconds/3600)} 小时 ${Math.floor(seconds%3600/60)} 分 ${seconds%60} 秒`;};
   const escape = text => String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function averageSpeed(event){
+    if(event.start===event.end)return '时间点';
+    const points=samples.filter(s=>s.t>=event.start&&s.t<=event.end);
+    if(!points.length)return '无采样记录';
+    const interval=trip.sampleIntervalMs||1000;
+    const incomplete=points[0].t-event.start>interval||event.end-points.at(-1).t>interval||points.some((s,i)=>i&&s.t-points[i-1].t>1.5*interval);
+    const average=points.reduce((sum,s)=>sum+s.v,0)/points.length;
+    return `${average.toFixed(2)} km/h${incomplete?'（采样不完整）':''}`;
+  }
+  const passAverages=new Map(events.filter(e=>e.type==='pass').map(e=>[e.id,averageSpeed(e)]));
   document.title=`${trip.title} · 运转记录册${trip.beta===true?' Beta':''}`;
   $('trip-title').textContent=trip.title;
   $('trip-beta').hidden=trip.beta!==true;
@@ -94,8 +104,9 @@
       if(!hits.length)return;
       const start=Math.min(...hits.map(e=>e.start)),end=Math.max(...hits.map(e=>e.end));
       const left=Math.max(rect.x,chart.convertToPixel({xAxisIndex:0},start)),right=Math.min(rect.x+rect.width,chart.convertToPixel({xAxisIndex:0},end));
-      $('hover-span').hidden=false;Object.assign($('hover-span').style,{left:`${left}px`,top:`${rect.y}px`,width:`${Math.max(1,right-left)}px`,height:`${rect.height}px`});
-      placeTip(hits.map(e=>`<div class="event-item"><div class="event-title">${escape(e.name)}</div><div class="tip-time">${formatDate(e.start)}</div><div>${formatTime(e.start)}${e.end===e.start?' · 时间点':` — ${formatDate(e.end)!==formatDate(e.start)?formatDate(e.end)+' ':''}${formatTime(e.end)}`}</div>${e.end===e.start?'':`<div class="tip-row"><span>时长</span><strong>${duration(e.end-e.start)}</strong></div>`}</div>`).join(''),x,y);
+      const color=hits[0].type==='stop'?colors.stop:colors.pass;
+      $('hover-span').hidden=false;Object.assign($('hover-span').style,{left:`${left}px`,top:`${rect.y}px`,width:`${Math.max(1,right-left)}px`,height:`${rect.height}px`,backgroundColor:`${color}11`,borderLeftColor:`${color}99`,borderRightColor:`${color}99`});
+      placeTip(hits.map(e=>`<div class="event-item"><div class="event-title">${escape(e.name)}</div><div class="tip-time">${formatDate(e.start)}</div><div>${formatTime(e.start)}${e.end===e.start?' · 时间点':` — ${formatDate(e.end)!==formatDate(e.start)?formatDate(e.end)+' ':''}${formatTime(e.end)}`}</div>${e.end===e.start?'':`<div class="tip-row"><span>时长</span><strong>${duration(e.end-e.start)}</strong></div>`}${e.type==='pass'&&e.start!==e.end?`<div class="tip-row"><span>平均速度</span><strong>${passAverages.get(e.id)}</strong></div>`:''}</div>`).join(''),x,y);
     }
   }
   chart.getZr().on('mousemove',e=>showAt(e.offsetX,e.offsetY));
@@ -113,8 +124,8 @@
   $('chart').addEventListener('keydown',e=>{const step=(view[1]-view[0])*.2;if(e.key==='ArrowLeft')zoom(view[0]-step,view[1]-step);else if(e.key==='ArrowRight')zoom(view[0]+step,view[1]+step);else if(['+','='].includes(e.key))scale(.5);else if(e.key==='-')scale(2);else if(e.key==='Home')zoom(...full);else return;e.preventDefault();});
   new ResizeObserver(()=>{chart.resize();hideTip();}).observe($('chart-wrap'));
   setMode('select');updateRange();
-  $('events-root').innerHTML=`<details class="event-details"><summary>区间标记 <span>查看停车、通过的起止时间</span></summary><div class="event-body"><p class="event-note">${trip.eventNote?escape(trip.eventNote)+" ":""}时间均为北京时间；起止相同表示时间点。</p><div class="event-list"><table><thead><tr><th>名称</th><th>类型</th><th>时间范围</th><th>时长</th><th class="actions">查看</th></tr></thead><tbody id="event-rows"></tbody></table></div></div></details>`;
-  $('event-rows').innerHTML=events.map(e=>`<tr><td>${escape(e.name)}</td><td><span class="type-tag ${e.type}">${e.type==='stop'?'停车':'通过'}</span></td><td>${crossDate?formatDate(e.start)+' ':''}${formatTime(e.start)} — ${crossDate?formatDate(e.end)+' ':''}${formatTime(e.end)}</td><td>${e.start===e.end?'时间点':duration(e.end-e.start)}</td><td class="actions"><button type="button" data-id="${escape(e.id)}" aria-label="查看${escape(e.name)}区间">查看</button></td></tr>`).join('')||'<tr><td colspan="5">尚无区间标记</td></tr>';
+  $('events-root').innerHTML=`<details class="event-details"><summary>区间标记 <span>查看停车、通过的起止时间</span></summary><div class="event-body"><p class="event-note">${trip.eventNote?escape(trip.eventNote)+" ":""}时间均为北京时间；起止相同表示时间点。平均速度为通过区间内原始速度采样的算术平均值。</p><div class="event-list"><table><thead><tr><th>名称</th><th>类型</th><th>时间范围</th><th>时长</th><th>平均速度</th><th class="actions">查看</th></tr></thead><tbody id="event-rows"></tbody></table></div></div></details>`;
+  $('event-rows').innerHTML=events.map(e=>`<tr><td>${escape(e.name)}</td><td><span class="type-tag ${e.type}">${e.type==='stop'?'停车':'通过'}</span></td><td>${crossDate?formatDate(e.start)+' ':''}${formatTime(e.start)} — ${crossDate?formatDate(e.end)+' ':''}${formatTime(e.end)}</td><td>${e.start===e.end?'时间点':duration(e.end-e.start)}</td><td>${e.type==='pass'?passAverages.get(e.id):'—'}</td><td class="actions"><button type="button" data-id="${escape(e.id)}" aria-label="查看${escape(e.name)}区间">查看</button></td></tr>`).join('')||'<tr><td colspan="6">尚无区间标记</td></tr>';
   $('event-rows').onclick=e=>{
     const button=e.target.closest('button[data-id]');if(!button)return;
     const event=events.find(item=>item.id===button.dataset.id);if(!event)return;
