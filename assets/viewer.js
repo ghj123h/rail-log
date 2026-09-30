@@ -11,6 +11,18 @@
   }
   if (!Array.isArray(trip.samples) || !trip.samples.length) throw new Error('这条记录没有可显示的速度数据。');
   const colors = {speed:'#155b9b', band:'#eda33c', pass:'#7c61a5', stop:'#168677'};
+  const speedLevels = [
+    {min:0,max:200,label:'[0, 200)',color:'#155b9b',background:'#eef4fb'},
+    {min:200,max:250,label:'[200, 250)',color:'#19734c',background:'#eff7f1'},
+    {min:250,max:300,label:'[250, 300)',color:'#8a6900',background:'#fff8dc'},
+    {min:300,max:340,label:'[300, 340)',color:'#b45309',background:'#fff0e5'},
+    {min:340,max:Infinity,label:'[340, +∞)',color:'#b42332',background:'#fceef0'}
+  ];
+  const speedLevel = value => Math.max(0,speedLevels.findIndex(level=>value<level.max));
+  function speedText(value,unit=''){
+    const text=value.toFixed(2);
+    return `<span class="speed-value" style="color:${speedLevels[speedLevel(Number(text))].color}">${text}${unit}</span>`;
+  }
   const samples = trip.samples;
   const full = [trip.logStart, trip.logEnd];
   let view = [...full], mode = 'select', drag = null;
@@ -29,7 +41,7 @@
     const interval=trip.sampleIntervalMs||1000;
     const incomplete=points[0].t-event.start>interval||event.end-points.at(-1).t>interval||points.some((s,i)=>i&&s.t-points[i-1].t>1.5*interval);
     const average=points.reduce((sum,s)=>sum+s.v,0)/points.length;
-    return `${average.toFixed(2)} km/h${incomplete?'（采样不完整）':''}`;
+    return `${speedText(average,' km/h')}${incomplete?'（采样不完整）':''}`;
   }
   const passAverages=new Map(events.filter(e=>e.type==='pass').map(e=>[e.id,averageSpeed(e)]));
   document.title=`${trip.title} · 运转记录册${trip.beta===true?' Beta':''}`;
@@ -57,17 +69,19 @@
       encode:{x:[1,2],y:0},data:events.map(e=>[e.type==='stop'?1:0,e.start,e.end]),silent:true,z:4};
   }
   const commonLine={type:'line',symbol:'none',connectNulls:false,smooth:false,animation:false,clip:true,emphasis:{disabled:true},silent:true};
+  const speedMax=Math.max(350,Math.ceil(samples.reduce((max,s)=>Math.max(max,s.v+s.a),0)/50)*50);
   chart.setOption({animation:false,textStyle:{fontFamily:'"Segoe UI","Microsoft YaHei",sans-serif'},
     grid:[{left:66,right:28,top:36,bottom:167},{left:66,right:28,height:56,bottom:73}],
     xAxis:[0,1].map(i=>({type:'time',gridIndex:i,min:full[0],max:full[1],boundaryGap:false,
       axisLine:{show:i===0,lineStyle:{color:'#cbd6e3'}},axisTick:{show:false},
       axisLabel:{show:i===0,color:'#65758a',fontSize:12,hideOverlap:true,formatter:t=>formatTime(t)},
       splitLine:{show:i===0,lineStyle:{color:'#f0f3f7'}}})),
-    yAxis:[{type:'value',min:0,max:Math.ceil(samples.reduce((max,s)=>Math.max(max,s.v+s.a),0)/50)*50,name:'速度 / km/h',nameTextStyle:{color:'#65758a',fontSize:12},axisLabel:{color:'#65758a',fontSize:12},splitLine:{lineStyle:{color:'#e8edf4'}}},
+    yAxis:[{type:'value',min:0,max:speedMax,name:'速度 / km/h',nameTextStyle:{color:'#65758a',fontSize:12},axisLabel:{fontSize:12,formatter:value=>`{speed${speedLevel(value)}|${value}}`,rich:Object.fromEntries(speedLevels.map((level,i)=>[`speed${i}`,{color:level.color,fontSize:12}]))},splitLine:{lineStyle:{color:'#e8edf4'}}},
       {type:'category',gridIndex:1,data:['通过','停车'],inverse:true,axisLine:{show:false},axisTick:{show:false},axisLabel:{color:'#65758a',fontSize:12},splitLine:{show:true,lineStyle:{color:'#f1f4f8'}}}],
     dataZoom:[{id:'inside',type:'inside',xAxisIndex:[0,1],filterMode:'none',minValueSpan:2000,zoomOnMouseWheel:true,moveOnMouseMove:false,moveOnMouseWheel:false,preventDefaultMouseMove:true},
       {id:'slider',type:'slider',xAxisIndex:[0,1],filterMode:'none',minValueSpan:2000,bottom:14,left:66,right:28,height:26,showDetail:false,brushSelect:false,borderColor:'#dce4ee',backgroundColor:'#f7f9fc',fillerColor:'#155b9b18',handleStyle:{color:'#fff',borderColor:'#7193b9'},dataBackground:{lineStyle:{color:'#9fb2c8'},areaStyle:{color:'#dde7f2'}},selectedDataBackground:{lineStyle:{color:colors.speed},areaStyle:{color:'#c7d9ee'}}}],
-    series:[{...commonLine,id:'lower',stack:'band',lineStyle:{opacity:0},areaStyle:{opacity:0},data:data.map(d=>[d[0],d[2]])},
+    series:[{...commonLine,id:'speed-scale-background',data:[],z:0,markArea:{silent:true,z:0,label:{show:false},data:speedLevels.map(level=>[{yAxis:level.min,itemStyle:{color:level.background}},{yAxis:Math.min(level.max,speedMax)}])}},
+      {...commonLine,id:'lower',stack:'band',lineStyle:{opacity:0},areaStyle:{opacity:0},data:data.map(d=>[d[0],d[2]])},
       {...commonLine,id:'band',stack:'band',lineStyle:{opacity:0},areaStyle:{color:colors.band,opacity:.4},data:data.map(d=>[d[0],d[2]===null?null:d[3]-d[2]])},
       {...commonLine,id:'speed',lineStyle:{color:colors.speed,width:1.7},data:data.map(d=>[d[0],d[1]]),z:5},eventSeries()]
   });
@@ -98,7 +112,7 @@
       const pos=chart.convertToPixel({gridIndex:0},[s.t,s.v]);
       $('crosshair').hidden=false;Object.assign($('crosshair').style,{left:`${pos[0]}px`,top:`${rect.y}px`,height:`${rect.height}px`});
       $('hover-dot').hidden=false;Object.assign($('hover-dot').style,{left:`${pos[0]}px`,top:`${pos[1]}px`});
-      placeTip(`<div class="tip-time">${dateTime(s.t)}</div><div class="tip-value">${s.v.toFixed(2)}<small>km/h</small></div><div class="tip-row"><span>速度精度</span><strong>± ${s.a.toFixed(2)} km/h</strong></div><div class="tip-row"><span>上下范围</span><strong>${Math.max(0,s.v-s.a).toFixed(2)}–${(s.v+s.a).toFixed(2)}</strong></div>`,x,y);
+      placeTip(`<div class="tip-time">${dateTime(s.t)}</div><div class="tip-value">${speedText(s.v,'<small>km/h</small>')}</div><div class="tip-row"><span>速度精度</span><strong>± ${s.a.toFixed(2)} km/h</strong></div><div class="tip-row"><span>上下范围</span><strong>${speedText(Math.max(0,s.v-s.a))}–${speedText(s.v+s.a)}</strong></div>`,x,y);
     }else if(chart.containPixel({gridIndex:1},[x,y])){
       const hits=events.filter(e=>{const lane=e.type==='stop'?1:0,a=chart.convertToPixel({gridIndex:1},[e.start,lane]),b=chart.convertToPixel({gridIndex:1},[e.end,lane]);return Math.abs(y-a[1])<=12&&x>=Math.min(a[0],b[0])-5&&x<=Math.max(a[0],b[0])+5;});
       if(!hits.length)return;
