@@ -18,7 +18,7 @@ TZ = timezone(timedelta(hours=8))
 def rebuild():
     entries = []
     for path in sorted(RECORDS.glob("*.json")):
-        if path.name == "index.json":
+        if path.name in {"index.json", "collections.json"}:
             continue
         trip = json.loads(path.read_text(encoding="utf-8-sig"))
         samples = trip["samples"]
@@ -51,10 +51,10 @@ def import_log(args):
     for line_number, line in enumerate(args.source.read_text(encoding="utf-8-sig").splitlines(), 1):
         fields = line.split(",")
         if fields[0] == "NMEA":
-            try:
+            # A truncated NMEA sentence may end in a numeric fragment (e.g. 0).
+            # Current GNSS Logger reception times are 13-digit Unix milliseconds.
+            if re.fullmatch(r"\d{13}", fields[-1]):
                 timestamps.append(int(fields[-1]))
-            except ValueError:
-                pass
         elif fields[0] == "Fix" and len(fields) >= 10 and fields[1] == "gps":
             if not fields[5] or not fields[9]:
                 skipped += 1
