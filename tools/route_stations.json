@@ -1,0 +1,1243 @@
+{
+  "version": 1,
+  "coordinateSystem": "WGS84",
+  "coordinateMethod": "Public AMap station POI coordinates are GCJ-02. Catalog lon/lat uses an iterative inverse of the existing project transform; precision is approximate. The map generator replaces references with nearby actual WGS84 GNSS samples where available. Guang’anmen uses the WGS84 OpenStreetMap station node.",
+  "stationScope": "全部展示区间起终点与沿途已建车站，包括不办客、暂停办客车站；不含线路所。京津现有记录已明确标记的永乐预留站作为命名位置保留，不扩展其他未来/未建站。",
+  "checkedOn": "2026-10-19",
+  "stations": {
+    "临清东": {
+      "lon": 115.7568902,
+      "lat": 36.8229438,
+      "sources": [
+        {
+          "title": "临清东站 · 高德地图",
+          "url": "https://www.amap.com/place/B0MBAM97SN"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.762766,
+        "lat": 36.823284,
+        "poiId": "B0MBAM97SN"
+      }
+    },
+    "亦庄": {
+      "lon": 116.5950907,
+      "lat": 39.8116227,
+      "sources": [
+        {
+          "title": "亦庄站 · 高德地图",
+          "url": "https://www.amap.com/place/B000A875AD"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.600864,
+        "lat": 39.812656,
+        "poiId": "B000A875AD"
+      }
+    },
+    "亳州南": {
+      "lon": 115.7933923,
+      "lat": 33.7961393,
+      "sources": [
+        {
+          "title": "亳州南站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFG41I3Z"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.798899,
+        "lat": 33.794666,
+        "poiId": "B0FFG41I3Z"
+      }
+    },
+    "仙林": {
+      "lon": 118.9096418,
+      "lat": 32.1251144,
+      "sources": [
+        {
+          "title": "仙林站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFFZDDOP"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 118.914673,
+        "lat": 32.122882,
+        "poiId": "B0FFFZDDOP"
+      }
+    },
+    "任丘西": {
+      "lon": 116.0227168,
+      "lat": 38.7026607,
+      "sources": [
+        {
+          "title": "任丘西站 · 高德地图",
+          "url": "https://www.amap.com/place/B0LD4RQFB7"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.028774,
+        "lat": 38.703454,
+        "poiId": "B0LD4RQFB7"
+      }
+    },
+    "全椒": {
+      "lon": 118.2773025,
+      "lat": 32.0626347,
+      "sources": [
+        {
+          "title": "全椒站 · 高德地图",
+          "url": "https://www.amap.com/place/B022604DAV"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 118.282626,
+        "lat": 32.060603,
+        "poiId": "B022604DAV"
+      }
+    },
+    "凤台南": {
+      "lon": 116.6178327,
+      "lat": 32.6390086,
+      "sources": [
+        {
+          "title": "凤台南站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFKP87HH"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.622875,
+        "lat": 32.636781,
+        "poiId": "B0FFKP87HH"
+      }
+    },
+    "北京南": {
+      "lon": 116.3723,
+      "lat": 39.8638628,
+      "sources": [
+        {
+          "title": "北京南站 · 高德地图",
+          "url": "https://www.amap.com/place/B000A83AJN"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.378517,
+        "lat": 39.865246,
+        "poiId": "B000A83AJN"
+      }
+    },
+    "北京大兴": {
+      "lon": 116.3227567,
+      "lat": 39.7190485,
+      "sources": [
+        {
+          "title": "北京大兴站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFL3F3H8"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.328855,
+        "lat": 39.720335,
+        "poiId": "B0FFL3F3H8"
+      }
+    },
+    "北京西": {
+      "lon": 116.3159282,
+      "lat": 39.8936242,
+      "sources": [
+        {
+          "title": "北京西站 · 高德地图",
+          "url": "https://www.amap.com/place/B000A83M61"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.322033,
+        "lat": 39.894912,
+        "poiId": "B000A83M61"
+      }
+    },
+    "南京南": {
+      "lon": 118.792852,
+      "lat": 31.9708123,
+      "sources": [
+        {
+          "title": "南京南站 · 高德地图",
+          "url": "https://www.amap.com/place/B00190YPLY"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 118.798034,
+        "lat": 31.968763,
+        "poiId": "B00190YPLY"
+      }
+    },
+    "古城东": {
+      "lon": 115.8063572,
+      "lat": 33.5282266,
+      "sources": [
+        {
+          "title": "古城东站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFING97Q"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.811808,
+        "lat": 33.526644,
+        "poiId": "B0FFING97Q"
+      }
+    },
+    "台前东": {
+      "lon": 115.9234881,
+      "lat": 36.00663,
+      "sources": [
+        {
+          "title": "台前东站 · 高德地图",
+          "url": "https://www.amap.com/place/B0L3F75BU8"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.928988,
+        "lat": 36.006455,
+        "poiId": "B0L3F75BU8"
+      }
+    },
+    "合肥北城": {
+      "lon": 117.2470664,
+      "lat": 32.0653971,
+      "sources": [
+        {
+          "title": "合肥北城站 · 高德地图",
+          "url": "https://www.amap.com/place/B022718IR2"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.252569,
+        "lat": 32.063335,
+        "poiId": "B022718IR2"
+      }
+    },
+    "合肥南": {
+      "lon": 117.2848124,
+      "lat": 31.7999373,
+      "sources": [
+        {
+          "title": "合肥南站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFF3K7UZ"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.290331,
+        "lat": 31.797955,
+        "poiId": "B0FFF3K7UZ"
+      }
+    },
+    "合肥西": {
+      "lon": 117.2278301,
+      "lat": 31.87381,
+      "sources": [
+        {
+          "title": "合肥西站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFKPBXI5"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.233317,
+        "lat": 31.8718,
+        "poiId": "B0FFKPBXI5"
+      }
+    },
+    "商丘": {
+      "lon": 115.6524393,
+      "lat": 34.4471434,
+      "sources": [
+        {
+          "title": "商丘站 · 高德地图",
+          "url": "https://www.amap.com/place/B017202UJA"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.657944,
+        "lat": 34.44579,
+        "poiId": "B017202UJA"
+      }
+    },
+    "商丘东": {
+      "lon": 115.7288032,
+      "lat": 34.3320086,
+      "sources": [
+        {
+          "title": "商丘东站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFKP87I1"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.734418,
+        "lat": 34.330714,
+        "poiId": "B0FFKP87I1"
+      }
+    },
+    "固安东": {
+      "lon": 116.3980031,
+      "lat": 39.3709222,
+      "sources": [
+        {
+          "title": "固安东站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFKTZMAL"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.404179,
+        "lat": 39.372211,
+        "poiId": "B0FFKTZMAL"
+      }
+    },
+    "大兴机场": {
+      "lon": 116.4095003,
+      "lat": 39.5108977,
+      "sources": [
+        {
+          "title": "大兴机场站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFL8L7IT"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.415692,
+        "lat": 39.51224,
+        "poiId": "B0FFL8L7IT"
+      }
+    },
+    "大港南": {
+      "lon": 119.6729927,
+      "lat": 32.1353957,
+      "sources": [
+        {
+          "title": "大港南站 · 高德地图",
+          "url": "https://www.amap.com/place/B0G2ZCGQ8F"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 119.677998,
+        "lat": 32.133265,
+        "poiId": "B0G2ZCGQ8F"
+      }
+    },
+    "太和东": {
+      "lon": 115.7212863,
+      "lat": 33.157819,
+      "sources": [
+        {
+          "title": "太和东站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFJF8HWO"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.726781,
+        "lat": 33.156057,
+        "poiId": "B0FFJF8HWO"
+      }
+    },
+    "宝华山": {
+      "lon": 119.0501356,
+      "lat": 32.1511425,
+      "sources": [
+        {
+          "title": "宝华山站(暂停营业) · 高德地图",
+          "url": "https://www.amap.com/place/B01FF0O2VH"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 119.05556,
+        "lat": 32.149226,
+        "poiId": "B01FF0O2VH"
+      }
+    },
+    "宝应": {
+      "lon": 119.3811478,
+      "lat": 33.2170352,
+      "sources": [
+        {
+          "title": "宝应站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFKPBXKD"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 119.38671,
+        "lat": 33.215566,
+        "poiId": "B0FFKPBXKD"
+      }
+    },
+    "宿迁": {
+      "lon": 118.2763401,
+      "lat": 33.8759154,
+      "sources": [
+        {
+          "title": "宿迁站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFKP89F8"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 118.281838,
+        "lat": 33.87455,
+        "poiId": "B0FFKP89F8"
+      }
+    },
+    "寿县": {
+      "lon": 116.8012554,
+      "lat": 32.5957223,
+      "sources": [
+        {
+          "title": "寿县站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFJFS9EU"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.806519,
+        "lat": 32.593613,
+        "poiId": "B0FFJFS9EU"
+      }
+    },
+    "巢北": {
+      "lon": 117.7990733,
+      "lat": 31.9722965,
+      "sources": [
+        {
+          "title": "巢北站(暂停营业) · 高德地图",
+          "url": "https://www.amap.com/place/B02350OBEE"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.804538,
+        "lat": 31.970222,
+        "poiId": "B02350OBEE"
+      }
+    },
+    "徐州东": {
+      "lon": 117.3002504,
+      "lat": 34.2691936,
+      "sources": [
+        {
+          "title": "徐州东站 · 高德地图",
+          "url": "https://www.amap.com/place/B02040QQ54"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.306044,
+        "lat": 34.267951,
+        "poiId": "B02040QQ54"
+      }
+    },
+    "扬州东": {
+      "lon": 119.5239288,
+      "lat": 32.4065558,
+      "sources": [
+        {
+          "title": "扬州东站 · 高德地图",
+          "url": "https://www.amap.com/place/B0GR0HWQUS"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 119.52907,
+        "lat": 32.404426,
+        "poiId": "B0GR0HWQUS"
+      }
+    },
+    "曲阜东": {
+      "lon": 117.0646476,
+      "lat": 35.5566994,
+      "sources": [
+        {
+          "title": "曲阜东站 · 高德地图",
+          "url": "https://www.amap.com/place/B02190WX4J"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.070603,
+        "lat": 35.556706,
+        "poiId": "B02190WX4J"
+      }
+    },
+    "曹县西": {
+      "lon": 115.5000551,
+      "lat": 34.8480551,
+      "sources": [
+        {
+          "title": "曹县西站 · 高德地图",
+          "url": "https://www.amap.com/place/B0LBAR5OT1"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.50579,
+        "lat": 34.847181,
+        "poiId": "B0LBAR5OT1"
+      }
+    },
+    "枣庄": {
+      "lon": 117.3005401,
+      "lat": 34.7810112,
+      "sources": [
+        {
+          "title": "枣庄站 · 高德地图",
+          "url": "https://www.amap.com/place/B02780QI4X"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.306388,
+        "lat": 34.780144,
+        "poiId": "B02780QI4X"
+      }
+    },
+    "枣强南": {
+      "lon": 115.6644085,
+      "lat": 37.3232037,
+      "sources": [
+        {
+          "title": "枣强南站 · 高德地图",
+          "url": "https://www.amap.com/place/B0KR6CXPSC"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.670239,
+        "lat": 37.323758,
+        "poiId": "B0KR6CXPSC"
+      }
+    },
+    "梁山": {
+      "lon": 115.9323091,
+      "lat": 35.8189787,
+      "sources": [
+        {
+          "title": "梁山站 · 高德地图",
+          "url": "https://www.amap.com/place/B0219000BD"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.937798,
+        "lat": 35.818763,
+        "poiId": "B0219000BD"
+      }
+    },
+    "武清": {
+      "lon": 117.0087133,
+      "lat": 39.3720465,
+      "sources": [
+        {
+          "title": "武清站 · 高德地图",
+          "url": "https://www.amap.com/place/B00160DI87"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.014914,
+        "lat": 39.373191,
+        "poiId": "B00160DI87"
+      }
+    },
+    "水家湖": {
+      "lon": 117.1637402,
+      "lat": 32.485192,
+      "sources": [
+        {
+          "title": "水家湖站 · 高德地图",
+          "url": "https://www.amap.com/place/B022703KIL"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.169373,
+        "lat": 32.483215,
+        "poiId": "B022703KIL"
+      }
+    },
+    "永乐": {
+      "lon": 116.788158,
+      "lat": 39.6529497,
+      "sources": [
+        {
+          "title": "永乐站(建设中) · 高德地图",
+          "url": "https://www.amap.com/place/B0K2F5KHEJ"
+        },
+        {
+          "title": "关于建设和启用京津城际铁路永乐站的建议 · 北京市人大",
+          "url": "https://jyfw.bjrd.gov.cn/publicProposal/info.html?proposalId=219641"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.794195,
+        "lat": 39.654126,
+        "poiId": "B0K2F5KHEJ"
+      },
+      "status": "reserved / not open",
+      "inclusionNote": "京津既有记录明确标记的命名位置；保留预留站状态，不据此扩展到其他未建预留站。"
+    },
+    "泗阳": {
+      "lon": 118.7089836,
+      "lat": 33.7557971,
+      "sources": [
+        {
+          "title": "泗阳站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFF3K9DN"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 118.714334,
+        "lat": 33.754367,
+        "poiId": "B0FFF3K9DN"
+      }
+    },
+    "浦口南": {
+      "lon": 118.5305146,
+      "lat": 32.0169006,
+      "sources": [
+        {
+          "title": "浦口南站(暂停营业) · 高德地图",
+          "url": "https://www.amap.com/place/B00190ZISO"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 118.535642,
+        "lat": 32.014781,
+        "poiId": "B00190ZISO"
+      }
+    },
+    "淮南南": {
+      "lon": 117.0355373,
+      "lat": 32.5456347,
+      "sources": [
+        {
+          "title": "淮南南站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFIZ9M8C"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.041097,
+        "lat": 32.543661,
+        "poiId": "B0FFIZ9M8C"
+      }
+    },
+    "淮安东": {
+      "lon": 119.1827345,
+      "lat": 33.5701136,
+      "sources": [
+        {
+          "title": "淮安东站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFLDBIMO"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 119.188233,
+        "lat": 33.568734,
+        "poiId": "B0FFLDBIMO"
+      }
+    },
+    "深州东": {
+      "lon": 115.6714326,
+      "lat": 38.0052733,
+      "sources": [
+        {
+          "title": "深州东站 · 高德地图",
+          "url": "https://www.amap.com/place/B0M6NHEIH7"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.677355,
+        "lat": 38.005874,
+        "poiId": "B0M6NHEIH7"
+      }
+    },
+    "清河西": {
+      "lon": 115.6054598,
+      "lat": 37.0726734,
+      "sources": [
+        {
+          "title": "清河西站 · 高德地图",
+          "url": "https://www.amap.com/place/B0L0751WIN"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.611185,
+        "lat": 37.073005,
+        "poiId": "B0L0751WIN"
+      }
+    },
+    "滕州东": {
+      "lon": 117.2505816,
+      "lat": 35.0905582,
+      "sources": [
+        {
+          "title": "滕州东站 · 高德地图",
+          "url": "https://www.amap.com/place/B02780QI2G"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.256388,
+        "lat": 35.089985,
+        "poiId": "B02780QI2G"
+      }
+    },
+    "睢宁": {
+      "lon": 117.9312907,
+      "lat": 33.9531243,
+      "sources": [
+        {
+          "title": "睢宁站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFKBOHFR"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.936746,
+        "lat": 33.951591,
+        "poiId": "B0FFKBOHFR"
+      }
+    },
+    "紫金山东": {
+      "lon": 118.9005431,
+      "lat": 32.0733732,
+      "sources": [
+        {
+          "title": "紫金山东站(暂停营业) · 高德地图",
+          "url": "https://www.amap.com/place/B0FFGPSS57"
+        },
+        {
+          "title": "南京市交通运输局关于紫金山东站等的答复",
+          "url": "https://www.nanjing.gov.cn/xxgkn/jytabljggk/2024njytabl/shirddbjy/202411/t20241114_5009106.html"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 118.905567,
+        "lat": 32.07115,
+        "poiId": "B0FFGPSS57"
+      },
+      "status": "built / not open"
+    },
+    "聊城西": {
+      "lon": 115.8779032,
+      "lat": 36.4319471,
+      "sources": [
+        {
+          "title": "聊城西站 · 高德地图",
+          "url": "https://www.amap.com/place/B0HGB5QX9Q"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.883471,
+        "lat": 36.431893,
+        "poiId": "B0HGB5QX9Q"
+      }
+    },
+    "肃宁河间": {
+      "lon": 115.9336977,
+      "lat": 38.4145797,
+      "sources": [
+        {
+          "title": "肃宁河间站 · 高德地图",
+          "url": "https://www.amap.com/place/B0L35ZDNK8"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.939471,
+        "lat": 38.415071,
+        "poiId": "B0L35ZDNK8"
+      }
+    },
+    "肥东": {
+      "lon": 117.4801401,
+      "lat": 31.8640424,
+      "sources": [
+        {
+          "title": "肥东站(暂停营业) · 高德地图",
+          "url": "https://www.amap.com/place/B02270IN2T"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.485756,
+        "lat": 31.862088,
+        "poiId": "B02270IN2T"
+      }
+    },
+    "芦庙": {
+      "lon": 115.7806275,
+      "lat": 34.0416279,
+      "sources": [
+        {
+          "title": "芦庙站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFLAU4LG"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.786183,
+        "lat": 34.040226,
+        "poiId": "B0FFLAU4LG"
+      }
+    },
+    "菏泽东": {
+      "lon": 115.5576307,
+      "lat": 35.1846316,
+      "sources": [
+        {
+          "title": "菏泽东站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFIZDUOR"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.56321,
+        "lat": 35.18398,
+        "poiId": "B0FFIZDUOR"
+      }
+    },
+    "衡水南": {
+      "lon": 115.6344953,
+      "lat": 37.6976109,
+      "sources": [
+        {
+          "title": "衡水南站 · 高德地图",
+          "url": "https://www.amap.com/place/B0KR9MBVAO"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.640314,
+        "lat": 37.698193,
+        "poiId": "B0KR9MBVAO"
+      }
+    },
+    "观音机场": {
+      "lon": 117.5578878,
+      "lat": 34.0407523,
+      "sources": [
+        {
+          "title": "观音机场站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFKP89F4"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.563473,
+        "lat": 34.039249,
+        "poiId": "B0FFKP89F4"
+      }
+    },
+    "郓城": {
+      "lon": 115.8963419,
+      "lat": 35.6019407,
+      "sources": [
+        {
+          "title": "郓城站 · 高德地图",
+          "url": "https://www.amap.com/place/B021206NUS"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.901801,
+        "lat": 35.601608,
+        "poiId": "B021206NUS"
+      }
+    },
+    "镇江": {
+      "lon": 119.4273507,
+      "lat": 32.1995962,
+      "sources": [
+        {
+          "title": "镇江站 · 高德地图",
+          "url": "https://www.amap.com/place/B01FF01RNZ"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 119.432794,
+        "lat": 32.197714,
+        "poiId": "B01FF01RNZ"
+      }
+    },
+    "阜阳西": {
+      "lon": 115.7482079,
+      "lat": 32.8854804,
+      "sources": [
+        {
+          "title": "阜阳西站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFITDLGA"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.753685,
+        "lat": 32.883546,
+        "poiId": "B0FFITDLGA"
+      }
+    },
+    "阳谷东": {
+      "lon": 115.8863904,
+      "lat": 36.1967569,
+      "sources": [
+        {
+          "title": "阳谷东站 · 高德地图",
+          "url": "https://www.amap.com/place/B0K397CAEP"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.891921,
+        "lat": 36.19662,
+        "poiId": "B0K397CAEP"
+      }
+    },
+    "雄安": {
+      "lon": 116.1536564,
+      "lat": 39.0557388,
+      "sources": [
+        {
+          "title": "雄安站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFJDPMN3"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.159778,
+        "lat": 39.05679,
+        "poiId": "B0FFJDPMN3"
+      }
+    },
+    "霸州北": {
+      "lon": 116.3213028,
+      "lat": 39.1849317,
+      "sources": [
+        {
+          "title": "霸州北站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFJVVMIG"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.327332,
+        "lat": 39.186018,
+        "poiId": "B0FFJVVMIG"
+      }
+    },
+    "颍上北": {
+      "lon": 116.2055794,
+      "lat": 32.680687,
+      "sources": [
+        {
+          "title": "颍上北站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFKBRSCI"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.21089,
+        "lat": 32.678682,
+        "poiId": "B0FFKBRSCI"
+      }
+    },
+    "高邮": {
+      "lon": 119.5001578,
+      "lat": 32.7742274,
+      "sources": [
+        {
+          "title": "高邮站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFJ5PDSE"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 119.505427,
+        "lat": 32.772287,
+        "poiId": "B0FFJ5PDSE"
+      }
+    },
+    "高邮北": {
+      "lon": 119.450382,
+      "lat": 33.0040577,
+      "sources": [
+        {
+          "title": "高邮北站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFG34RYV"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 119.455852,
+        "lat": 33.002398,
+        "poiId": "B0FFG34RYV"
+      }
+    },
+    "黄庵": {
+      "lon": 118.0457528,
+      "lat": 32.0133426,
+      "sources": [
+        {
+          "title": "黄庵站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFGZEVTV"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 118.05131,
+        "lat": 32.01143,
+        "poiId": "B0FFGZEVTV"
+      },
+      "status": "operating / no passenger service"
+    },
+    "广安门": {
+      "lon": 116.33825,
+      "lat": 39.88025,
+      "sources": [
+        {
+          "title": "广安门站 · OpenStreetMap",
+          "url": "https://www.openstreetmap.org/node/6817425178"
+        },
+        {
+          "title": "广安门站 · Mapcarta / OpenStreetMap",
+          "url": "https://mapcarta.com/N6817425178"
+        },
+        {
+          "title": "京雄城际沿线 · 人民网",
+          "url": "https://finance.people.com.cn/n1/2020/1230/c1004-31984621.html"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "WGS84",
+        "lon": 116.33825,
+        "lat": 39.88025,
+        "osmNode": 6817425178
+      }
+    }
+  },
+  "routes": {
+    "260923162858": [
+      "曲阜东",
+      "滕州东",
+      "枣庄",
+      "徐州东"
+    ],
+    "260925172446": [
+      "徐州东",
+      "观音机场",
+      "睢宁",
+      "宿迁",
+      "泗阳",
+      "淮安东",
+      "宝应",
+      "高邮北",
+      "高邮",
+      "扬州东"
+    ],
+    "260928140519": [
+      "扬州东",
+      "大港南",
+      "镇江",
+      "宝华山",
+      "仙林",
+      "紫金山东",
+      "南京南",
+      "浦口南",
+      "全椒",
+      "黄庵",
+      "巢北",
+      "肥东",
+      "合肥南"
+    ],
+    "260930090532": [
+      "合肥西",
+      "合肥北城",
+      "水家湖",
+      "淮南南",
+      "寿县",
+      "凤台南",
+      "颍上北",
+      "阜阳西",
+      "太和东",
+      "古城东",
+      "亳州南",
+      "芦庙",
+      "商丘东",
+      "商丘",
+      "曹县西",
+      "菏泽东",
+      "郓城",
+      "梁山",
+      "台前东",
+      "阳谷东",
+      "聊城西",
+      "临清东",
+      "清河西",
+      "枣强南",
+      "衡水南",
+      "深州东",
+      "肃宁河间",
+      "任丘西",
+      "雄安",
+      "霸州北",
+      "固安东",
+      "大兴机场",
+      "北京大兴",
+      "广安门",
+      "北京西"
+    ],
+    "261010211508": [
+      "北京南",
+      "亦庄",
+      "永乐",
+      "武清"
+    ],
+    "261012141302": [
+      "北京南",
+      "亦庄",
+      "永乐",
+      "武清"
+    ],
+    "261017113104": [
+      "武清",
+      "永乐",
+      "亦庄",
+      "北京南"
+    ],
+    "261018184017": [
+      "北京南",
+      "亦庄",
+      "永乐",
+      "武清"
+    ]
+  },
+  "routeSources": {
+    "260923162858": [
+      {
+        "title": "京沪高铁枣庄站 · 枣庄年鉴2012",
+        "url": "https://shandong-chorography.org/database/b4/section/8/article/107/"
+      }
+    ],
+    "260925172446": [
+      {
+        "title": "徐盐铁路车站及列车运行 · 淮安市人民政府",
+        "url": "https://www.huaian.gov.cn/col/11643_187467/art/202005/1590544909422pXHzChP2.html"
+      },
+      {
+        "title": "连镇铁路淮镇段竣工环境保护验收调查报告",
+        "url": "https://oss.yanshougs.com/upload/5c32e202009242207423844.pdf"
+      }
+    ],
+    "260928140519": [
+      {
+        "title": "沪宁城际公布票价表 · 中国铁路12306",
+        "url": "https://www.12306.cn/mormhweb/zxdt/202304/t20230415_39211.html"
+      },
+      {
+        "title": "南京市交通运输局关于仙林和紫金山东的答复",
+        "url": "https://www.nanjing.gov.cn/xxgkn/jytabljggk/2024njytabl/shirddbjy/202411/t20241114_5009106.html"
+      },
+      {
+        "title": "连镇铁路镇江联络线工程竣工环境保护验收调查报告",
+        "url": "https://oss.yanshougs.com/upload/5c32e202009242207423844.pdf"
+      },
+      {
+        "title": "黄庵站 · 高德地图",
+        "url": "https://www.amap.com/place/B0FFGZEVTV"
+      }
+    ],
+    "260930090532": [
+      {
+        "title": "商合杭北段沿线车站 · 周口市交通运输局",
+        "url": "https://jtysj.zhoukou.gov.cn/sitesources/jtysj/page_pc/xwdt/jtyw/article398182FCCC844BF09C0D4AD9640A2BD4.html"
+      },
+      {
+        "title": "雄商高铁16站 · 北京大兴引述国铁北京局",
+        "url": "https://chanye.bjdx.gov.cn/chanye/qyfw8/cydt/2420912/index.html"
+      },
+      {
+        "title": "京雄城际沿线 · 人民网",
+        "url": "https://finance.people.com.cn/n1/2020/1230/c1004-31984621.html"
+      },
+      {
+        "title": "京雄城际经广安门、李营 · 北京商报",
+        "url": "https://epaper.bbtnews.com.cn/site1/bjsb/images/2020-12/21/02/2020122102_pdf.pdf"
+      }
+    ],
+    "261010211508": [
+      {
+        "title": "京津城际铁路 · 外交部原始采访",
+        "url": "https://ipc.fmprc.gov.cn/hdjc/200807/t20080724_784514.htm"
+      },
+      {
+        "title": "关于建设和启用京津城际铁路永乐站的建议 · 北京市人大",
+        "url": "https://jyfw.bjrd.gov.cn/publicProposal/info.html?proposalId=219641"
+      }
+    ],
+    "261012141302": [
+      {
+        "title": "京津城际铁路 · 外交部原始采访",
+        "url": "https://ipc.fmprc.gov.cn/hdjc/200807/t20080724_784514.htm"
+      },
+      {
+        "title": "关于建设和启用京津城际铁路永乐站的建议 · 北京市人大",
+        "url": "https://jyfw.bjrd.gov.cn/publicProposal/info.html?proposalId=219641"
+      }
+    ],
+    "261017113104": [
+      {
+        "title": "京津城际铁路 · 外交部原始采访",
+        "url": "https://ipc.fmprc.gov.cn/hdjc/200807/t20080724_784514.htm"
+      },
+      {
+        "title": "关于建设和启用京津城际铁路永乐站的建议 · 北京市人大",
+        "url": "https://jyfw.bjrd.gov.cn/publicProposal/info.html?proposalId=219641"
+      }
+    ],
+    "261018184017": [
+      {
+        "title": "京津城际铁路 · 外交部原始采访",
+        "url": "https://ipc.fmprc.gov.cn/hdjc/200807/t20080724_784514.htm"
+      },
+      {
+        "title": "关于建设和启用京津城际铁路永乐站的建议 · 北京市人大",
+        "url": "https://jyfw.bjrd.gov.cn/publicProposal/info.html?proposalId=219641"
+      }
+    ]
+  }
+}

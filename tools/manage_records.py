@@ -1,6 +1,7 @@
 """Import GNSS Logger Fix records and rebuild the static record catalog.
 
-Uses only Python's standard library; original positions are never exported.
+Uses only Python's standard library. Route positions are exported separately
+by build_route_maps.py; the speed samples keep their existing schema.
 """
 import argparse
 import json
@@ -18,7 +19,7 @@ TZ = timezone(timedelta(hours=8))
 def rebuild():
     entries = []
     for path in sorted(RECORDS.glob("*.json")):
-        if path.name in {"index.json", "collections.json"}:
+        if path.name in {"index.json", "collections.json"} or path.name.endswith(".route.json"):
             continue
         trip = json.loads(path.read_text(encoding="utf-8-sig"))
         samples = trip["samples"]

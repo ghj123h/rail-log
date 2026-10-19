@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>查看运行记录 · 运转记录册</title>
-  <meta name="description" content="查看列车速度、速度精度与停车和通过区间，沿时间轴缩放并查看逐秒数据。">
+  <meta name="description" content="查看列车速度、速度精度、停车和通过区间，以及 GNSS 线路图，缩放查看逐秒数据与沿途车站。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23155b9b'/%3E%3Cpath d='M5 23L11 13L17 16L27 7' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/styles.css?v=5">
+  <link rel="stylesheet" href="assets/styles.css?v=11">
 </head>
 <body>
 <main>
@@ -30,6 +30,15 @@
     </div>
     <div class="chart-footer"><span id="view-range"></span><span>滚轮缩放 · 拖动框选 · 双击还原 · 悬停查看数值与区间</span></div>
   </section>
+  <section id="route-map-card" class="chart-card route-map-card" aria-labelledby="route-map-title">
+    <div class="toolbar">
+      <h2 id="route-map-title">线路图</h2>
+      <div class="zoom-buttons" role="group" aria-label="线路图缩放"><button id="map-zoom-in" aria-label="放大线路图">＋</button><button id="map-zoom-out" aria-label="缩小线路图">−</button><button id="map-reset">全程</button></div>
+    </div>
+    <div id="route-map" tabindex="0" role="application" aria-label="GNSS 线路图。滚轮缩放，拖动平移，加减键缩放，Home 键或双击显示全程。"></div>
+    <p id="map-message" class="map-message" role="status">正在载入线路图…</p>
+    <div class="chart-footer"><span>GNSS 轨迹 · 缺失区段留空 <a class="map-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">河道 © OpenStreetMap contributors</a></span><span>滚轮缩放 · 拖动平移 · 双击还原</span></div>
+  </section>
   <div id="events-root"></div>
   <p id="download-error" class="download-error" role="alert" hidden></p>
   <p class="footnote">图表背景按五阶速度区间着色，与速度数值文本一致。曲线周围的色带为速度 ± 设备报告的速度精度（约 68% 置信水平），下限取 0。保留原始采样与数据中断，不做平滑。</p>
@@ -38,6 +47,7 @@
 </main>
 <script src="assets/echarts.min.js"></script>
 <script id="trip-data"></script>
-<script src="assets/viewer.js?v=9"></script>
+<script src="assets/route-map.js?v=6"></script>
+<script src="assets/viewer.js?v=12"></script>
 </body>
 </html>

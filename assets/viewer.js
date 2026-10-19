@@ -35,7 +35,6 @@
   const duration = ms => {const seconds=Math.round(ms/1000);return seconds<60?`${seconds} 秒`:seconds<3600?`${Math.floor(seconds/60)} 分 ${seconds%60} 秒`:`${Math.floor(seconds/3600)} 小时 ${Math.floor(seconds%3600/60)} 分 ${seconds%60} 秒`;};
   const escape = text => String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const inferenceTag = event => event.source==='inferred'?'<span class="inferred-tag">事后推算</span>':'';
-  const inferenceNote = event => event.source==='inferred'&&event.note?`<div class="event-inference">${escape(event.note)}</div>`:'';
   function averageSpeed(event){
     if(event.start===event.end)return '时间点';
     const points=samples.filter(s=>s.t>=event.start&&s.t<=event.end);
@@ -122,7 +121,7 @@
       const left=Math.max(rect.x,chart.convertToPixel({xAxisIndex:0},start)),right=Math.min(rect.x+rect.width,chart.convertToPixel({xAxisIndex:0},end));
       const color=hits[0].type==='stop'?colors.stop:colors.pass;
       $('hover-span').hidden=false;Object.assign($('hover-span').style,{left:`${left}px`,top:`${rect.y}px`,width:`${Math.max(1,right-left)}px`,height:`${rect.height}px`,backgroundColor:`${color}11`,borderLeftColor:`${color}99`,borderRightColor:`${color}99`});
-      placeTip(hits.map(e=>`<div class="event-item"><div class="event-title">${escape(e.name)} ${inferenceTag(e)}</div><div class="tip-time">${formatDate(e.start)}</div><div>${formatTime(e.start)}${e.end===e.start?' · 时间点':` — ${formatDate(e.end)!==formatDate(e.start)?formatDate(e.end)+' ':''}${formatTime(e.end)}`}</div>${e.end===e.start?'':`<div class="tip-row"><span>时长</span><strong>${duration(e.end-e.start)}</strong></div>`}${e.type==='pass'&&e.start!==e.end?`<div class="tip-row"><span>平均速度</span><strong>${passAverages.get(e.id)}</strong></div>`:''}${inferenceNote(e)}</div>`).join(''),x,y);
+      placeTip(hits.map(e=>`<div class="event-item"><div class="event-title">${escape(e.name)} ${inferenceTag(e)}</div><div class="tip-time">${formatDate(e.start)}</div><div>${formatTime(e.start)}${e.end===e.start?' · 时间点':` — ${formatDate(e.end)!==formatDate(e.start)?formatDate(e.end)+' ':''}${formatTime(e.end)}`}</div>${e.end===e.start?'':`<div class="tip-row"><span>时长</span><strong>${duration(e.end-e.start)}</strong></div>`}${e.type==='pass'&&e.start!==e.end?`<div class="tip-row"><span>平均速度</span><strong>${passAverages.get(e.id)}</strong></div>`:''}</div>`).join(''),x,y);
     }
   }
   chart.getZr().on('mousemove',e=>showAt(e.offsetX,e.offsetY));
@@ -141,13 +140,22 @@
   new ResizeObserver(()=>{chart.resize();hideTip();}).observe($('chart-wrap'));
   setMode('select');updateRange();
   $('events-root').innerHTML=`<details class="event-details"><summary>区间标记 <span>查看停车、通过的起止时间</span></summary><div class="event-body"><p class="event-note">${trip.eventNote?escape(trip.eventNote)+" ":""}时间均为北京时间；起止相同表示时间点。平均速度为通过区间内原始速度采样的算术平均值。</p><div class="event-list"><table><thead><tr><th>名称</th><th>类型</th><th>时间范围</th><th>时长</th><th>平均速度</th><th class="actions">查看</th></tr></thead><tbody id="event-rows"></tbody></table></div></div></details>`;
-  $('event-rows').innerHTML=events.map(e=>`<tr><td>${escape(e.name)} ${inferenceTag(e)}${inferenceNote(e)}</td><td><span class="type-tag ${e.type}">${e.type==='stop'?'停车':'通过'}</span></td><td>${crossDate?formatDate(e.start)+' ':''}${formatTime(e.start)} — ${crossDate?formatDate(e.end)+' ':''}${formatTime(e.end)}</td><td>${e.start===e.end?'时间点':duration(e.end-e.start)}</td><td>${e.type==='pass'?passAverages.get(e.id):'—'}</td><td class="actions"><button type="button" data-id="${escape(e.id)}" aria-label="查看${escape(e.name)}区间">查看</button></td></tr>`).join('')||'<tr><td colspan="6">尚无区间标记</td></tr>';
+  $('event-rows').innerHTML=events.map(e=>`<tr><td>${escape(e.name)} ${inferenceTag(e)}</td><td><span class="type-tag ${e.type}">${e.type==='stop'?'停车':'通过'}</span></td><td>${crossDate?formatDate(e.start)+' ':''}${formatTime(e.start)} — ${crossDate?formatDate(e.end)+' ':''}${formatTime(e.end)}</td><td>${e.start===e.end?'时间点':duration(e.end-e.start)}</td><td>${e.type==='pass'?passAverages.get(e.id):'—'}</td><td class="actions"><button type="button" data-id="${escape(e.id)}" aria-label="查看${escape(e.name)}区间">查看</button></td></tr>`).join('')||'<tr><td colspan="6">尚无区间标记</td></tr>';
   $('event-rows').onclick=e=>{
     const button=e.target.closest('button[data-id]');if(!button)return;
     const event=events.find(item=>item.id===button.dataset.id);if(!event)return;
     const padding=Math.max(10000,(event.end-event.start)*.5);zoom(event.start-padding,event.end+padding);$('chart').scrollIntoView({block:'center',behavior:'smooth'});
   };
+  let routeMap=null;
+  const routeMapReady=Promise.resolve().then(()=>{
+    if(!window.RailRouteMap?.mount)throw new Error('无法读取线路图组件');
+    return window.RailRouteMap.mount(trip);
+  }).then(instance=>{routeMap=instance;return instance;}).catch(error=>{
+    $('map-message').hidden=false;$('map-message').textContent='线路图载入失败：'+error.message;return null;
+  });
   async function portableHtml(){
+    await routeMapReady;
+    if(!routeMap)throw new Error('线路图未能载入，无法生成完整离线网页；请重新载入后重试。');
     const doc=new DOMParser().parseFromString(initialPage,'text/html');
     for(const link of doc.querySelectorAll('link[rel="stylesheet"]')){
       const response=await fetch(new URL(link.getAttribute('href'),location.href));if(!response.ok)throw new Error('无法读取样式');
@@ -159,34 +167,38 @@
       script.textContent=(await response.text()).replace(/<\/script/gi,'<\\/script');script.removeAttribute('src');
     }
     if(!doc.getElementById('third-party-licenses')){
-      const licenses=await Promise.all(['LICENSE-echarts.txt','NOTICE-echarts.txt'].map(async name=>{
+      const licenses=await Promise.all(['LICENSE-echarts.txt','NOTICE-echarts.txt','maps/README.md','maps/LICENSE-coordtransform.txt','maps/RIVERS.md'].map(async name=>{
         const response=await fetch(new URL('assets/'+name,location.href));
         if(!response.ok)throw new Error('无法读取第三方许可');return response.text();
       }));
       const notice=doc.createElement('script');notice.type='text/plain';notice.id='third-party-licenses';notice.textContent=licenses.join('\n\n').replace(/<\/script/gi,'<\\/script');doc.head.append(notice);
     }
     doc.querySelector('.back-link').href=new URL('index.html',location.href).href;
-    doc.getElementById('trip-data').textContent='window.TRIP='+JSON.stringify({...trip,events}).replace(/</g,'\\u003c')+';';
+    doc.getElementById('trip-data').textContent='window.TRIP='+JSON.stringify({...trip,events,routeMap:routeMap.route}).replace(/</g,'\\u003c')+';window.ROUTE_BASEMAP='+JSON.stringify(routeMap.basemap).replace(/</g,'\\u003c')+';window.ROUTE_RIVERS='+JSON.stringify(routeMap.rivers).replace(/</g,'\\u003c')+';';
     return '<!doctype html>\n'+doc.documentElement.outerHTML;
   }
-  $('save-page').hidden=false;
+  $('save-page').hidden=false;$('save-page').disabled=true;
   $('save-page').onclick=async()=>{
     const button=$('save-page');button.disabled=true;button.textContent='正在保存…';
     $('download-error').hidden=true;
     try{
       const html=await portableHtml(),url=URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));
-      const link=document.createElement('a');link.href=url;link.download=`${trip.train||"rail-log"}_${trip.id}.html`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent='已生成包含当前区间的离线网页';
+      const link=document.createElement('a');link.href=url;link.download=`${trip.train||"rail-log"}_${trip.id}.html`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent='已生成包含线路图与当前区间的离线网页';
     }catch(error){$('status').textContent='保存失败：'+error.message;$('download-error').textContent='保存失败：'+error.message;$('download-error').hidden=false;}
     finally{button.disabled=false;button.textContent='保存离线网页';}
   };
-  $('export-record').onclick=()=>{
-    const payload={...trip,events};
-    const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)+'\n'],{type:'application/json;charset=utf-8'}));
-    const link=document.createElement('a');link.href=url;link.download=trip.id+'.json';link.click();
-    setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent='已导出记录数据';
+  $('export-record').onclick=async()=>{
+    const button=$('export-record');button.disabled=true;
+    try{
+      await routeMapReady;
+      const payload={...trip,events,...(routeMap?{routeMap:routeMap.route}:{})};
+      const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)+'\n'],{type:'application/json;charset=utf-8'}));
+      const link=document.createElement('a');link.href=url;link.download=trip.id+'.json';link.click();
+      setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent=routeMap?'已导出包含线路图的记录数据':'已导出速度与区间数据；线路图未能载入';
+    }finally{button.disabled=false;}
   };
   const getState=()=>({view:[...view],events:events.map(e=>({...e})),samples:samples.length});
-  window.TRIP_VIEWER={chart,zoom,getState,nearest,portableHtml};
+  window.TRIP_VIEWER={chart,zoom,getState,nearest,portableHtml,get routeMap(){return routeMap;}};
   if(document.modelContext?.registerTool){
     const lifecycle=new AbortController();
     const register=tool=>{try{Promise.resolve(document.modelContext.registerTool(tool,{signal:lifecycle.signal})).catch(()=>{});}catch{}};
@@ -194,6 +206,8 @@
     register({name:'set_time_window',description:'将速度图放大到指定北京时间范围。只调整图表视窗，不修改记录。',inputSchema:{type:'object',properties:{start:{type:'string',description:'带时区的 ISO 开始时间，例如 2026-09-23T16:36:10+08:00'},end:{type:'string',description:'带时区的 ISO 结束时间'}},required:['start','end'],additionalProperties:false},annotations:{readOnlyHint:false},execute:input=>{if(!input||typeof input.start!=='string'||typeof input.end!=='string'||!/[+-]\d\d:\d\d$|Z$/.test(input.start)||!/[+-]\d\d:\d\d$|Z$/.test(input.end))throw new Error('时间必须包含时区');return zoom(Date.parse(input.start),Date.parse(input.end));}});
     window.addEventListener('pagehide',()=>lifecycle.abort(),{once:true});
   }
+  await routeMapReady;
+  $('save-page').disabled=false;
 })().catch(error=>{
   document.getElementById('viewer-content').hidden=true;
   const message=document.getElementById('load-message');message.hidden=false;message.textContent=error.message;
