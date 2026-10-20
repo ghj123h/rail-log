@@ -6,17 +6,29 @@
   <title>线路合集 · Rail Log</title>
   <meta name="description" content="按线路集中查看铁路运行记录，探索每次运转的速度与沿途区间。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23155b9b'/%3E%3Cpath d='M5 23L11 13L17 16L27 7' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/styles.css?v=5">
+  <link rel="stylesheet" href="assets/styles.css?v=13">
 </head>
 <body>
 <main class="catalog">
   <a class="back-link" href="./">← 返回运转记录册</a>
   <header class="catalog-head"><p class="eyebrow">RAIL LOG · 线路合集</p><h1 id="collection-title">线路合集</h1><p id="collection-description" class="subtitle"></p></header>
+  <details id="network-map-section" class="chart-card route-map-card network-map-card" aria-labelledby="network-map-title">
+    <summary class="network-map-toggle"><div class="network-map-heading"><h2 id="network-map-title">路线图</h2><span id="network-map-summary"></span></div></summary>
+    <div class="toolbar">
+      <div class="zoom-buttons" role="group" aria-label="合集路线图缩放"><button id="map-zoom-in" aria-label="放大合集路线图" disabled>＋</button><button id="map-zoom-out" aria-label="缩小合集路线图" disabled>−</button><button id="map-reset" disabled>全程</button></div>
+    </div>
+    <div id="route-map" tabindex="0" role="application" aria-label="本合集运行记录的路线图。滚轮缩放，拖动平移，加减键缩放，Home 键或双击显示全程。"></div>
+    <p id="map-message" class="map-message" role="status">正在载入路线图…</p>
+    <div class="chart-footer"><span>合集运行轨迹 · 标注沿途车站 <a class="map-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">河道 © OpenStreetMap contributors</a></span><span>滚轮缩放 · 拖动平移 · 双击还原</span></div>
+  </details>
   <div class="catalog-label"><h2>运行记录</h2><span id="record-count"></span></div>
   <p id="catalog-message" class="notice" role="status">正在载入合集记录…</p>
   <div id="records" class="record-list" aria-label="合集运行记录目录"></div>
   <p class="footnote">所有记录使用北京时间（UTC+8）。进入记录后可沿时间轴放大，悬停查看逐点数据。</p>
 </main>
-<script src="assets/catalog.js?v=3"></script>
+<script src="assets/network-map-data.js?v=3"></script>
+<script src="assets/route-map.js?v=11"></script>
+<script src="assets/network-map.js?v=4"></script>
+<script src="assets/catalog.js?v=6"></script>
 </body>
 </html>

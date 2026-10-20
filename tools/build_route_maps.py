@@ -78,7 +78,9 @@ def build(trip, source_root, definitions):
             segments.append([])
         segments[-1].append([round(point[0], 7), round(point[1], 7), point[2]])
     names = definitions["routes"][record_id]
-    if names[0] != trip["origin"] or names[-1] != trip["destination"]:
+    if not trip["origin"] and not trip.get("partial"):
+        raise ValueError(f"{record_id}: only partial records may have an unknown origin")
+    if (trip["origin"] and names[0] != trip["origin"]) or names[-1] != trip["destination"]:
         raise ValueError(f"{record_id}: station list endpoints disagree with the published record")
     stations, sources = [], {}
     for name in names:

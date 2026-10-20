@@ -31,6 +31,9 @@
       return `<a class="collection-card" href="collection.html?id=${encodeURIComponent(collection.id)}"><div><strong>${escape(collection.title)}</strong><p>${escape(collection.description)}</p><span class="collection-meta">${members.length} 条记录${latest?` · 最近更新 ${date.format(latest.start)}`:''}</span></div><span class="collection-open">查看合集 <b aria-hidden="true">→</b></span></a>`;
     }).join('');
   }
+  if(document.getElementById('network-map-section')){
+    window.RailNetworkMap.init(isCollectionPage?records:allRecords,isCollectionPage?{title:'路线图',includeIntermediateStations:true}:{});
+  }
   document.getElementById('record-count').textContent=`${records.length} 条记录`;
   const message=document.getElementById('catalog-message');
   message.hidden=records.length>0;message.textContent='还没有运行记录。';
@@ -40,4 +43,8 @@
     const crossDate=date.format(record.start)!==date.format(record.end);
     return `<a class="record" href="viewer.html?id=${encodeURIComponent(record.id)}"><div class="record-date">${date.format(record.start)}<span>${record.partial?'部分记录':'运行记录'}</span></div><div class="record-route"><strong>${escape(record.train)} 次${record.beta===true?'<span class="beta-badge">Beta 版</span>':''}</strong><span>${escape(record.origin)} <i>—</i> ${escape(record.destination)}</span></div><div class="record-meta"><span>${time.format(record.start)}—${crossDate?date.format(record.end)+' ':''}${time.format(record.end)}</span><span>${length} · ${record.sampleCount.toLocaleString()} 个采样点</span></div><span class="record-open">查看记录 <b aria-hidden="true">→</b></span></a>`;
   }).join('');
-})().catch(error=>{const message=document.getElementById('catalog-message');message.hidden=false;message.textContent=error.message;});
+})().catch(error=>{
+  const message=document.getElementById('catalog-message');message.hidden=false;message.textContent=error.message;
+  const mapMessage=document.getElementById('map-message');
+  if(mapMessage){mapMessage.hidden=false;mapMessage.textContent='线路图载入失败：'+error.message;}
+});

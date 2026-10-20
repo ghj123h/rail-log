@@ -10,6 +10,17 @@
     trip = await response.json();
   }
   if (!Array.isArray(trip.samples) || !trip.samples.length) throw new Error('这条记录没有可显示的速度数据。');
+  let inCollection=window.TRIP_IN_COLLECTION===true;
+  if(typeof window.TRIP_IN_COLLECTION!=='boolean'&&!window.TRIP){
+    try{
+      const response=await fetch('records/collections.json',{cache:'no-cache'});
+      if(response.ok){
+        const collections=await response.json();
+        inCollection=collections.some(collection=>collection.recordIds?.includes(trip.id));
+      }
+    }catch{}
+  }
+  if(inCollection)$('route-map-card')?.remove();
   const colors = {speed:'#155b9b', band:'#eda33c', pass:'#7c61a5', stop:'#168677'};
   const speedLevels = [
     {min:0,max:200,label:'[0, 200)',color:'#155b9b',background:'#eef4fb'},
@@ -147,7 +158,7 @@
     const padding=Math.max(10000,(event.end-event.start)*.5);zoom(event.start-padding,event.end+padding);$('chart').scrollIntoView({block:'center',behavior:'smooth'});
   };
   let routeMap=null;
-  const routeMapReady=Promise.resolve().then(()=>{
+  const routeMapReady=inCollection?Promise.resolve(null):Promise.resolve().then(()=>{
     if(!window.RailRouteMap?.mount)throw new Error('无法读取线路图组件');
     return window.RailRouteMap.mount(trip);
   }).then(instance=>{routeMap=instance;return instance;}).catch(error=>{
@@ -155,8 +166,9 @@
   });
   async function portableHtml(){
     await routeMapReady;
-    if(!routeMap)throw new Error('线路图未能载入，无法生成完整离线网页；请重新载入后重试。');
+    if(!inCollection&&!routeMap)throw new Error('线路图未能载入，无法生成完整离线网页；请重新载入后重试。');
     const doc=new DOMParser().parseFromString(initialPage,'text/html');
+    if(inCollection)doc.querySelector('script[src^="assets/route-map.js"]')?.remove();
     for(const link of doc.querySelectorAll('link[rel="stylesheet"]')){
       const response=await fetch(new URL(link.getAttribute('href'),location.href));if(!response.ok)throw new Error('无法读取样式');
       const style=doc.createElement('style');style.textContent=await response.text();link.replaceWith(style);
@@ -167,14 +179,16 @@
       script.textContent=(await response.text()).replace(/<\/script/gi,'<\\/script');script.removeAttribute('src');
     }
     if(!doc.getElementById('third-party-licenses')){
-      const licenses=await Promise.all(['LICENSE-echarts.txt','NOTICE-echarts.txt','maps/README.md','maps/LICENSE-coordtransform.txt','maps/RIVERS.md'].map(async name=>{
+      const licenses=await Promise.all(['LICENSE-echarts.txt','NOTICE-echarts.txt',...(!inCollection?['maps/README.md','maps/LICENSE-coordtransform.txt','maps/RIVERS.md']:[])].map(async name=>{
         const response=await fetch(new URL('assets/'+name,location.href));
         if(!response.ok)throw new Error('无法读取第三方许可');return response.text();
       }));
       const notice=doc.createElement('script');notice.type='text/plain';notice.id='third-party-licenses';notice.textContent=licenses.join('\n\n').replace(/<\/script/gi,'<\\/script');doc.head.append(notice);
     }
     doc.querySelector('.back-link').href=new URL('index.html',location.href).href;
-    doc.getElementById('trip-data').textContent='window.TRIP='+JSON.stringify({...trip,events,routeMap:routeMap.route}).replace(/</g,'\\u003c')+';window.ROUTE_BASEMAP='+JSON.stringify(routeMap.basemap).replace(/</g,'\\u003c')+';window.ROUTE_RIVERS='+JSON.stringify(routeMap.rivers).replace(/</g,'\\u003c')+';';
+    const portableTrip={...trip,events};
+    if(routeMap)portableTrip.routeMap=routeMap.route;else delete portableTrip.routeMap;
+    doc.getElementById('trip-data').textContent='window.TRIP='+JSON.stringify(portableTrip).replace(/</g,'\\u003c')+';window.TRIP_IN_COLLECTION='+inCollection+';'+(routeMap?'window.ROUTE_BASEMAP='+JSON.stringify(routeMap.basemap).replace(/</g,'\\u003c')+';window.ROUTE_RIVERS='+JSON.stringify(routeMap.rivers).replace(/</g,'\\u003c')+';':'');
     return '<!doctype html>\n'+doc.documentElement.outerHTML;
   }
   $('save-page').hidden=false;$('save-page').disabled=true;
@@ -183,7 +197,7 @@
     $('download-error').hidden=true;
     try{
       const html=await portableHtml(),url=URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));
-      const link=document.createElement('a');link.href=url;link.download=`${trip.train||"rail-log"}_${trip.id}.html`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent='已生成包含线路图与当前区间的离线网页';
+      const link=document.createElement('a');link.href=url;link.download=`${trip.train||"rail-log"}_${trip.id}.html`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent=inCollection?'已生成包含速度图与当前区间的离线网页':'已生成包含线路图与当前区间的离线网页';
     }catch(error){$('status').textContent='保存失败：'+error.message;$('download-error').textContent='保存失败：'+error.message;$('download-error').hidden=false;}
     finally{button.disabled=false;button.textContent='保存离线网页';}
   };
@@ -194,7 +208,7 @@
       const payload={...trip,events,...(routeMap?{routeMap:routeMap.route}:{})};
       const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)+'\n'],{type:'application/json;charset=utf-8'}));
       const link=document.createElement('a');link.href=url;link.download=trip.id+'.json';link.click();
-      setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent=routeMap?'已导出包含线路图的记录数据':'已导出速度与区间数据；线路图未能载入';
+      setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent=routeMap?'已导出包含线路图的记录数据':inCollection?'已导出速度与区间数据':'已导出速度与区间数据；线路图未能载入';
     }finally{button.disabled=false;}
   };
   const getState=()=>({view:[...view],events:events.map(e=>({...e})),samples:samples.length});
