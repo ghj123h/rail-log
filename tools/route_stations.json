@@ -3,7 +3,7 @@
   "coordinateSystem": "WGS84",
   "coordinateMethod": "Public AMap station POI coordinates are GCJ-02. Catalog lon/lat uses an iterative inverse of the existing project transform; precision is approximate. The map generator replaces references with nearby actual WGS84 GNSS samples where available. Guang’anmen uses the WGS84 OpenStreetMap station node.",
   "stationScope": "全部展示区间起终点与沿途已建车站，包括不办客、暂停办客车站；不含线路所。京津现有记录已明确标记的永乐预留站作为命名位置保留，不扩展其他未来/未建站。",
-  "checkedOn": "2026-10-19",
+  "checkedOn": "2026-10-20",
   "stations": {
     "临清东": {
       "lon": 115.7568902,
@@ -1048,6 +1048,135 @@
         "lat": 39.88025,
         "osmNode": 6817425178
       }
+    },
+    "北京丰台": {
+      "lon": 116.2954046,
+      "lat": 39.8496387,
+      "sources": [
+        {
+          "title": "北京丰台站 · 高德地图",
+          "url": "https://www.amap.com/place/B0H6XMWL0S"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.301463,
+        "lat": 39.850889,
+        "poiId": "B0H6XMWL0S"
+      }
+    },
+    "涿州东": {
+      "lon": 116.0476097,
+      "lat": 39.4589611,
+      "sources": [
+        {
+          "title": "涿州东站 · 高德地图",
+          "url": "https://www.amap.com/place/B01380PVNV"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.053828,
+        "lat": 39.460223,
+        "poiId": "B01380PVNV"
+      }
+    },
+    "高碑店东": {
+      "lon": 115.9402675,
+      "lat": 39.2879567,
+      "sources": [
+        {
+          "title": "高碑店东站 · 高德地图",
+          "url": "https://www.amap.com/place/B01380PVSC"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.946153,
+        "lat": 39.288858,
+        "poiId": "B01380PVSC"
+      }
+    },
+    "徐水东": {
+      "lon": 115.7546811,
+      "lat": 39.045939,
+      "sources": [
+        {
+          "title": "徐水东站 · 高德地图",
+          "url": "https://www.amap.com/place/B0M2FA99M9"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.760817,
+        "lat": 39.046847,
+        "poiId": "B0M2FA99M9"
+      },
+      "status": "built / no passenger service"
+    },
+    "保定东": {
+      "lon": 115.5956329,
+      "lat": 38.8634226,
+      "sources": [
+        {
+          "title": "保定东站 · 高德地图",
+          "url": "https://www.amap.com/place/B01380PVNY"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.601563,
+        "lat": 38.864034,
+        "poiId": "B01380PVNY"
+      }
+    },
+    "定州东": {
+      "lon": 115.0682572,
+      "lat": 38.5083548,
+      "sources": [
+        {
+          "title": "定州东站 · 高德地图",
+          "url": "https://www.amap.com/place/B01380Q00Z"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.07457,
+        "lat": 38.509167,
+        "poiId": "B01380Q00Z"
+      }
+    },
+    "正定机场": {
+      "lon": 114.7032906,
+      "lat": 38.2512799,
+      "sources": [
+        {
+          "title": "正定机场站 · 高德地图",
+          "url": "https://www.amap.com/place/B01370UHH1"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 114.709263,
+        "lat": 38.251873,
+        "poiId": "B01370UHH1"
+      }
+    },
+    "石家庄": {
+      "lon": 114.4784166,
+      "lat": 38.0095415,
+      "sources": [
+        {
+          "title": "石家庄站 · 高德地图",
+          "url": "https://www.amap.com/place/B01370Y3C6"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 114.484536,
+        "lat": 38.010275,
+        "poiId": "B01370Y3C6"
+      }
     }
   },
   "routes": {
@@ -1144,6 +1273,19 @@
       "亦庄",
       "永乐",
       "武清"
+    ],
+    "261020093057": [
+      "北京丰台",
+      "涿州东",
+      "高碑店东",
+      "徐水东",
+      "保定东"
+    ],
+    "261020155428": [
+      "保定东",
+      "定州东",
+      "正定机场",
+      "石家庄"
     ]
   },
   "routeSources": {
@@ -1237,6 +1379,34 @@
       {
         "title": "关于建设和启用京津城际铁路永乐站的建议 · 北京市人大",
         "url": "https://jyfw.bjrd.gov.cn/publicProposal/info.html?proposalId=219641"
+      }
+    ],
+    "261020093057": [
+      {
+        "title": "京广高铁执行票价表 · 中国铁路12306",
+        "url": "https://kyfw.12306.cn/mormhweb/zxdt/202205/t20220514_37392.html"
+      },
+      {
+        "title": "京石客运专线沿途客站 · 湖南省文化和旅游厅",
+        "url": "https://whhlyt.hunan.gov.cn/whhlyt/news/mtjj/201909/t20190910_5461613.html"
+      },
+      {
+        "title": "京广高速铁路起于北京丰台站 · 丰台区人民政府",
+        "url": "https://www.bjft.gov.cn/ftq/ftzfwj/202409/356feb4b73b44f3a8d551aa8653a6bf7.shtml"
+      }
+    ],
+    "261020155428": [
+      {
+        "title": "京广高铁执行票价表 · 中国铁路12306",
+        "url": "https://kyfw.12306.cn/mormhweb/zxdt/202205/t20220514_37392.html"
+      },
+      {
+        "title": "京石客运专线沿途客站 · 湖南省文化和旅游厅",
+        "url": "https://whhlyt.hunan.gov.cn/whhlyt/news/mtjj/201909/t20190910_5461613.html"
+      },
+      {
+        "title": "京广高速铁路起于北京丰台站 · 丰台区人民政府",
+        "url": "https://www.bjft.gov.cn/ftq/ftzfwj/202409/356feb4b73b44f3a8d551aa8653a6bf7.shtml"
       }
     ]
   }
