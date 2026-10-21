@@ -59,6 +59,7 @@
     return [after[0] - before[0], after[1] - before[1]];
   }
   function labelNormal(station, track, stationPoints, scale, side) {
+    if (station.label.textContent === '石家庄') return [-1, 0];
     const meter = 1 / (6371000 * Math.cos(station.latitude * Math.PI / 180));
     const radius = Math.max(16 / scale, 300 * meter);
     const anchor = station.track;
@@ -71,9 +72,9 @@
     const length = Math.hypot(...direction);
     return length ? [-side * direction[1] / length, side * direction[0] / length] : [1, 0];
   }
-  function labelOffset(normal, bounds) {
+  function labelOffset(normal, bounds, gap = 9) {
     // Anchor the near edge/corner, blending toward centered alignment near either axis.
-    return normal.map((value, axis) => 9 * value + [bounds.width, bounds.height][axis] / 2 * Math.max(-1, Math.min(1, value / .35)));
+    return normal.map((value, axis) => gap * value + [bounds.width, bounds.height][axis] / 2 * Math.max(-1, Math.min(1, value / .35)));
   }
   function placeOverviewLabels(stations, screen, width, height) {
     const placed = [];
@@ -87,8 +88,8 @@
     for (const index of order) {
       const station = stations[index];
       const {bounds, label} = station, [x, y] = points[index];
-      const horizontal = bounds.width / 2 + 9, vertical = bounds.height / 2 + 9;
-      const candidates = [[horizontal, -vertical], [horizontal, vertical], [-horizontal, -vertical], [-horizontal, vertical],
+      const horizontal = bounds.width / 2 + (label.textContent === '石家庄' ? 18 : 9), vertical = bounds.height / 2 + 9;
+      const candidates = label.textContent === '石家庄' ? [[-horizontal, 0]] : [[horizontal, -vertical], [horizontal, vertical], [-horizontal, -vertical], [-horizontal, vertical],
         [0, -vertical], [0, vertical], [horizontal, 0], [-horizontal, 0]];
       let best, score = Infinity;
       for (const [dx, dy] of candidates) {
@@ -122,7 +123,8 @@
         if (route.id !== trip.id || route.coordinateSystem !== 'WGS84' || !route.stations.length || !route.segments.length) {
           throw new Error('线路图数据与当前记录不符。');
         }
-        const svg = element('svg', {role: 'img', 'aria-label': options.accessibleLabel || `${trip.origin}至${trip.destination}的 GNSS 线路图，包含${route.stations.length}个车站。朱红色为运转轨迹，蓝色为黄河和长江。`});
+        const stationCount = new Set(route.stations.map(station => station.name)).size;
+        const svg = element('svg', {role: 'img', 'aria-label': options.accessibleLabel || `${trip.origin}至${trip.destination}的 GNSS 线路图，包含${stationCount}个车站。朱红色为运转轨迹，蓝色为黄河和长江。`});
         const title = element('title');
         title.textContent = `${trip.title} · 线路图`;
         svg.append(title);
@@ -157,14 +159,18 @@
         const journey = [stationPoints.at(-1)[0] - stationPoints[0][0], stationPoints.at(-1)[1] - stationPoints[0][1]];
         // Pick one travel side for the whole route, rather than flipping individual normals.
         const side = journey[1] > 0 || (journey[1] === 0 && journey[0] > 0) ? -1 : 1;
-        const stations = route.stations.map((station, index) => {
+        const namedStations = new Set();
+        const stations = route.stations.flatMap((station, index) => {
+          // Revisited stations share one marker; keep the full sequence for route direction.
+          if (namedStations.has(station.name)) return [];
+          namedStations.add(station.name);
           const group = element('g', {class: 'map-station'});
           const dot = element('circle', {r: 3.4});
           const label = element('text', {x: 0, y: 0, 'text-anchor': followTrack ? 'middle' : 'start'});
           label.textContent = station.name;
           group.append(dot, label);
           svg.append(group);
-          return {point: stationPoints[index], index, latitude: station.lat, track: followTrack ? nearestTrack(stationPoints[index], projectedSegments) : null, group, label};
+          return [{point: stationPoints[index], index, latitude: station.lat, track: followTrack ? nearestTrack(stationPoints[index], projectedSegments) : null, group, label}];
         });
         container.replaceChildren(svg);
         const coordinates = track.concat(stationPoints);
@@ -184,7 +190,7 @@
             station.group.setAttribute('transform', `translate(${x} ${y})`);
             if (followTrack && scale !== labelScale) {
               const normal = labelNormal(station, track, stationPoints, scale, side);
-              const [dx, dy] = labelOffset(normal, station.bounds);
+              const [dx, dy] = labelOffset(normal, station.bounds, station.label.textContent === '石家庄' ? 18 : 9);
               station.label.setAttribute('x', dx - station.bounds.x - station.bounds.width / 2);
               station.label.setAttribute('y', dy - station.bounds.y - station.bounds.height / 2);
             }
@@ -284,7 +290,7 @@
         message.hidden = true;
         new ResizeObserver(resize).observe(container);
         resize();
-        return {route, basemap, rivers, getState: () => ({zoom, offset: [...offset], stations: route.stations.length, segments: route.segments.length, width, height})};
+        return {route, basemap, rivers, getState: () => ({zoom, offset: [...offset], stations: stations.length, segments: route.segments.length, width, height})};
       } catch (error) {
         message.hidden = false;
         message.textContent = error.message;

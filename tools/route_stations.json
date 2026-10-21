@@ -3,7 +3,7 @@
   "coordinateSystem": "WGS84",
   "coordinateMethod": "Public AMap station POI coordinates are GCJ-02. Catalog lon/lat uses an iterative inverse of the existing project transform; precision is approximate. The map generator replaces references with nearby actual WGS84 GNSS samples where available. Guang’anmen uses the WGS84 OpenStreetMap station node.",
   "stationScope": "全部展示区间起终点与沿途已建车站，包括不办客、暂停办客车站；不含线路所。京津现有记录已明确标记的永乐预留站作为命名位置保留，不扩展其他未来/未建站。",
-  "checkedOn": "2026-10-20",
+  "checkedOn": "2026-10-21",
   "stations": {
     "临清东": {
       "lon": 115.7568902,
@@ -1177,6 +1177,166 @@
         "lat": 38.010275,
         "poiId": "B01370Y3C6"
       }
+    },
+    "石家庄东": {
+      "lon": 114.6230872,
+      "lat": 38.0491665,
+      "sources": [
+        {
+          "title": "石家庄东站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFG3P7BR"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 114.628875,
+        "lat": 38.049659,
+        "poiId": "B0FFG3P7BR"
+      }
+    },
+    "藁城南": {
+      "lon": 114.8490542,
+      "lat": 37.9856931,
+      "sources": [
+        {
+          "title": "藁城南站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFG3P884"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 114.854885,
+        "lat": 37.986243,
+        "poiId": "B0FFG3P884"
+      }
+    },
+    "辛集南": {
+      "lon": 115.2053544,
+      "lat": 37.8828351,
+      "sources": [
+        {
+          "title": "辛集南站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFHEJ61Y"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.211456,
+        "lat": 37.883581,
+        "poiId": "B0FFHEJ61Y"
+      }
+    },
+    "衡水北": {
+      "lon": 115.6693927,
+      "lat": 37.7707645,
+      "sources": [
+        {
+          "title": "衡水北站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFG3PAQ2"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 115.675284,
+        "lat": 37.771402,
+        "poiId": "B0FFG3PAQ2"
+      }
+    },
+    "景州": {
+      "lon": 116.133002,
+      "lat": 37.6461631,
+      "sources": [
+        {
+          "title": "景州站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFI6JIP0"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.139005,
+        "lat": 37.647074,
+        "poiId": "B0FFI6JIP0"
+      }
+    },
+    "德州东": {
+      "lon": 116.4541663,
+      "lat": 37.4085116,
+      "sources": [
+        {
+          "title": "德州东站 · 高德地图",
+          "url": "https://www.amap.com/place/B02160P4J8"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.460033,
+        "lat": 37.40935,
+        "poiId": "B02160P4J8"
+      }
+    },
+    "平原东": {
+      "lon": 116.5771852,
+      "lat": 37.2173578,
+      "sources": [
+        {
+          "title": "平原东站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFG3UF0R"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.58267,
+        "lat": 37.217809,
+        "poiId": "B0FFG3UF0R"
+      }
+    },
+    "沧州西": {
+      "lon": 116.7622573,
+      "lat": 38.3058089,
+      "sources": [
+        {
+          "title": "沧州西站 · 高德地图",
+          "url": "https://www.amap.com/place/B013D0MNOY"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.768149,
+        "lat": 38.306477,
+        "poiId": "B013D0MNOY"
+      }
+    },
+    "天津南": {
+      "lon": 117.0544685,
+      "lat": 39.0558059,
+      "sources": [
+        {
+          "title": "天津南站 · 高德地图",
+          "url": "https://www.amap.com/place/B0016113IJ"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.060808,
+        "lat": 39.056892,
+        "poiId": "B0016113IJ"
+      }
+    },
+    "天津西": {
+      "lon": 117.1565564,
+      "lat": 39.157574,
+      "sources": [
+        {
+          "title": "天津西站 · 高德地图",
+          "url": "https://www.amap.com/place/B001600021"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.162943,
+        "lat": 39.158704,
+        "poiId": "B001600021"
+      }
     }
   },
   "routes": {
@@ -1285,6 +1445,20 @@
       "定州东",
       "正定机场",
       "石家庄"
+    ],
+    "261021131636": [
+      "石家庄",
+      "石家庄东",
+      "藁城南",
+      "辛集南",
+      "衡水北",
+      "景州",
+      "德州东",
+      "平原东",
+      "德州东",
+      "沧州西",
+      "天津南",
+      "天津西"
     ]
   },
   "routeSources": {
@@ -1406,6 +1580,20 @@
       {
         "title": "京广高速铁路起于北京丰台站 · 丰台区人民政府",
         "url": "https://www.bjft.gov.cn/ftq/ftzfwj/202409/356feb4b73b44f3a8d551aa8653a6bf7.shtml"
+      }
+    ],
+    "261021131636": [
+      {
+        "title": "石济客专沿线 11 站 · 北京市公共资源交易服务平台",
+        "url": "https://ggzyfw.beijing.gov.cn/jyxxggjtbyqs/20231116/4259985.html"
+      },
+      {
+        "title": "京沪高铁沿线车站命名 · 常州组工网",
+        "url": "https://zg.changzhou.gov.cn/html/czzg/2011/CIBLKPQE_0525/12502.html"
+      },
+      {
+        "title": "天津西站 · 国家铁路局",
+        "url": "https://source.nra.gov.cn/tlfc/tpsy/202204/t20220405_292984.shtml"
       }
     ]
   }
