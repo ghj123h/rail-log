@@ -76,6 +76,55 @@
     // Anchor the near edge/corner, blending toward centered alignment near either axis.
     return normal.map((value, axis) => gap * value + [bounds.width, bounds.height][axis] / 2 * Math.max(-1, Math.min(1, value / .35)));
   }
+  function createStation(station, index, point, followTrack, segments) {
+    const group = element('g', {class: 'map-station'});
+    const corners = station.platform?.corners?.map(project);
+    let platform;
+    if (corners?.length >= 4) {
+      const relative = corners.map(corner => [corner[0] - point[0], corner[1] - point[1]]);
+      const edges = relative.map((corner, i) => {
+        const next = relative[(i + 1) % relative.length];
+        return [next[0] - corner[0], next[1] - corner[1]];
+      });
+      const longest = edges.reduce((best, edge) => Math.hypot(...edge) > Math.hypot(...best) ? edge : best);
+      const length = Math.hypot(...longest);
+      const axis = longest.map(value => value / length), across = [-axis[1], axis[0]];
+      const range = direction => {
+        const values = relative.map(corner => corner[0] * direction[0] + corner[1] * direction[1]);
+        return [Math.min(...values), Math.max(...values)];
+      };
+      platform = {corners, axis, across, along: range(axis), cross: range(across)};
+    }
+    const symbol = platform ? element('polygon', {class: 'map-station-platform'})
+      : element('circle', {r: 3.4, class: 'map-station-point'});
+    const label = element('text', {x: 0, y: 0, 'text-anchor': followTrack ? 'middle' : 'start'});
+    label.textContent = station.name;
+    group.append(symbol, label);
+    return {point, index, latitude: station.lat, track: followTrack ? nearestTrack(point, segments) : null,
+      group, symbol, label, platform, markerBounds: [3.4, 3.4]};
+  }
+  function renderStationSymbol(station, screen, scale) {
+    const [x, y] = screen(station.point);
+    station.group.setAttribute('transform', `translate(${x} ${y})`);
+    if (!station.platform) return;
+    const {axis, across, along, cross} = station.platform;
+    const middle = range => (range[0] + range[1]) * scale / 2;
+    // Clamp each dimension independently to keep narrow stations compact.
+    const length = along[1] - along[0], width = cross[1] - cross[0];
+    const halfLength = Math.max(16, length * scale) / 2;
+    const halfWidth = Math.max(8, width * scale) / 2;
+    const s = middle(along), v = middle(cross);
+    const vertices = [[s - halfLength, v - halfWidth], [s + halfLength, v - halfWidth],
+      [s + halfLength, v + halfWidth], [s - halfLength, v + halfWidth]]
+      .map(([a, b]) => [axis[0] * a + across[0] * b, axis[1] * a + across[1] * b]);
+    station.symbol.setAttribute('points', vertices.map(point => point.join(',')).join(' '));
+    station.markerVertices = vertices;
+    station.markerBounds = [0, 1].map(dimension => Math.max(...vertices.map(point => Math.abs(point[dimension]))));
+  }
+  function symbolClearance(station, normal) {
+    if (!station.markerVertices) return 0;
+    return Math.max(0, ...station.markerVertices.map(point => point[0] * normal[0] + point[1] * normal[1] - 3.4));
+  }
   function placeOverviewLabels(stations, screen, width, height) {
     const placed = [];
     const points = stations.map(station => screen(station.point));
@@ -88,7 +137,8 @@
     for (const index of order) {
       const station = stations[index];
       const {bounds, label} = station, [x, y] = points[index];
-      const horizontal = bounds.width / 2 + (label.textContent === '石家庄' ? 18 : 9), vertical = bounds.height / 2 + 9;
+      const horizontal = bounds.width / 2 + (label.textContent === '石家庄' ? 18 : 9 + Math.max(0, station.markerBounds[0] - 3.4));
+      const vertical = bounds.height / 2 + 9 + Math.max(0, station.markerBounds[1] - 3.4);
       const candidates = label.textContent === '石家庄' ? [[-horizontal, 0]] : [[horizontal, -vertical], [horizontal, vertical], [-horizontal, -vertical], [-horizontal, vertical],
         [0, -vertical], [0, vertical], [horizontal, 0], [-horizontal, 0]];
       let best, score = Infinity;
@@ -96,7 +146,10 @@
         const box = [x + dx - bounds.width / 2, y + dy - bounds.height / 2, x + dx + bounds.width / 2, y + dy + bounds.height / 2];
         const outside = bounds.width * bounds.height - area(box, [0, 0, width, height]);
         const overlaps = placed.reduce((sum, other) => sum + area(box, other, 4), 0);
-        const markers = points.reduce((sum, point) => sum + area(box, [point[0] - 5, point[1] - 5, point[0] + 5, point[1] + 5]), 0);
+        const markers = points.reduce((sum, point, i) => {
+          const [rx, ry] = stations[i].markerBounds.map(value => value + 1.6);
+          return sum + area(box, [point[0] - rx, point[1] - ry, point[0] + rx, point[1] + ry]);
+        }, 0);
         const cost = outside * 10 + markers * 10 + overlaps;
         if (cost < score) { best = {dx, dy, box}; score = cost; }
         if (!cost) break;
@@ -164,16 +217,12 @@
           // Revisited stations share one marker; keep the full sequence for route direction.
           if (namedStations.has(station.name)) return [];
           namedStations.add(station.name);
-          const group = element('g', {class: 'map-station'});
-          const dot = element('circle', {r: 3.4});
-          const label = element('text', {x: 0, y: 0, 'text-anchor': followTrack ? 'middle' : 'start'});
-          label.textContent = station.name;
-          group.append(dot, label);
-          svg.append(group);
-          return [{point: stationPoints[index], index, latitude: station.lat, track: followTrack ? nearestTrack(stationPoints[index], projectedSegments) : null, group, label}];
+          const item = createStation(station, index, stationPoints[index], followTrack, projectedSegments);
+          svg.append(item.group);
+          return [item];
         });
         container.replaceChildren(svg);
-        const coordinates = track.concat(stationPoints);
+        const coordinates = track.concat(stationPoints, stations.flatMap(station => station.platform?.corners || []));
         const extent = coordinates.reduce((box, [x, y]) => [Math.min(box[0], x), Math.min(box[1], y), Math.max(box[2], x), Math.max(box[3], y)], [Infinity, Infinity, -Infinity, -Infinity]);
         const center = [(extent[0] + extent[2]) / 2, (extent[1] + extent[3]) / 2];
         const span = [Math.max(.0003, extent[2] - extent[0]), Math.max(.0003, extent[3] - extent[1])];
@@ -186,11 +235,11 @@
           const scale = fitScale * zoom;
           geometry.setAttribute('transform', `matrix(${scale} 0 0 ${scale} ${width / 2 + offset[0] - center[0] * scale} ${height / 2 + offset[1] - center[1] * scale})`);
           for (const station of stations) {
-            const [x, y] = screen(station.point);
-            station.group.setAttribute('transform', `translate(${x} ${y})`);
+            renderStationSymbol(station, screen, scale);
             if (followTrack && scale !== labelScale) {
               const normal = labelNormal(station, track, stationPoints, scale, side);
-              const [dx, dy] = labelOffset(normal, station.bounds, station.label.textContent === '石家庄' ? 18 : 9);
+              const gap = station.label.textContent === '石家庄' ? 18 : 9 + symbolClearance(station, normal);
+              const [dx, dy] = labelOffset(normal, station.bounds, gap);
               station.label.setAttribute('x', dx - station.bounds.x - station.bounds.width / 2);
               station.label.setAttribute('y', dy - station.bounds.y - station.bounds.height / 2);
             }

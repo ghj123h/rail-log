@@ -106,7 +106,7 @@
       if (!includeIntermediateStations && !endpoint && !junction) continue;
       const position = representative(entry.candidates);
       stations.push({
-        name, lon: position.lon, lat: position.lat, endpoint, junction,
+        name, lon: position.lon, lat: position.lat, ...(position.platform ? {platform: position.platform} : {}), endpoint, junction,
         neighbors: [...entry.neighbors], recordIds: [...entry.recordIds]
       });
     }

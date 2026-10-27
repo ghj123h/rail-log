@@ -3,6 +3,8 @@
 Only positions belonging to published speed samples are included. Every raw
 sample is retained, and the speed chart's 1.5-interval gap rule is reused.
 Station lists and public reference positions live in route_stations.json.
+Reviewed WGS84 platform envelopes live in station_footprints.json. Stations
+without a usable envelope keep the original point-position selection.
 """
 import argparse
 import json
@@ -17,6 +19,33 @@ def distance(a, b):
     lon1, lat1, lon2, lat2 = map(math.radians, [*a, *b])
     h = math.sin((lat2 - lat1) / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin((lon2 - lon1) / 2) ** 2
     return 12742017.6 * math.asin(min(1, math.sqrt(h)))
+
+
+def platform_envelope(corners, center, arrival_tracks, clearance_m):
+    """Keep platform length; set lateral edges beyond outer arrival tracks."""
+    phi = math.radians(center[1])
+    e2 = .0066943799901413165
+    n = 6378137 / math.sqrt(1 - e2 * math.sin(phi) ** 2)
+    m = 6378137 * (1 - e2) / (1 - e2 * math.sin(phi) ** 2) ** 1.5
+    scales = [n * math.cos(phi) * math.pi / 180, m * math.pi / 180]
+    xy = [[(p[i] - center[i]) * scales[i] for i in (0, 1)] for p in corners]
+    edges = [[q[i] - p[i] for i in (0, 1)] for p, q in zip(xy, xy[1:] + xy[:1])]
+    edge = max(edges, key=lambda p: math.hypot(*p))
+    length = math.hypot(*edge)
+    along = [p / length for p in edge]
+    across = [-along[1], along[0]]
+    ranges = [[sum(p[i] * axis[i] for i in (0, 1)) for p in xy] for axis in (along, across)]
+    bounds = [[min(values), max(values)] for values in ranges]
+    track_points = [point for track in arrival_tracks for point in track["coordinates"]]
+    if not track_points:
+        return corners, round(bounds[0][1] - bounds[0][0], 3), round(bounds[1][1] - bounds[1][0], 3)
+    track_cross = [sum((point[i] - center[i]) * scales[i] * across[i] for i in (0, 1)) for point in track_points]
+    bounds[1][0] = min(bounds[1][0], min(track_cross) - clearance_m)
+    bounds[1][1] = max(bounds[1][1], max(track_cross) + clearance_m)
+    envelope = [[round(center[i] + (s * along[i] + v * across[i]) / scales[i], 10) for i in (0, 1)]
+              for s, v in [(bounds[0][0], bounds[1][0]), (bounds[0][1], bounds[1][0]),
+                           (bounds[0][1], bounds[1][1]), (bounds[0][0], bounds[1][1])]]
+    return envelope, round(bounds[0][1] - bounds[0][0], 3), round(bounds[1][1] - bounds[1][0], 3)
 
 
 def read_positions(path, samples):
@@ -68,7 +97,7 @@ def station_position(station, points, events):
     return reference, "public"
 
 
-def build(trip, source_root, definitions):
+def build(trip, source_root, definitions, footprints):
     record_id = trip["id"]
     source_name = f"gnss_log_20{record_id[:2]}_{record_id[2:4]}_{record_id[4:6]}_{record_id[6:8]}_{record_id[8:10]}_{record_id[10:12]}.txt"
     points = read_positions(source_root / source_name, trip["samples"])
@@ -84,11 +113,19 @@ def build(trip, source_root, definitions):
         raise ValueError(f"{record_id}: station list endpoints disagree with the published record")
     stations, sources = [], {}
     for name in names:
-        position, source = station_position({"name": name, **definitions["stations"][name]}, points, trip["events"])
-        stations.append({"name": name, "lon": round(position[0], 7), "lat": round(position[1], 7)})
+        footprint = footprints["stations"].get(name)
+        if footprint:
+            position, source = footprint["center"], "platform"
+        else:
+            position, source = station_position({"name": name, **definitions["stations"][name]}, points, trip["events"])
+        station = {"name": name, "lon": round(position[0], 7), "lat": round(position[1], 7)}
+        if footprint:
+            display_corners, _, _ = platform_envelope(footprint["platformCorners"], position, footprint["arrivalTracks"], footprints["arrivalClearanceM"])
+            station["platform"] = {"corners": display_corners}
+        stations.append(station)
         sources[name] = source
     result = {"id": record_id, "coordinateSystem": "WGS84", "segments": segments, "stations": stations}
-    return result, {"id": record_id, "points": len(points), "segments": len(segments), "stations": len(stations), "publicStations": [name for name, source in sources.items() if source == "public"]}
+    return result, {"id": record_id, "points": len(points), "segments": len(segments), "stations": len(stations), "platformStations": sum("platform" in station for station in stations), "publicStations": [name for name, source in sources.items() if source == "public"]}
 
 
 def main():
@@ -96,12 +133,16 @@ def main():
     parser.add_argument("--id", help="Build one record; default: every record in records/index.json")
     parser.add_argument("--source-root", type=Path, default=ROOT.parent, help="Directory containing original GNSS logs")
     parser.add_argument("--stations", type=Path, default=ROOT / "tools/route_stations.json")
+    parser.add_argument("--platforms", type=Path, default=ROOT / "tools/station_footprints.json", help="Reviewed platform envelopes; missing stations retain their original point markers")
     args = parser.parse_args()
     definitions = json.loads(args.stations.read_text(encoding="utf-8-sig"))
+    footprints = json.loads(args.platforms.read_text(encoding="utf-8-sig"))
+    if footprints["coordinateSystem"] != "WGS84":
+        raise ValueError("Station platform envelopes must use WGS84")
     ids = [args.id] if args.id else [entry["id"] for entry in json.loads((ROOT / "records/index.json").read_text(encoding="utf-8-sig"))]
     for record_id in ids:
         trip = json.loads((ROOT / f"records/{record_id}.json").read_text(encoding="utf-8-sig"))
-        result, summary = build(trip, args.source_root, definitions)
+        result, summary = build(trip, args.source_root, definitions, footprints)
         destination = ROOT / f"records/{record_id}.route.json"
         destination.write_text(json.dumps(result, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
         print(json.dumps(summary, ensure_ascii=False))

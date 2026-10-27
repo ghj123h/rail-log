@@ -179,7 +179,7 @@
       script.textContent=(await response.text()).replace(/<\/script/gi,'<\\/script');script.removeAttribute('src');
     }
     if(!doc.getElementById('third-party-licenses')){
-      const licenses=await Promise.all(['LICENSE-echarts.txt','NOTICE-echarts.txt',...(!inCollection?['maps/README.md','maps/LICENSE-coordtransform.txt','maps/RIVERS.md']:[])].map(async name=>{
+      const licenses=await Promise.all(['LICENSE-echarts.txt','NOTICE-echarts.txt',...(!inCollection?['maps/README.md','maps/LICENSE-coordtransform.txt','maps/RIVERS.md','maps/STATIONS.md']:[])].map(async name=>{
         const response=await fetch(new URL('assets/'+name,location.href));
         if(!response.ok)throw new Error('无法读取第三方许可');return response.text();
       }));
