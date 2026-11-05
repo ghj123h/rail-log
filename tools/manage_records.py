@@ -30,6 +30,7 @@ def rebuild():
             "origin": trip["origin"], "destination": trip["destination"],
             "partial": bool(trip.get("partial", False)),
             "beta": bool(trip.get("beta", False)),
+            **({"railType": trip["railType"]} if trip.get("railType") else {}),
             "start": samples[0]["t"], "end": samples[-1]["t"], "sampleCount": len(samples),
         })
     entries.sort(key=lambda entry: entry["start"], reverse=True)

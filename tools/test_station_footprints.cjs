@@ -219,19 +219,29 @@ function footprintFrame(footprint) {
 
   const recordsRoot = path.join(__dirname, '../records');
   const routes = fs.readdirSync(recordsRoot).filter(name => name.endsWith('.route.json')).map(name => JSON.parse(fs.readFileSync(path.join(recordsRoot, name), 'utf8')));
-  const sparse = new Set(['任丘西', '寿县', '衡水南', '颍上北', '广安门', '永乐']);
+  const footprints = JSON.parse(fs.readFileSync(path.join(__dirname, 'station_footprints.json'), 'utf8'));
+  const sparse = new Set(Object.keys(footprints.pointStations));
   const seen = new Set();
   for (const route of routes) for (const station of route.stations) {
     seen.add(station.name);
+    const exception = footprints.recordExceptions?.[route.id];
+    if (exception?.status === 'exempt' && exception.scope === 'record' && exception.stations.includes(station.name)) continue;
+    assert.ok(sparse.has(station.name) || Object.hasOwn(footprints.stations, station.name), `${station.name}: new stations must have a reviewed footprint or a documented point decision`);
     assert.equal(Boolean(station.platform), !sparse.has(station.name), `${station.name}: uses the selected station geometry policy`);
     if (station.platform) assert.ok([4, 5].includes(station.platform.corners.length));
   }
-  assert.equal(seen.size, 81);
+  assert.equal(seen.size, 92);
 
   // The display boundary uses clearance from the outer arrival/departure track,
   // keeping the source platform extent and longitudinal endpoints unchanged.
-  const footprints = JSON.parse(fs.readFileSync(path.join(__dirname, 'station_footprints.json'), 'utf8'));
   assert.equal(footprints.arrivalClearanceM, 20, 'station clearance is measured from the outer arrival/departure tracks');
+  assert.deepEqual(Object.keys(footprints.recordExceptions), ['261105164159'], 'the S206 exemption applies only to this run');
+  const jingzhang = routes.find(route => route.id === '261105122850');
+  assert.equal(jingzhang.stations.filter(station => station.platform).length, 5, 'all five G7883 stations use reviewed rectangles');
+  assert.deepEqual(footprints.stations['昌平'].railWayIds, [787858184, 787858186, 1132067956, 1132067957], 'Changping uses direct platform-facing tracks, excluding freight sidings and the non-platform main pair');
+  assert.deepEqual(footprints.stations['沙河'].railWayIds, [787919273], 'Shahe uses the track adjoining its mapped side platform');
+  assert.equal(footprints.stations['北京北'].osmPlatforms.length, 6, 'Beijingbei includes all six national-rail platforms');
+  assert.equal(footprints.stations['清河'].osmPlatforms.length, 4, 'Qinghe excludes subway platforms');
   const xuzhou = footprints.stations['徐州东'];
   assert.equal(xuzhou.osmPlatforms.includes('way/1455925727'), false, 'Xuzhou East excludes the underground metro platform');
   const xuzhouArrivalTracks = new Map(xuzhou.arrivalTracks.map(track => [track.wayId, track]));
@@ -299,6 +309,7 @@ function footprintFrame(footprint) {
     '261018184017': [['永乐', 116.7887907, 39.6529622]]
   };
   for (const route of routes) {
+    if (route.id.startsWith('261105')) continue; // New records have no pre-padding baseline.
     assert.deepEqual(route.stations.filter(station => !station.platform).map(station => [station.name, station.lon, station.lat]), originalCircles[route.id] || [], `${route.id}: arrival-track clearance leaves all original circles unchanged`);
   }
   const realRecords = JSON.parse(fs.readFileSync(path.join(recordsRoot, 'index.json'), 'utf8'));
@@ -324,5 +335,5 @@ function footprintFrame(footprint) {
       }
     }
   }
-  console.log(`Station footprint checks passed: visibility, zoom, coverage, initial fit, aggregation, 81 station policies, outer-track clearance at ${stationsWithArrivalTracks} stations, original platform extent at ${stationsWithoutArrivalTracks} stations, all 486 Cangzhou samples and unchanged anchor centers/circles.`);
+  console.log(`Station footprint checks passed: visibility, zoom, coverage, initial fit, aggregation, ${seen.size} station policies, outer-track clearance at ${stationsWithArrivalTracks} stations, original platform extent at ${stationsWithoutArrivalTracks} stations, all 486 Cangzhou samples and unchanged anchor centers/circles.`);
 })().catch(error => {console.error(error); process.exitCode = 1;});

@@ -1,7 +1,7 @@
 {
   "version": 2,
   "coordinateSystem": "WGS84",
-  "checkedOn": "2026-10-27",
+  "checkedOn": "2026-11-05",
   "license": {
     "attribution": "© OpenStreetMap contributors",
     "license": "ODbL-1.0",
@@ -37242,6 +37242,2778 @@
         "User permitted default estimation, but presence/current applicability of physical passenger platforms remains independently unverified.",
         "Actual output rectangle may exceed nominal length/width to preserve every mapped platform vertex and scope across yards; arrival/departure throat span is never used as platform length."
       ]
+    },
+    "北京北": {
+      "center": [
+        116.346634216,
+        39.9443872244
+      ],
+      "platformCorners": [
+        [
+          116.3482012351,
+          39.9416162064
+        ],
+        [
+          116.3466251924,
+          39.9474093621
+        ],
+        [
+          116.3450671969,
+          39.9471582424
+        ],
+        [
+          116.3466432397,
+          39.9413650867
+        ]
+      ],
+      "corners": [
+        [
+          116.3448160868,
+          39.947117777
+        ],
+        [
+          116.3463921316,
+          39.941324614
+        ],
+        [
+          116.3482597119,
+          39.9416256239
+        ],
+        [
+          116.3466836671,
+          39.9474187868
+        ]
+      ],
+      "lengthM": 657.187,
+      "widthM": 163.071,
+      "platformLengthM": 657.186,
+      "platformWidthM": 136.041,
+      "arrivalTracks": [
+        {
+          "wayId": 25057123,
+          "coordinates": [
+            [
+              116.3479606,
+              39.9416045
+            ],
+            [
+              116.34739,
+              39.9431964
+            ],
+            [
+              116.3468605,
+              39.9446738
+            ],
+            [
+              116.3467243,
+              39.9450787
+            ],
+            [
+              116.3466428,
+              39.9453538
+            ],
+            [
+              116.3465753,
+              39.9456348
+            ],
+            [
+              116.3465215,
+              39.9459415
+            ],
+            [
+              116.3464507,
+              39.9463913
+            ],
+            [
+              116.3464173,
+              39.9467667
+            ],
+            [
+              116.346389,
+              39.9470841
+            ],
+            [
+              116.3463582,
+              39.9473598
+            ],
+            [
+              116.3463573845,
+              39.9473661978
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "2",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 109369052,
+          "coordinates": [
+            [
+              116.3475601,
+              39.9415183
+            ],
+            [
+              116.3469885,
+              39.943124
+            ],
+            [
+              116.3464699,
+              39.9446078
+            ],
+            [
+              116.3463671,
+              39.9449332
+            ],
+            [
+              116.3462666,
+              39.9452741
+            ],
+            [
+              116.3461911,
+              39.9455642
+            ],
+            [
+              116.3461526,
+              39.9457379
+            ],
+            [
+              116.3460997,
+              39.9461292
+            ],
+            [
+              116.3460788,
+              39.9463692
+            ],
+            [
+              116.3460675,
+              39.9466199
+            ],
+            [
+              116.3460701,
+              39.9469779
+            ],
+            [
+              116.3460649602,
+              39.9473190659
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "5",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 109369053,
+          "coordinates": [
+            [
+              116.3460021948,
+              39.9473089496
+            ],
+            [
+              116.3460021,
+              39.9469804
+            ],
+            [
+              116.346003,
+              39.9466065
+            ],
+            [
+              116.3460113,
+              39.9463909
+            ],
+            [
+              116.3460344,
+              39.946108
+            ],
+            [
+              116.3460817,
+              39.9457278
+            ],
+            [
+              116.3461265,
+              39.9455134
+            ],
+            [
+              116.346268,
+              39.9449879
+            ],
+            [
+              116.3463803,
+              39.9446253
+            ],
+            [
+              116.3465601,
+              39.9441213
+            ],
+            [
+              116.3469117,
+              39.943111
+            ],
+            [
+              116.3475036,
+              39.9415051
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "6",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 109369072,
+          "coordinates": [
+            [
+              116.3477867,
+              39.9415679
+            ],
+            [
+              116.3475489,
+              39.9421993
+            ],
+            [
+              116.347198,
+              39.9431561
+            ],
+            [
+              116.3469077,
+              39.9439803
+            ],
+            [
+              116.3466216,
+              39.9447779
+            ],
+            [
+              116.3465659,
+              39.9449561
+            ],
+            [
+              116.3465234,
+              39.945107
+            ],
+            [
+              116.3464695,
+              39.9452967
+            ],
+            [
+              116.3464166,
+              39.9455272
+            ],
+            [
+              116.3463723,
+              39.9457532
+            ],
+            [
+              116.3463438,
+              39.9459325
+            ],
+            [
+              116.3463105,
+              39.9461767
+            ],
+            [
+              116.3462954,
+              39.9463616
+            ],
+            [
+              116.346277,
+              39.9466423
+            ],
+            [
+              116.3462666,
+              39.9469331
+            ],
+            [
+              116.3462568,
+              39.9471953
+            ],
+            [
+              116.3462481801,
+              39.9473485966
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "3",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 109369075,
+          "coordinates": [
+            [
+              116.3473860644,
+              39.9414848125
+            ],
+            [
+              116.3467888,
+              39.9430887
+            ],
+            [
+              116.3463815,
+              39.944212
+            ],
+            [
+              116.346237,
+              39.9446094
+            ],
+            [
+              116.3462009,
+              39.9447201
+            ],
+            [
+              116.3461476,
+              39.9448992
+            ],
+            [
+              116.3460613,
+              39.945217
+            ],
+            [
+              116.3459871,
+              39.9455491
+            ],
+            [
+              116.3459386,
+              39.9457623
+            ],
+            [
+              116.3458958,
+              39.9460465
+            ],
+            [
+              116.3458734,
+              39.9462411
+            ],
+            [
+              116.345867,
+              39.946376
+            ],
+            [
+              116.3458627,
+              39.9465829
+            ],
+            [
+              116.345871,
+              39.9469136
+            ],
+            [
+              116.345880438,
+              39.9472893253
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "maxspeed": "45",
+            "name": "京包客专线",
+            "railway": "rail",
+            "railway:track_ref": "VII",
+            "railway:traffic_mode": "passenger",
+            "ref": "3066",
+            "start_date": "2019-12-30",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 109369081,
+          "coordinates": [
+            [
+              116.3461846109,
+              39.9473383508
+            ],
+            [
+              116.346208,
+              39.9469327
+            ],
+            [
+              116.3462191,
+              39.9466325
+            ],
+            [
+              116.3462316,
+              39.9463468
+            ],
+            [
+              116.3462484,
+              39.9461665
+            ],
+            [
+              116.3462752,
+              39.9459225
+            ],
+            [
+              116.3463026,
+              39.9457443
+            ],
+            [
+              116.3463514,
+              39.9455144
+            ],
+            [
+              116.3464031,
+              39.9452825
+            ],
+            [
+              116.3464544,
+              39.945092
+            ],
+            [
+              116.3464958,
+              39.9449446
+            ],
+            [
+              116.3465544,
+              39.9447649
+            ],
+            [
+              116.347129,
+              39.9431448
+            ],
+            [
+              116.3474924,
+              39.9421861
+            ],
+            [
+              116.3477291,
+              39.9415555
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "maxspeed": "45",
+            "name": "京包客专线",
+            "railway": "rail",
+            "railway:track_ref": "IV",
+            "railway:traffic_mode": "passenger",
+            "ref": "3066",
+            "start_date": "2019-12-30",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 109497838,
+          "coordinates": [
+            [
+              116.3480228,
+              39.9416176
+            ],
+            [
+              116.3474517,
+              39.9432108
+            ],
+            [
+              116.3469227,
+              39.9446865
+            ],
+            [
+              116.3467869,
+              39.9450903
+            ],
+            [
+              116.3467059,
+              39.9453637
+            ],
+            [
+              116.346639,
+              39.9456426
+            ],
+            [
+              116.3465854,
+              39.9459478
+            ],
+            [
+              116.3465149,
+              39.9463959
+            ],
+            [
+              116.3464694,
+              39.9469063
+            ],
+            [
+              116.3464549,
+              39.9470695
+            ],
+            [
+              116.3464241,
+              39.9473623
+            ],
+            [
+              116.3464214177,
+              39.9473765184
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "1",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 741483412,
+          "coordinates": [
+            [
+              116.3456747648,
+              39.9472561756
+            ],
+            [
+              116.345646,
+              39.9470199
+            ],
+            [
+              116.3456108,
+              39.9466958
+            ],
+            [
+              116.3456024,
+              39.9465193
+            ],
+            [
+              116.345599,
+              39.9463417
+            ],
+            [
+              116.345603,
+              39.9461532
+            ],
+            [
+              116.3456159,
+              39.9459758
+            ],
+            [
+              116.3456367,
+              39.945783
+            ],
+            [
+              116.3456605,
+              39.9456189
+            ],
+            [
+              116.3456902,
+              39.9454588
+            ],
+            [
+              116.3457281,
+              39.9452853
+            ],
+            [
+              116.3457865,
+              39.9450613
+            ],
+            [
+              116.3458412,
+              39.9448656
+            ],
+            [
+              116.345907,
+              39.9446432
+            ],
+            [
+              116.3464781,
+              39.9430292
+            ],
+            [
+              116.3466472,
+              39.9425504
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "10",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 741483413,
+          "coordinates": [
+            [
+              116.3457376223,
+              39.9472663068
+            ],
+            [
+              116.34571,
+              39.9470198
+            ],
+            [
+              116.3456812,
+              39.9466869
+            ],
+            [
+              116.3456728,
+              39.9465193
+            ],
+            [
+              116.3456693,
+              39.9463417
+            ],
+            [
+              116.3456733,
+              39.9461552
+            ],
+            [
+              116.3456861,
+              39.9459795
+            ],
+            [
+              116.3457067,
+              39.9457882
+            ],
+            [
+              116.3457303,
+              39.9456257
+            ],
+            [
+              116.3457597,
+              39.945467
+            ],
+            [
+              116.3457973,
+              39.945295
+            ],
+            [
+              116.3458553,
+              39.9450723
+            ],
+            [
+              116.3459099,
+              39.9448772
+            ],
+            [
+              116.3459755,
+              39.9446552
+            ],
+            [
+              116.3460416,
+              39.9444654
+            ],
+            [
+              116.3467149,
+              39.9425648
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "9",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 760528588,
+          "coordinates": [
+            [
+              116.3455872534,
+              39.9472420708
+            ],
+            [
+              116.3455483,
+              39.9469716
+            ],
+            [
+              116.3454839,
+              39.9464866
+            ],
+            [
+              116.3454643,
+              39.9462896
+            ],
+            [
+              116.3454612,
+              39.9460983
+            ],
+            [
+              116.3454745,
+              39.9458035
+            ],
+            [
+              116.3455094,
+              39.9455097
+            ],
+            [
+              116.3455362,
+              39.9453865
+            ],
+            [
+              116.3455804,
+              39.9451872
+            ],
+            [
+              116.3456527,
+              39.9449283
+            ],
+            [
+              116.3463177,
+              39.9429883
+            ],
+            [
+              116.3464984,
+              39.9424813
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "11",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 831608094,
+          "coordinates": [
+            [
+              116.3473030582,
+              39.9414714339
+            ],
+            [
+              116.346887,
+              39.9426018
+            ],
+            [
+              116.3467143,
+              39.9430709
+            ],
+            [
+              116.3463773,
+              39.9440119
+            ],
+            [
+              116.346137,
+              39.9446893
+            ],
+            [
+              116.3460313,
+              39.9450334
+            ],
+            [
+              116.3459134,
+              39.9455357
+            ],
+            [
+              116.3458696,
+              39.9457558
+            ],
+            [
+              116.3458321,
+              39.9460399
+            ],
+            [
+              116.3458096,
+              39.9462382
+            ],
+            [
+              116.3458032,
+              39.9463773
+            ],
+            [
+              116.3458022,
+              39.9465816
+            ],
+            [
+              116.3458102,
+              39.9469151
+            ],
+            [
+              116.3458188339,
+              39.9472793961
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "8",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        }
+      ],
+      "arrivalTrackSelection": {
+        "name": "北京北",
+        "available": true,
+        "center": [
+          116.346634216,
+          39.9443872244
+        ],
+        "platformCorners": [
+          [
+            116.3482012351,
+            39.9416162064
+          ],
+          [
+            116.3466251924,
+            39.9474093621
+          ],
+          [
+            116.3450671969,
+            39.9471582424
+          ],
+          [
+            116.3466432397,
+            39.9413650867
+          ]
+        ],
+        "axis_unit_east_north": [
+          0.20495494472779663,
+          -0.9787714087730729
+        ],
+        "cross_unit_east_north": [
+          0.9787714087730729,
+          0.20495494472779663
+        ],
+        "axis_bearing_degrees": 168.173138,
+        "axis_source": "Longest original platformCorners edge; corner order is not assumed to start with the longitudinal edge.",
+        "platform_longitudinal_extent_m": [
+          -328.5933,
+          328.5933
+        ],
+        "platform_lateral_extent_m": [
+          -68.0196,
+          68.0196
+        ],
+        "lateral_extent_m": [
+          -69.9455,
+          53.1254
+        ],
+        "rail_ids": [
+          25057123,
+          109369052,
+          109369053,
+          109369072,
+          109369075,
+          109369081,
+          109497838,
+          741483412,
+          741483413,
+          760528588,
+          831608094
+        ],
+        "selection_basis": "Accepted platform adjacency or same-station shared-node side-loop evidence; clipped to fixed original platformCorners longitudinal interval. No whole-throat extent is used.",
+        "reason_if_unavailable": null,
+        "evidence": {
+          "station_node_id": 8016534536,
+          "accepted_platform_count": 6,
+          "national_rail_candidate_count": 31,
+          "valid_loop_count": 0,
+          "selected_way_count": 11,
+          "rejected_clipped_candidates": []
+        },
+        "notes": [
+          "Fixed station anchor and axis retained; caller may extend only lateral bounds to min(raw_min, arrival_min-20) / max(raw_max, arrival_max+20).",
+          "No GNSS observations are read or used to infer track/platform geometry.",
+          "Main-tagged local tracks can serve platforms; non-adjacent through tracks are not used merely because they cross the station."
+        ]
+      },
+      "estimated": true,
+      "quality": "estimated_width_from_mapped_platform_lines",
+      "centerMethod": "Center of the oriented envelope of all reviewed national-rail platforms; mapped extents retained. No GNSS used.",
+      "lengthSource": {
+        "kind": "public_primary_dimensions",
+        "default": false,
+        "value_m": 550,
+        "source_urls": [
+          "https://zdzqgw.beijing.gov.cn/zqfw/bjbzdq/bjbzzqjs/202008/t20200821_1988513.html"
+        ]
+      },
+      "widthSource": {
+        "kind": "authorized_default",
+        "default": true,
+        "value_m": 12
+      },
+      "osmPlatforms": [
+        "way/109497813",
+        "way/1055703929",
+        "way/1055703930",
+        "way/1055703931",
+        "way/1055703932",
+        "way/1055703933"
+      ],
+      "railWayIds": [
+        25057123,
+        109369052,
+        109369053,
+        109369072,
+        109369075,
+        109369081,
+        109497838,
+        741483412,
+        741483413,
+        760528588,
+        831608094
+      ],
+      "sourceUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=116.338282,39.93435,116.356282,39.95235",
+        "https://www.openstreetmap.org/way/1055703929",
+        "https://www.openstreetmap.org/way/1055703930",
+        "https://www.openstreetmap.org/way/1055703931",
+        "https://www.openstreetmap.org/way/1055703932",
+        "https://www.openstreetmap.org/way/1055703933",
+        "https://www.openstreetmap.org/way/109369052",
+        "https://www.openstreetmap.org/way/109369053",
+        "https://www.openstreetmap.org/way/109369072",
+        "https://www.openstreetmap.org/way/109369075",
+        "https://www.openstreetmap.org/way/109369081",
+        "https://www.openstreetmap.org/way/109497813",
+        "https://www.openstreetmap.org/way/109497838",
+        "https://www.openstreetmap.org/way/25057123",
+        "https://www.openstreetmap.org/way/741483412",
+        "https://www.openstreetmap.org/way/741483413",
+        "https://www.openstreetmap.org/way/760528588",
+        "https://www.openstreetmap.org/way/831608094",
+        "https://zdzqgw.beijing.gov.cn/zqfw/bjbzdq/bjbzzqjs/202008/t20200821_1988513.html"
+      ],
+      "notes": [
+        "2026-11-05 audit of complete public station box; bus, subway/light-rail, construction and other stations excluded.",
+        "Mapped platform lengths and vertices preserved; 450m minimum applies only to open platform lines lacking independently verified length (Beijingbei uses public 550m).",
+        "Open platform lines have explicit default 12m width allowance; this is estimated geometry, not a surveyed width.",
+        "Lateral clearance only: outer accepted passenger stopping tracks +20m; platform longitudinal ends unchanged."
+      ],
+      "checkedOn": "2026-11-05",
+      "auditComponents": [
+        {
+          "osmId": 109497813,
+          "geometryType": "LineString",
+          "estimatedWidth": true
+        },
+        {
+          "osmId": 1055703929,
+          "geometryType": "LineString",
+          "estimatedWidth": true
+        },
+        {
+          "osmId": 1055703930,
+          "geometryType": "LineString",
+          "estimatedWidth": true
+        },
+        {
+          "osmId": 1055703931,
+          "geometryType": "LineString",
+          "estimatedWidth": true
+        },
+        {
+          "osmId": 1055703932,
+          "geometryType": "LineString",
+          "estimatedWidth": true
+        },
+        {
+          "osmId": 1055703933,
+          "geometryType": "LineString",
+          "estimatedWidth": true
+        }
+      ]
+    },
+    "清河": {
+      "center": [
+        116.3085629454,
+        40.040899846
+      ],
+      "platformCorners": [
+        [
+          116.3105173943,
+          40.0390590556
+        ],
+        [
+          116.3073661225,
+          40.0430905054
+        ],
+        [
+          116.3066084965,
+          40.0427406364
+        ],
+        [
+          116.3097597683,
+          40.0387091866
+        ]
+      ],
+      "corners": [
+        [
+          116.3107204406,
+          40.039152807
+        ],
+        [
+          116.3075691621,
+          40.0431842653
+        ],
+        [
+          116.3063685161,
+          40.0426298296
+        ],
+        [
+          116.3095197946,
+          40.0385983713
+        ]
+      ],
+      "lengthM": 522.212,
+      "widthM": 119.538,
+      "platformLengthM": 522.213,
+      "platformWidthM": 75.432,
+      "arrivalTracks": [
+        {
+          "wayId": 122212276,
+          "coordinates": [
+            [
+              116.3071854801,
+              40.0430070881
+            ],
+            [
+              116.3073169,
+              40.042865
+            ],
+            [
+              116.3074591,
+              40.0427027
+            ],
+            [
+              116.3076254,
+              40.0424954
+            ],
+            [
+              116.3079879,
+              40.0420392
+            ],
+            [
+              116.3082997,
+              40.0416361
+            ],
+            [
+              116.3088488,
+              40.0409416
+            ],
+            [
+              116.3094428,
+              40.0401789
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "maxspeed": "80",
+            "name": "京包客专线",
+            "railway": "rail",
+            "railway:track_ref": "VII",
+            "railway:traffic_mode": "passenger",
+            "ref": "3066",
+            "start_date": "2019-12-30",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 122214299,
+          "coordinates": [
+            [
+              116.3097461932,
+              40.0387029179
+            ],
+            [
+              116.30883,
+              40.039864
+            ],
+            [
+              116.3069836,
+              40.0421927
+            ],
+            [
+              116.3066059425,
+              40.0427394686
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "1",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 741511577,
+          "coordinates": [
+            [
+              116.3104806214,
+              40.039042063
+            ],
+            [
+              116.3104364,
+              40.0391116
+            ],
+            [
+              116.3101809,
+              40.0394668
+            ],
+            [
+              116.3095692,
+              40.0402567
+            ],
+            [
+              116.307974,
+              40.0423166
+            ],
+            [
+              116.3077516,
+              40.0425926
+            ],
+            [
+              116.3076092,
+              40.0427499
+            ],
+            [
+              116.3072915482,
+              40.0430560684
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "8",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 741511584,
+          "coordinates": [
+            [
+              116.3067858581,
+              40.0428225502
+            ],
+            [
+              116.3078764,
+              40.0414438
+            ],
+            [
+              116.3090255,
+              40.0399832
+            ],
+            [
+              116.3098985,
+              40.0388466
+            ],
+            [
+              116.3099421447,
+              40.0387934046
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "3",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 741511585,
+          "coordinates": [
+            [
+              116.3102728875,
+              40.0389461354
+            ],
+            [
+              116.310241,
+              40.0389949
+            ],
+            [
+              116.3101125,
+              40.0391844
+            ],
+            [
+              116.3099635,
+              40.0393928
+            ],
+            [
+              116.3093821,
+              40.0401491
+            ],
+            [
+              116.3082235,
+              40.0416227
+            ],
+            [
+              116.3074754,
+              40.0425627
+            ],
+            [
+              116.307203,
+              40.0428739
+            ],
+            [
+              116.3071077351,
+              40.042971187
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "6",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 768004917,
+          "coordinates": [
+            [
+              116.3069379261,
+              40.0428927724
+            ],
+            [
+              116.306961,
+              40.0428659
+            ],
+            [
+              116.3080294,
+              40.041512
+            ],
+            [
+              116.3091761,
+              40.0400661
+            ],
+            [
+              116.3100889041,
+              40.0388611753
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "4",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 768004918,
+          "coordinates": [
+            [
+              116.3069874976,
+              40.0429156636
+            ],
+            [
+              116.3080777,
+              40.0415406
+            ],
+            [
+              116.3092275,
+              40.0400807
+            ],
+            [
+              116.3101590969,
+              40.038893589
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "5",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 831608091,
+          "coordinates": [
+            [
+              116.3094428,
+              40.0401789
+            ],
+            [
+              116.3100302,
+              40.0394215
+            ],
+            [
+              116.3101793,
+              40.0392099
+            ],
+            [
+              116.3102967,
+              40.0390295
+            ],
+            [
+              116.3103326614,
+              40.0389737378
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "maxspeed": "80",
+            "name": "京包客专线",
+            "railway": "rail",
+            "railway:track_ref": "VII",
+            "railway:traffic_mode": "passenger",
+            "ref": "3066",
+            "start_date": "2019-12-30",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 831608092,
+          "coordinates": [
+            [
+              116.309888795,
+              40.0387687687
+            ],
+            [
+              116.3089629,
+              40.0399526
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "maxspeed": "80",
+            "name": "京包客专线",
+            "railway": "rail",
+            "railway:track_ref": "II",
+            "railway:traffic_mode": "passenger",
+            "ref": "3066",
+            "start_date": "2019-12-30",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1548789339,
+          "coordinates": [
+            [
+              116.3089629,
+              40.0399526
+            ],
+            [
+              116.3072782,
+              40.0420756
+            ],
+            [
+              116.3067110242,
+              40.0427879934
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "maxspeed": "80",
+            "name": "京包客专线",
+            "railway": "rail",
+            "railway:track_ref": "II",
+            "railway:traffic_mode": "passenger",
+            "ref": "3066",
+            "start_date": "2019-12-30",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        }
+      ],
+      "arrivalTrackSelection": {
+        "name": "清河",
+        "available": true,
+        "center": [
+          116.3085629454,
+          40.040899846
+        ],
+        "platformCorners": [
+          [
+            116.3105173943,
+            40.0390590556
+          ],
+          [
+            116.3073661225,
+            40.0430905054
+          ],
+          [
+            116.3066084965,
+            40.0427406364
+          ],
+          [
+            116.3097597683,
+            40.0387091866
+          ]
+        ],
+        "axis_unit_east_north": [
+          -0.5150003146065751,
+          0.8571899882494712
+        ],
+        "cross_unit_east_north": [
+          -0.8571899882494712,
+          -0.5150003146065751
+        ],
+        "axis_bearing_degrees": 149.002524,
+        "axis_source": "Longest original platformCorners edge; corner order is not assumed to start with the longitudinal edge.",
+        "platform_longitudinal_extent_m": [
+          -261.1059,
+          261.1059
+        ],
+        "platform_lateral_extent_m": [
+          -37.7154,
+          37.7154
+        ],
+        "lateral_extent_m": [
+          -37.9303,
+          41.6075
+        ],
+        "rail_ids": [
+          122212276,
+          122214299,
+          741511577,
+          741511584,
+          741511585,
+          768004917,
+          768004918,
+          831608091,
+          831608092,
+          1548789339
+        ],
+        "selection_basis": "Accepted platform adjacency or same-station shared-node side-loop evidence; clipped to fixed original platformCorners longitudinal interval. No whole-throat extent is used.",
+        "reason_if_unavailable": null,
+        "evidence": {
+          "station_node_id": 7116372189,
+          "accepted_platform_count": 4,
+          "national_rail_candidate_count": 46,
+          "valid_loop_count": 3,
+          "selected_way_count": 10,
+          "rejected_clipped_candidates": []
+        },
+        "notes": [
+          "Fixed station anchor and axis retained; caller may extend only lateral bounds to min(raw_min, arrival_min-20) / max(raw_max, arrival_max+20).",
+          "No GNSS observations are read or used to infer track/platform geometry.",
+          "Main-tagged local tracks can serve platforms; non-adjacent through tracks are not used merely because they cross the station."
+        ]
+      },
+      "estimated": true,
+      "quality": "estimated_width_from_mapped_platform_lines",
+      "centerMethod": "Center of the oriented envelope of all reviewed national-rail platforms; mapped extents retained. No GNSS used.",
+      "lengthSource": {
+        "kind": "mapped_longitudinal_extent_with_authorized_minimum",
+        "default": true,
+        "value_m": 450,
+        "source_urls": [
+          "https://m.thepaper.cn/newsDetail_forward_5098459"
+        ]
+      },
+      "widthSource": {
+        "kind": "authorized_default",
+        "default": true,
+        "value_m": 12
+      },
+      "osmPlatforms": [
+        "way/1058434465",
+        "way/1058434466",
+        "way/1058434467",
+        "way/1058434468"
+      ],
+      "railWayIds": [
+        122212276,
+        122214299,
+        741511577,
+        741511584,
+        741511585,
+        768004917,
+        768004918,
+        831608091,
+        831608092,
+        1548789339
+      ],
+      "sourceUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=116.299512,40.030778,116.317512,40.048778",
+        "https://m.thepaper.cn/newsDetail_forward_5098459",
+        "https://www.openstreetmap.org/way/1058434465",
+        "https://www.openstreetmap.org/way/1058434466",
+        "https://www.openstreetmap.org/way/1058434467",
+        "https://www.openstreetmap.org/way/1058434468",
+        "https://www.openstreetmap.org/way/122212276",
+        "https://www.openstreetmap.org/way/122214299",
+        "https://www.openstreetmap.org/way/1548789339",
+        "https://www.openstreetmap.org/way/741511577",
+        "https://www.openstreetmap.org/way/741511584",
+        "https://www.openstreetmap.org/way/741511585",
+        "https://www.openstreetmap.org/way/768004917",
+        "https://www.openstreetmap.org/way/768004918",
+        "https://www.openstreetmap.org/way/831608091",
+        "https://www.openstreetmap.org/way/831608092"
+      ],
+      "notes": [
+        "2026-11-05 audit of complete public station box; bus, subway/light-rail, construction and other stations excluded.",
+        "Mapped platform lengths and vertices preserved; 450m minimum applies only to open platform lines lacking independently verified length (Beijingbei uses public 550m).",
+        "Open platform lines have explicit default 12m width allowance; this is estimated geometry, not a surveyed width.",
+        "Lateral clearance only: outer accepted passenger stopping tracks +20m; platform longitudinal ends unchanged."
+      ],
+      "checkedOn": "2026-11-05",
+      "auditComponents": [
+        {
+          "osmId": 1058434465,
+          "geometryType": "LineString",
+          "estimatedWidth": true
+        },
+        {
+          "osmId": 1058434466,
+          "geometryType": "LineString",
+          "estimatedWidth": true
+        },
+        {
+          "osmId": 1058434467,
+          "geometryType": "LineString",
+          "estimatedWidth": true
+        },
+        {
+          "osmId": 1058434468,
+          "geometryType": "LineString",
+          "estimatedWidth": true
+        }
+      ]
+    },
+    "沙河": {
+      "center": [
+        116.2591424124,
+        40.123711905
+      ],
+      "platformCorners": [
+        [
+          116.2604263664,
+          40.1219406006
+        ],
+        [
+          116.2579832894,
+          40.1255332348
+        ],
+        [
+          116.2578584584,
+          40.1254832093
+        ],
+        [
+          116.2603015353,
+          40.1218905751
+        ]
+      ],
+      "corners": [
+        [
+          116.2605102627,
+          40.1219742219
+        ],
+        [
+          116.2580671856,
+          40.1255668562
+        ],
+        [
+          116.2576418764,
+          40.1253964146
+        ],
+        [
+          116.2600849535,
+          40.1218037802
+        ]
+      ],
+      "lengthM": 450.0,
+      "widthM": 40.896,
+      "platformLengthM": 450.0,
+      "platformWidthM": 12.003,
+      "arrivalTracks": [
+        {
+          "wayId": 787919273,
+          "coordinates": [
+            [
+              116.2578591887,
+              40.125483502
+            ],
+            [
+              116.2579962,
+              40.1252801
+            ],
+            [
+              116.2580183,
+              40.1252472
+            ],
+            [
+              116.2583445,
+              40.1247651
+            ],
+            [
+              116.2600126,
+              40.1222994
+            ],
+            [
+              116.2602933979,
+              40.1218873138
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "4",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        }
+      ],
+      "arrivalTrackSelection": {
+        "name": "沙河",
+        "available": true,
+        "center": [
+          116.2591424124,
+          40.123711905
+        ],
+        "platformCorners": [
+          [
+            116.2604263664,
+            40.1219406006
+          ],
+          [
+            116.2579832894,
+            40.1255332348
+          ],
+          [
+            116.2578584584,
+            40.1254832093
+          ],
+          [
+            116.2603015353,
+            40.1218905751
+          ]
+        ],
+        "axis_unit_east_north": [
+          -0.4627704264752363,
+          0.8864781623818649
+        ],
+        "cross_unit_east_north": [
+          -0.8864781623818649,
+          -0.4627704264752363
+        ],
+        "axis_bearing_degrees": 152.433977,
+        "axis_source": "Longest original platformCorners edge; corner order is not assumed to start with the longitudinal edge.",
+        "platform_longitudinal_extent_m": [
+          -225.0001,
+          225.0001
+        ],
+        "platform_lateral_extent_m": [
+          -6.0016,
+          6.0016
+        ],
+        "lateral_extent_m": [
+          5.9314,
+          6.8271
+        ],
+        "rail_ids": [
+          787919273
+        ],
+        "selection_basis": "Manual public station-core track order and direct platform adjacency; retained only 4/6 and III/5 in Changping, or track 4 in Shahe. Track/throat geometry clipped to platform length.",
+        "reason_if_unavailable": null,
+        "evidence": {
+          "station_node_id": 1366324235,
+          "accepted_platform_count": 1,
+          "national_rail_candidate_count": 40,
+          "valid_loop_count": 0,
+          "selected_way_count": 1,
+          "rejected_clipped_candidates": [
+            {
+              "way_id": 787905789,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "railway": "rail",
+                "railway:track_ref": "5",
+                "service": "siding",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 787919276,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "railway": "rail",
+                "service": "siding"
+              }
+            },
+            {
+              "way_id": 787921159,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "railway": "rail",
+                "railway:track_ref": "7",
+                "service": "siding",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 787921160,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "railway": "rail",
+                "railway:track_ref": "9",
+                "service": "siding",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 787921161,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "no",
+                "gauge": "1435",
+                "railway": "rail",
+                "railway:track_ref": "11",
+                "service": "siding"
+              }
+            },
+            {
+              "way_id": 787921163,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "no",
+                "gauge": "1435",
+                "railway": "rail",
+                "railway:track_ref": "13",
+                "service": "siding"
+              }
+            },
+            {
+              "way_id": 1119665692,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "maxspeed": "200",
+                "name": "京包客专线",
+                "railway": "rail",
+                "railway:track_ref": "I",
+                "railway:traffic_mode": "passenger",
+                "ref": "3066",
+                "start_date": "2019-12-30",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1180767783,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "no",
+                "maxspeed": "160",
+                "name": "东北环线",
+                "railway": "rail",
+                "railway:track_ref": "III",
+                "ref": "0336",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1180767786,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "maxspeed": "200",
+                "name": "京包客专线",
+                "railway": "rail",
+                "railway:track_ref": "I",
+                "railway:traffic_mode": "passenger",
+                "ref": "3066",
+                "start_date": "2019-12-30",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1119665691,
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "maxspeed": "200",
+                "name": "京包客专线",
+                "railway": "rail",
+                "railway:track_ref": "II",
+                "railway:traffic_mode": "passenger",
+                "ref": "3066",
+                "start_date": "2019-12-30",
+                "usage": "main",
+                "voltage": "25000"
+              },
+              "reason": "Manual station-core adjacency review: another rail lies between this track and the platform, or this is an outer freight/safety/throat track. Proximity or loop membership alone does not establish passenger-platform adjacency."
+            },
+            {
+              "way_id": 1180767787,
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "maxspeed": "200",
+                "name": "京包客专线",
+                "railway": "rail",
+                "railway:track_ref": "II",
+                "railway:traffic_mode": "passenger",
+                "ref": "3066",
+                "start_date": "2019-12-30",
+                "usage": "main",
+                "voltage": "25000"
+              },
+              "reason": "Manual station-core adjacency review: another rail lies between this track and the platform, or this is an outer freight/safety/throat track. Proximity or loop membership alone does not establish passenger-platform adjacency."
+            }
+          ]
+        },
+        "notes": [
+          "Fixed station anchor and axis retained; caller may extend only lateral bounds to min(raw_min, arrival_min-20) / max(raw_max, arrival_max+20).",
+          "No GNSS observations are read or used to infer track/platform geometry.",
+          "Main-tagged local tracks can serve platforms; non-adjacent through tracks are not used merely because they cross the station."
+        ]
+      },
+      "estimated": true,
+      "quality": "estimated_width_from_mapped_platform_lines",
+      "centerMethod": "Center of the oriented envelope of all reviewed national-rail platforms; mapped extents retained. No GNSS used.",
+      "lengthSource": {
+        "kind": "mapped_longitudinal_extent_with_authorized_minimum",
+        "default": true,
+        "value_m": 450,
+        "source_urls": []
+      },
+      "widthSource": {
+        "kind": "authorized_default",
+        "default": true,
+        "value_m": 12
+      },
+      "osmPlatforms": [
+        "way/122214341"
+      ],
+      "railWayIds": [
+        787919273
+      ],
+      "sourceUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=116.250061,40.114865,116.268061,40.132865",
+        "https://www.openstreetmap.org/way/122214341",
+        "https://www.openstreetmap.org/way/787919273"
+      ],
+      "notes": [
+        "2026-11-05 audit of complete public station box; bus, subway/light-rail, construction and other stations excluded.",
+        "Mapped platform lengths and vertices preserved; 450m minimum applies only to open platform lines lacking independently verified length (Beijingbei uses public 550m).",
+        "Open platform lines have explicit default 12m width allowance; this is estimated geometry, not a surveyed width.",
+        "Lateral clearance only: outer accepted passenger stopping tracks +20m; platform longitudinal ends unchanged."
+      ],
+      "checkedOn": "2026-11-05",
+      "auditComponents": [
+        {
+          "osmId": 122214341,
+          "geometryType": "LineString",
+          "estimatedWidth": true
+        }
+      ]
+    },
+    "昌平": {
+      "center": [
+        116.1865694262,
+        40.1896920925
+      ],
+      "platformCorners": [
+        [
+          116.1888103586,
+          40.1879085011
+        ],
+        [
+          116.1846781,
+          40.1916998
+        ],
+        [
+          116.1843284937,
+          40.191475684
+        ],
+        [
+          116.1884607523,
+          40.187684385
+        ]
+      ],
+      "corners": [
+        [
+          116.1841306633,
+          40.1913488637
+        ],
+        [
+          116.1882629225,
+          40.1875575642
+        ],
+        [
+          116.1890121963,
+          40.1880378903
+        ],
+        [
+          116.1848799371,
+          40.1918291898
+        ]
+      ],
+      "lengthM": 548.681,
+      "widthM": 83.161,
+      "platformLengthM": 548.681,
+      "platformWidthM": 38.802,
+      "arrivalTracks": [
+        {
+          "wayId": 787858184,
+          "coordinates": [
+            [
+              116.1846978425,
+              40.1917124571
+            ],
+            [
+              116.1885948,
+              40.18814
+            ],
+            [
+              116.1887093,
+              40.1880197
+            ],
+            [
+              116.1888053994,
+              40.187905322
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "6",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 787858186,
+          "coordinates": [
+            [
+              116.1843128622,
+              40.1914656634
+            ],
+            [
+              116.1884431205,
+              40.1876730811
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "5",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1132067956,
+          "coordinates": [
+            [
+              116.1845741048,
+              40.1916331344
+            ],
+            [
+              116.1853075,
+              40.1909626
+            ],
+            [
+              116.1886977886,
+              40.1878363375
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "4",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1132067957,
+          "coordinates": [
+            [
+              116.1885676666,
+              40.187752922
+            ],
+            [
+              116.1844373658,
+              40.1915454771
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "name": "东北环线",
+            "railway": "rail",
+            "railway:track_ref": "III",
+            "ref": "0336",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        }
+      ],
+      "arrivalTrackSelection": {
+        "name": "昌平",
+        "available": true,
+        "center": [
+          116.1865694262,
+          40.1896920925
+        ],
+        "platformCorners": [
+          [
+            116.1888103586,
+            40.1879085011
+          ],
+          [
+            116.1846781,
+            40.1916998
+          ],
+          [
+            116.1843284937,
+            40.191475684
+          ],
+          [
+            116.1884607523,
+            40.187684385
+          ]
+        ],
+        "axis_unit_east_north": [
+          0.6413399830416571,
+          -0.7672568189023328
+        ],
+        "cross_unit_east_north": [
+          0.7672568189023328,
+          0.6413399830416571
+        ],
+        "axis_bearing_degrees": 140.108189,
+        "axis_source": "Longest original platformCorners edge; corner order is not assumed to start with the longitudinal edge.",
+        "platform_longitudinal_extent_m": [
+          -274.3406,
+          274.3406
+        ],
+        "platform_lateral_extent_m": [
+          -19.4012,
+          19.4012
+        ],
+        "lateral_extent_m": [
+          -21.3582,
+          21.803
+        ],
+        "rail_ids": [
+          787858184,
+          787858186,
+          1132067956,
+          1132067957
+        ],
+        "selection_basis": "Manual public station-core track order and direct platform adjacency; retained only 4/6 and III/5 in Changping, or track 4 in Shahe. Track/throat geometry clipped to platform length.",
+        "reason_if_unavailable": null,
+        "evidence": {
+          "station_node_id": 2662698203,
+          "accepted_platform_count": 2,
+          "national_rail_candidate_count": 41,
+          "valid_loop_count": 3,
+          "selected_way_count": 4,
+          "rejected_clipped_candidates": [
+            {
+              "way_id": 787862663,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "no",
+                "gauge": "1435",
+                "railway": "rail",
+                "railway:track_ref": "11",
+                "service": "siding"
+              }
+            },
+            {
+              "way_id": 787862664,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "no",
+                "gauge": "1435",
+                "railway": "rail",
+                "railway:track_ref": "9",
+                "service": "siding"
+              }
+            },
+            {
+              "way_id": 787862668,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "no",
+                "gauge": "1435",
+                "railway": "rail",
+                "railway:track_ref": "安1",
+                "service": "siding"
+              }
+            },
+            {
+              "way_id": 787862670,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "no",
+                "gauge": "1435",
+                "railway": "rail",
+                "railway:track_ref": "砂沟线",
+                "service": "siding"
+              }
+            },
+            {
+              "way_id": 835146167,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "maxspeed": "200",
+                "name": "京包客专线",
+                "railway": "rail",
+                "railway:track_ref": "II",
+                "railway:traffic_mode": "passenger",
+                "ref": "3066",
+                "start_date": "2019-12-30",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1060885285,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "no",
+                "gauge": "1435",
+                "railway": "rail",
+                "service": "siding"
+              }
+            },
+            {
+              "way_id": 1061007825,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "no",
+                "gauge": "1435",
+                "railway": "rail",
+                "service": "siding"
+              }
+            },
+            {
+              "way_id": 1132067958,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "no",
+                "maxspeed": "120",
+                "name": "京包线",
+                "name:en": "Beijing–Baotou Railway",
+                "name:zh": "京包线",
+                "passenger_lines": "2",
+                "railway": "rail",
+                "railway:track_ref": "VII",
+                "ref": "0028",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1158754774,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "maxspeed": "250",
+                "name": "京包客专线",
+                "railway": "rail",
+                "railway:track_ref": "II",
+                "railway:traffic_mode": "passenger",
+                "ref": "3066",
+                "start_date": "2019-12-30",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 229593469,
+              "tags": {
+                "electrified": "no",
+                "gauge": "1435",
+                "railway": "rail",
+                "railway:track_ref": "10",
+                "service": "siding"
+              },
+              "reason": "Manual station-core adjacency review: another rail lies between this track and the platform, or this is an outer freight/safety/throat track. Proximity or loop membership alone does not establish passenger-platform adjacency."
+            },
+            {
+              "way_id": 787858185,
+              "tags": {
+                "electrified": "no",
+                "gauge": "1435",
+                "railway": "rail",
+                "railway:track_ref": "8",
+                "service": "siding"
+              },
+              "reason": "Manual station-core adjacency review: another rail lies between this track and the platform, or this is an outer freight/safety/throat track. Proximity or loop membership alone does not establish passenger-platform adjacency."
+            },
+            {
+              "way_id": 787862667,
+              "tags": {
+                "electrified": "no",
+                "gauge": "1435",
+                "railway": "rail",
+                "service": "siding"
+              },
+              "reason": "Manual station-core adjacency review: another rail lies between this track and the platform, or this is an outer freight/safety/throat track. Proximity or loop membership alone does not establish passenger-platform adjacency."
+            },
+            {
+              "way_id": 787862669,
+              "tags": {
+                "electrified": "no",
+                "gauge": "1435",
+                "railway": "rail",
+                "service": "siding"
+              },
+              "reason": "Manual station-core adjacency review: another rail lies between this track and the platform, or this is an outer freight/safety/throat track. Proximity or loop membership alone does not establish passenger-platform adjacency."
+            },
+            {
+              "way_id": 835144405,
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "maxspeed": "250",
+                "name": "京包客专线",
+                "railway": "rail",
+                "railway:track_ref": "I",
+                "railway:traffic_mode": "passenger",
+                "ref": "3066",
+                "start_date": "2019-12-30",
+                "usage": "main",
+                "voltage": "25000"
+              },
+              "reason": "Manual station-core adjacency review: another rail lies between this track and the platform, or this is an outer freight/safety/throat track. Proximity or loop membership alone does not establish passenger-platform adjacency."
+            },
+            {
+              "way_id": 835144407,
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "maxspeed": "200",
+                "name": "京包客专线",
+                "railway": "rail",
+                "railway:track_ref": "I",
+                "railway:traffic_mode": "passenger",
+                "ref": "3066",
+                "start_date": "2019-12-30",
+                "usage": "main",
+                "voltage": "25000"
+              },
+              "reason": "Manual station-core adjacency review: another rail lies between this track and the platform, or this is an outer freight/safety/throat track. Proximity or loop membership alone does not establish passenger-platform adjacency."
+            }
+          ]
+        },
+        "notes": [
+          "Fixed station anchor and axis retained; caller may extend only lateral bounds to min(raw_min, arrival_min-20) / max(raw_max, arrival_max+20).",
+          "No GNSS observations are read or used to infer track/platform geometry.",
+          "Main-tagged local tracks can serve platforms; non-adjacent through tracks are not used merely because they cross the station."
+        ]
+      },
+      "estimated": false,
+      "quality": "mapped_area_envelope",
+      "centerMethod": "Center of the oriented envelope of all reviewed national-rail platforms; mapped extents retained. No GNSS used.",
+      "lengthSource": {
+        "kind": "mapped_platform_area_geometry",
+        "default": false,
+        "value_m": 548.681,
+        "source_urls": []
+      },
+      "widthSource": {
+        "kind": "existing_platform_area_geometry",
+        "default": false
+      },
+      "osmPlatforms": [
+        "way/1061007813",
+        "way/1061007824"
+      ],
+      "railWayIds": [
+        787858184,
+        787858186,
+        1132067956,
+        1132067957
+      ],
+      "sourceUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=116.177309,40.180845,116.195309,40.198845",
+        "https://www.openstreetmap.org/way/1061007813",
+        "https://www.openstreetmap.org/way/1061007824",
+        "https://www.openstreetmap.org/way/1132067956",
+        "https://www.openstreetmap.org/way/1132067957",
+        "https://www.openstreetmap.org/way/787858184",
+        "https://www.openstreetmap.org/way/787858186"
+      ],
+      "notes": [
+        "2026-11-05 audit of complete public station box; bus, subway/light-rail, construction and other stations excluded.",
+        "Mapped platform lengths and vertices preserved; 450m minimum applies only to open platform lines lacking independently verified length (Beijingbei uses public 550m).",
+        "Accepted closed platform polygons retained without default width/length replacement.",
+        "Lateral clearance only: outer accepted passenger stopping tracks +20m; platform longitudinal ends unchanged."
+      ],
+      "checkedOn": "2026-11-05",
+      "auditComponents": [
+        {
+          "osmId": 1061007813,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        },
+        {
+          "osmId": 1061007824,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        }
+      ]
+    },
+    "八达岭长城": {
+      "center": [
+        116.0052597412,
+        40.3602306463
+      ],
+      "platformCorners": [
+        [
+          116.0077087047,
+          40.3592761761
+        ],
+        [
+          116.0035309681,
+          40.3618652086
+        ],
+        [
+          116.0028107777,
+          40.3611851165
+        ],
+        [
+          116.0069885143,
+          40.358596084
+        ]
+      ],
+      "corners": [
+        [
+          116.0028107493,
+          40.3611851341
+        ],
+        [
+          116.0069885143,
+          40.358596084
+        ],
+        [
+          116.0077087331,
+          40.3592761585
+        ],
+        [
+          116.0035309681,
+          40.3618652086
+        ]
+      ],
+      "lengthM": 456.713,
+      "widthM": 97.188,
+      "platformLengthM": 456.719,
+      "platformWidthM": 97.189,
+      "arrivalTracks": [
+        {
+          "wayId": 787455275,
+          "coordinates": [
+            [
+              116.0030202756,
+              40.3613829816
+            ],
+            [
+              116.0030937,
+              40.3613266
+            ],
+            [
+              116.0070779,
+              40.3588607
+            ],
+            [
+              116.007201248,
+              40.3587969601
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "layer": "-2",
+            "railway": "rail",
+            "railway:track_ref": "3",
+            "service": "siding",
+            "tunnel": "yes",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 787455276,
+          "coordinates": [
+            [
+              116.0033130405,
+              40.361659428
+            ],
+            [
+              116.0035409,
+              40.3615435
+            ],
+            [
+              116.0072324,
+              40.3592139
+            ],
+            [
+              116.0074720137,
+              40.3590526336
+            ]
+          ],
+          "basis": "Shared-node arrival/departure loop side-track within the original station envelope; way may lack service=siding. Through main rail excluded from loop inference.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "layer": "-2",
+            "railway": "rail",
+            "railway:track_ref": "4",
+            "service": "siding",
+            "tunnel": "yes",
+            "voltage": "25000"
+          }
+        }
+      ],
+      "arrivalTrackSelection": {
+        "name": "八达岭长城",
+        "available": true,
+        "center": [
+          116.0052597412,
+          40.3602306463
+        ],
+        "platformCorners": [
+          [
+            116.0077087047,
+            40.3592761761
+          ],
+          [
+            116.0035309681,
+            40.3618652086
+          ],
+          [
+            116.0028107777,
+            40.3611851165
+          ],
+          [
+            116.0069885143,
+            40.358596084
+          ]
+        ],
+        "axis_unit_east_north": [
+          0.7770162611479873,
+          -0.6294805238540766
+        ],
+        "cross_unit_east_north": [
+          0.6294805238540766,
+          0.7770162611479873
+        ],
+        "axis_bearing_degrees": 129.011807,
+        "axis_source": "Longest original platformCorners edge; corner order is not assumed to start with the longitudinal edge.",
+        "platform_longitudinal_extent_m": [
+          -228.3567,
+          228.3567
+        ],
+        "platform_lateral_extent_m": [
+          -48.5939,
+          48.5939
+        ],
+        "lateral_extent_m": [
+          -21.2586,
+          21.3676
+        ],
+        "rail_ids": [
+          787455275,
+          787455276
+        ],
+        "selection_basis": "Accepted platform adjacency or same-station shared-node side-loop evidence; clipped to fixed original platformCorners longitudinal interval. No whole-throat extent is used.",
+        "reason_if_unavailable": null,
+        "evidence": {
+          "station_node_id": 6472124842,
+          "accepted_platform_count": 2,
+          "national_rail_candidate_count": 21,
+          "valid_loop_count": 2,
+          "selected_way_count": 2,
+          "rejected_clipped_candidates": [
+            {
+              "way_id": 89369815,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "no",
+                "gauge": "1435",
+                "highspeed": "no",
+                "layer": "-1",
+                "maxspeed": "45",
+                "name": "京包线",
+                "name:en": "Beijing–Baotou Railway",
+                "name:zh": "京包线",
+                "name:zh-Hans": "京包线",
+                "name:zh-Hant": "京包線",
+                "passenger_lines": "1",
+                "railway": "rail",
+                "ref": "0028",
+                "tunnel": "yes",
+                "tunnel:name": "八达岭隧道",
+                "usage": "main"
+              }
+            },
+            {
+              "way_id": 1156571865,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "no",
+                "gauge": "1435",
+                "highspeed": "no",
+                "maxspeed": "50",
+                "name": "京包线",
+                "name:en": "Beijing–Baotou Railway",
+                "name:zh": "京包线",
+                "name:zh-Hans": "京包线",
+                "name:zh-Hant": "京包線",
+                "passenger_lines": "2",
+                "railway": "rail",
+                "ref": "0028",
+                "usage": "main"
+              }
+            },
+            {
+              "way_id": 1158754809,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "layer": "-2",
+                "maxspeed": "250",
+                "name": "京包客专线",
+                "name:zh": "京包客专线",
+                "name:zh-Hans": "京包客专线",
+                "name:zh-Hant": "京包客專線",
+                "railway": "rail",
+                "railway:track_ref": "II",
+                "railway:traffic_mode": "passenger",
+                "ref": "3066",
+                "start_date": "2019-12-30",
+                "tunnel": "yes",
+                "tunnel:name": "新八达岭隧道",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1158754810,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "layer": "-2",
+                "maxspeed": "250",
+                "name": "京包客专线",
+                "name:zh": "京包客专线",
+                "name:zh-Hans": "京包客专线",
+                "name:zh-Hant": "京包客專線",
+                "railway": "rail",
+                "railway:track_ref": "I",
+                "railway:traffic_mode": "passenger",
+                "ref": "3066",
+                "start_date": "2019-12-30",
+                "tunnel": "yes",
+                "tunnel:name": "新八达岭隧道",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            }
+          ]
+        },
+        "notes": [
+          "Fixed station anchor and axis retained; caller may extend only lateral bounds to min(raw_min, arrival_min-20) / max(raw_max, arrival_max+20).",
+          "No GNSS observations are read or used to infer track/platform geometry.",
+          "Main-tagged local tracks can serve platforms; non-adjacent through tracks are not used merely because they cross the station."
+        ]
+      },
+      "estimated": false,
+      "quality": "mapped_area_envelope",
+      "centerMethod": "Center of the oriented envelope of all reviewed national-rail platforms; mapped extents retained. No GNSS used.",
+      "lengthSource": {
+        "kind": "mapped_platform_area_geometry",
+        "default": false,
+        "value_m": 456.719,
+        "source_urls": [
+          "https://pubs.cstam.org.cn/data/article/lxxb/preview/pdf/lxxb2024-015.pdf"
+        ]
+      },
+      "widthSource": {
+        "kind": "existing_platform_area_geometry",
+        "default": false
+      },
+      "osmPlatforms": [
+        "way/787455282",
+        "way/787455283"
+      ],
+      "railWayIds": [
+        787455275,
+        787455276
+      ],
+      "sourceUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=115.995931,40.349048,116.013931,40.367048",
+        "https://pubs.cstam.org.cn/data/article/lxxb/preview/pdf/lxxb2024-015.pdf",
+        "https://www.openstreetmap.org/way/787455275",
+        "https://www.openstreetmap.org/way/787455276",
+        "https://www.openstreetmap.org/way/787455282",
+        "https://www.openstreetmap.org/way/787455283"
+      ],
+      "notes": [
+        "2026-11-05 audit of complete public station box; bus, subway/light-rail, construction and other stations excluded.",
+        "Mapped platform lengths and vertices preserved; 450m minimum applies only to open platform lines lacking independently verified length (Beijingbei uses public 550m).",
+        "Accepted closed platform polygons retained without default width/length replacement.",
+        "Lateral clearance only: outer accepted passenger stopping tracks +20m; platform longitudinal ends unchanged."
+      ],
+      "checkedOn": "2026-11-05",
+      "auditComponents": [
+        {
+          "osmId": 787455282,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        },
+        {
+          "osmId": 787455283,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        }
+      ]
     }
   },
   "pointStations": {
@@ -37287,6 +40059,22 @@
       "reason": "No accepted national-rail platform area/centerline and no valid two-ended arrival/departure loop in cached geometry; available main rail does not establish platform extent.",
       "quality": "retained_original_circle",
       "sourceUrls": []
+    }
+  },
+  "recordExceptions": {
+    "261105164159": {
+      "scope": "record",
+      "status": "exempt",
+      "checkedOn": "2026-11-05",
+      "stations": [
+        "八达岭",
+        "青龙桥",
+        "三堡",
+        "居庸关",
+        "东园",
+        "南口"
+      ],
+      "reason": "用户明确豁免本次 S206 的站台范围校验：线路老旧，途经站点按文物性质处理。本次保留原圆点，不作为其他记录或普速铁路的通用豁免。"
     }
   }
 }

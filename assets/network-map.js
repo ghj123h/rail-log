@@ -3,6 +3,7 @@ window.RailNetworkMap = {
   instance: null,
   pending: null,
   init(records, {title = '总线路图', includeIntermediateStations = false} = {}) {
+    if (!includeIntermediateStations) records = records.filter(record => record.railType !== 'conventional');
     this.title = title;
     this.includeIntermediateStations = includeIntermediateStations;
     const section = document.getElementById('network-map-section');

@@ -177,7 +177,8 @@
           throw new Error('线路图数据与当前记录不符。');
         }
         const stationCount = new Set(route.stations.map(station => station.name)).size;
-        const svg = element('svg', {role: 'img', 'aria-label': options.accessibleLabel || `${trip.origin}至${trip.destination}的 GNSS 线路图，包含${stationCount}个车站。朱红色为运转轨迹，蓝色为黄河和长江。`});
+        const conventional = trip.railType === 'conventional';
+        const svg = element('svg', {role: 'img', class: conventional ? 'rail-conventional' : '', 'aria-label': options.accessibleLabel || `${trip.origin}至${trip.destination}的 GNSS 线路图，包含${stationCount}个车站。${conventional ? '紫色' : '朱红色'}为运转轨迹，蓝色为黄河和长江。`});
         const title = element('title');
         title.textContent = `${trip.title} · 线路图`;
         svg.append(title);

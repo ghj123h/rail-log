@@ -112,17 +112,32 @@ const recordsRoot = path.resolve(__dirname, '../records');
 const records = JSON.parse(fs.readFileSync(path.join(recordsRoot, 'index.json'), 'utf8'));
 const catalog = JSON.parse(fs.readFileSync(path.join(__dirname, 'route_stations.json'), 'utf8'));
 const routes = records.map(record => JSON.parse(fs.readFileSync(path.join(recordsRoot, `${record.id}.route.json`), 'utf8')));
+// Homepage overview excludes conventional rail before fetching any route files.
+const overviewRecords = records.filter(record => record.railType !== 'conventional');
+const overviewRoutes = routes.filter(route => overviewRecords.some(record => record.id === route.id));
+const nodes = new Map(['network-map-section', 'network-map-summary'].map(id => [id, {open: false, addEventListener() {}, textContent: ''}]));
+const mapBrowser = {window: {}, document: {getElementById: id => nodes.get(id)}};
+vm.runInNewContext(fs.readFileSync(path.resolve(__dirname, '../assets/network-map.js'), 'utf8'), mapBrowser);
+let mountedRecords;
+mapBrowser.window.RailNetworkMap.mount = selected => { mountedRecords = selected; };
+nodes.get('network-map-section').open = true;
+mapBrowser.window.RailNetworkMap.init(records);
+assert.deepEqual(mountedRecords.map(record => record.id), overviewRecords.map(record => record.id));
+assert.equal(mountedRecords.some(record => record.train === 'S206'), false);
+assert.equal(nodes.get('network-map-summary').textContent, `${overviewRecords.length} 条记录`);
+mapBrowser.window.RailNetworkMap.init(records, {includeIntermediateStations: true});
+assert.equal(mountedRecords.length, records.length, 'collection selection remains intact');
 for (const item of routes) {
   assert.deepEqual(item.stations.map(station => station.name), catalog.routes[item.id], `${item.id}: use the complete along-line catalog`);
 }
-const real = build(records, Object.fromEntries(routes.map(item => [item.id, item])));
-const endpoints = [...new Set(records.flatMap(record => [record.origin, record.destination]).filter(Boolean))].sort();
+const real = build(overviewRecords, Object.fromEntries(overviewRoutes.map(item => [item.id, item])));
+const endpoints = [...new Set(overviewRecords.flatMap(record => [record.origin, record.destination]).filter(Boolean))].sort();
 assert.deepEqual(real.stations.filter(station => station.endpoint).map(station => station.name).sort(), endpoints);
-assert.equal(real.summary.recordCount, records.length);
+assert.equal(real.summary.recordCount, overviewRecords.length);
 assert.equal(real.summary.endpointCount, endpoints.length);
 assert.ok(real.stations.every(station => station.endpoint || station.junction && station.neighbors.length >= 3));
-assert.equal(real.summary.segmentCount, routes.reduce((sum, item) => sum + item.segments.length, 0));
-assert.equal(real.summary.pointCount, records.reduce((sum, record) => sum + record.sampleCount, 0));
+assert.equal(real.summary.segmentCount, overviewRoutes.reduce((sum, item) => sum + item.segments.length, 0));
+assert.equal(real.summary.pointCount, overviewRecords.reduce((sum, record) => sum + record.sampleCount, 0));
 
 // A collection receives only its own records and shows all along-line stations.
 // Its bounds come from those records, so later recorded coverage extends it.

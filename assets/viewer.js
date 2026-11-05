@@ -81,7 +81,7 @@
       encode:{x:[1,2],y:0},data:events.map(e=>[e.type==='stop'?1:0,e.start,e.end]),silent:true,z:4};
   }
   const commonLine={type:'line',symbol:'none',connectNulls:false,smooth:false,animation:false,clip:true,emphasis:{disabled:true},silent:true};
-  const speedMax=Math.max(350,Math.ceil(samples.reduce((max,s)=>Math.max(max,s.v+s.a),0)/50)*50);
+  const speedMax=Math.max(50,Math.ceil(samples.reduce((max,s)=>Math.max(max,s.v+s.a),0)/50)*50);
   chart.setOption({animation:false,textStyle:{fontFamily:'"Segoe UI","Microsoft YaHei",sans-serif'},
     grid:[{left:66,right:28,top:36,bottom:167},{left:66,right:28,height:56,bottom:73}],
     xAxis:[0,1].map(i=>({type:'time',gridIndex:i,min:full[0],max:full[1],boundaryGap:false,
@@ -92,7 +92,7 @@
       {type:'category',gridIndex:1,data:['通过','停车'],inverse:true,axisLine:{show:false},axisTick:{show:false},axisLabel:{color:'#65758a',fontSize:12},splitLine:{show:true,lineStyle:{color:'#f1f4f8'}}}],
     dataZoom:[{id:'inside',type:'inside',xAxisIndex:[0,1],filterMode:'none',minValueSpan:2000,zoomOnMouseWheel:true,moveOnMouseMove:false,moveOnMouseWheel:false,preventDefaultMouseMove:true},
       {id:'slider',type:'slider',xAxisIndex:[0,1],filterMode:'none',minValueSpan:2000,bottom:14,left:66,right:28,height:26,showDetail:false,brushSelect:false,borderColor:'#dce4ee',backgroundColor:'#f7f9fc',fillerColor:'#155b9b18',handleStyle:{color:'#fff',borderColor:'#7193b9'},dataBackground:{lineStyle:{color:'#9fb2c8'},areaStyle:{color:'#dde7f2'}},selectedDataBackground:{lineStyle:{color:colors.speed},areaStyle:{color:'#c7d9ee'}}}],
-    series:[{...commonLine,id:'speed-scale-background',data:[],z:0,markArea:{silent:true,z:0,label:{show:false},data:speedLevels.map(level=>[{yAxis:level.min,itemStyle:{color:level.background}},{yAxis:Math.min(level.max,speedMax)}])}},
+    series:[{...commonLine,id:'speed-scale-background',data:[],z:0,markArea:{silent:true,z:0,label:{show:false},data:speedLevels.filter(level=>level.min<speedMax).map(level=>[{yAxis:level.min,itemStyle:{color:level.background}},{yAxis:Math.min(level.max,speedMax)}])}},
       {...commonLine,id:'lower',stack:'band',lineStyle:{opacity:0},areaStyle:{opacity:0},data:data.map(d=>[d[0],d[2]])},
       {...commonLine,id:'band',stack:'band',lineStyle:{opacity:0},areaStyle:{color:colors.band,opacity:.4},data:data.map(d=>[d[0],d[2]===null?null:d[3]-d[2]])},
       {...commonLine,id:'speed',lineStyle:{color:colors.speed,width:1.7},data:data.map(d=>[d[0],d[1]]),z:5},eventSeries()]

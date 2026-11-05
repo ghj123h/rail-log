@@ -3,7 +3,7 @@
   "coordinateSystem": "WGS84",
   "coordinateMethod": "Public AMap station POI coordinates are GCJ-02. Catalog lon/lat uses an iterative inverse of the existing project transform; precision is approximate. The map generator replaces references with nearby actual WGS84 GNSS samples where available. Guang’anmen uses the WGS84 OpenStreetMap station node.",
   "stationScope": "全部展示区间起终点与沿途已建车站，包括不办客、暂停办客车站；不含线路所。京津现有记录已明确标记的永乐预留站作为命名位置保留，不扩展其他未来/未建站。",
-  "checkedOn": "2026-10-21",
+  "checkedOn": "2026-11-05",
   "stations": {
     "临清东": {
       "lon": 115.7568902,
@@ -1337,6 +1337,182 @@
         "lat": 39.158704,
         "poiId": "B001600021"
       }
+    },
+    "北京北": {
+      "lon": 116.347282,
+      "lat": 39.94335,
+      "sources": [
+        {
+          "title": "北京北站 · 高德地图",
+          "url": "https://www.amap.com/place/B000A833V8"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.353464,
+        "lat": 39.944699,
+        "poiId": "B000A833V8"
+      }
+    },
+    "清河": {
+      "lon": 116.308512,
+      "lat": 40.039778,
+      "sources": [
+        {
+          "title": "清河站 · 高德地图",
+          "url": "https://www.amap.com/place/B000A9NILR"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.314619,
+        "lat": 40.041059,
+        "poiId": "B000A9NILR"
+      }
+    },
+    "昌平": {
+      "lon": 116.186309,
+      "lat": 40.189845,
+      "sources": [
+        {
+          "title": "昌平站 · 高德地图",
+          "url": "https://www.amap.com/place/B000A7OMCZ"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.192482,
+        "lat": 40.191145,
+        "poiId": "B000A7OMCZ"
+      }
+    },
+    "八达岭长城": {
+      "lon": 116.004931,
+      "lat": 40.358048,
+      "sources": [
+        {
+          "title": "八达岭长城站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFKR0YGX"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.011135,
+        "lat": 40.359328,
+        "poiId": "B0FFKR0YGX"
+      }
+    },
+    "八达岭": {
+      "lon": 115.995331,
+      "lat": 40.358839,
+      "sources": [
+        {
+          "title": "八达岭站 · 高德地图",
+          "url": "https://www.amap.com/place/B000A7OGN1"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.001502,
+        "lat": 40.36009,
+        "poiId": "B000A7OGN1"
+      }
+    },
+    "青龙桥": {
+      "lon": 116.018317,
+      "lat": 40.349121,
+      "sources": [
+        {
+          "title": "青龙桥站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFF3140N"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.024565,
+        "lat": 40.350438,
+        "poiId": "B0FFF3140N"
+      }
+    },
+    "三堡": {
+      "lon": 116.034977,
+      "lat": 40.324075,
+      "sources": [
+        {
+          "title": "三堡站 · 高德地图",
+          "url": "https://www.amap.com/place/B0LBMM013A"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.041273,
+        "lat": 40.32543,
+        "poiId": "B0LBMM013A"
+      }
+    },
+    "居庸关": {
+      "lon": 116.060353,
+      "lat": 40.299412,
+      "sources": [
+        {
+          "title": "居庸关站 · 高德地图",
+          "url": "https://www.amap.com/place/B0JUTA3CWW"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.066704,
+        "lat": 40.300816,
+        "poiId": "B0JUTA3CWW"
+      }
+    },
+    "东园": {
+      "lon": 116.089532,
+      "lat": 40.274851,
+      "sources": [
+        {
+          "title": "京张铁路东园站老站房 · 高德地图",
+          "url": "https://www.amap.com/place/B0I22S9ZU5"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.095906,
+        "lat": 40.27628,
+        "poiId": "B0I22S9ZU5"
+      }
+    },
+    "南口": {
+      "lon": 116.123676,
+      "lat": 40.23842,
+      "sources": [
+        {
+          "title": "南口站 · 高德地图",
+          "url": "https://www.amap.com/place/B000A88AH7"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.130015,
+        "lat": 40.23983,
+        "poiId": "B000A88AH7"
+      }
+    },
+    "沙河": {
+      "lon": 116.259061,
+      "lat": 40.123865,
+      "sources": [
+        {
+          "title": "沙河站 · 高德地图",
+          "url": "https://www.amap.com/place/B000A88DL3"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 116.265117,
+        "lat": 40.125094,
+        "poiId": "B000A88DL3"
+      }
     }
   },
   "routes": {
@@ -1459,6 +1635,27 @@
       "沧州西",
       "天津南",
       "天津西"
+    ],
+    "261105122850": [
+      "北京北",
+      "清河",
+      "沙河",
+      "昌平",
+      "八达岭长城"
+    ],
+    "261105164159": [
+      "八达岭",
+      "青龙桥",
+      "三堡",
+      "居庸关",
+      "东园",
+      "南口"
+    ],
+    "261105211430": [
+      "北京南",
+      "亦庄",
+      "永乐",
+      "武清"
     ]
   },
   "routeSources": {
@@ -1594,6 +1791,18 @@
       {
         "title": "天津西站 · 国家铁路局",
         "url": "https://source.nra.gov.cn/tlfc/tpsy/202204/t20220405_292984.shtml"
+      }
+    ],
+    "261105122850": [
+      {
+        "title": "中国铁路：京张高铁开通运营及全线站序",
+        "url": "https://app.www.gov.cn/govdata/gov/201912/28/452486/article.html"
+      }
+    ],
+    "261105164159": [
+      {
+        "title": "京包铁路车站列表（上行经青龙桥）",
+        "url": "https://zh.wikipedia.org/wiki/京包铁路车站列表"
       }
     ]
   }
