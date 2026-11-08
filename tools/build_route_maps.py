@@ -100,7 +100,10 @@ def station_position(station, points, events):
 def build(trip, source_root, definitions, footprints):
     record_id = trip["id"]
     source_name = f"gnss_log_20{record_id[:2]}_{record_id[2:4]}_{record_id[4:6]}_{record_id[6:8]}_{record_id[8:10]}_{record_id[10:12]}.txt"
-    points = read_positions(source_root / source_name, trip["samples"])
+    source = source_root / source_name
+    if not source.exists():
+        source = source_root / f"{trip['train']}_20{record_id[:2]}-{record_id[2:4]}-{record_id[4:6]}_{record_id[6:8]}-{record_id[8:10]}-{record_id[10:12]}.txt"
+    points = read_positions(source, trip["samples"])
     segments = []
     for index, point in enumerate(points):
         if not index or point[2] - points[index - 1][2] > 1.5 * trip.get("sampleIntervalMs", 1000):

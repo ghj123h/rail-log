@@ -230,7 +230,7 @@ function footprintFrame(footprint) {
     assert.equal(Boolean(station.platform), !sparse.has(station.name), `${station.name}: uses the selected station geometry policy`);
     if (station.platform) assert.ok([4, 5].includes(station.platform.corners.length));
   }
-  assert.equal(seen.size, 92);
+  assert.equal(seen.size, 96);
 
   // The display boundary uses clearance from the outer arrival/departure track,
   // keeping the source platform extent and longitudinal endpoints unchanged.
@@ -309,7 +309,7 @@ function footprintFrame(footprint) {
     '261018184017': [['永乐', 116.7887907, 39.6529622]]
   };
   for (const route of routes) {
-    if (route.id.startsWith('261105')) continue; // New records have no pre-padding baseline.
+    if (route.id >= '261105000000') continue; // Later records have no pre-padding baseline.
     assert.deepEqual(route.stations.filter(station => !station.platform).map(station => [station.name, station.lon, station.lat]), originalCircles[route.id] || [], `${route.id}: arrival-track clearance leaves all original circles unchanged`);
   }
   const realRecords = JSON.parse(fs.readFileSync(path.join(recordsRoot, 'index.json'), 'utf8'));

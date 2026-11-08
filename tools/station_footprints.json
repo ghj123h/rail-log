@@ -1,7 +1,7 @@
 {
   "version": 2,
   "coordinateSystem": "WGS84",
-  "checkedOn": "2026-11-05",
+  "checkedOn": "2026-11-08",
   "license": {
     "attribution": "© OpenStreetMap contributors",
     "license": "ODbL-1.0",
@@ -40010,6 +40010,2161 @@
         },
         {
           "osmId": 787455283,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        }
+      ]
+    },
+    "天津": {
+      "center": [
+        117.2042631693,
+        39.1354035078
+      ],
+      "platformCorners": [
+        [
+          117.2074841572,
+          39.1350620355
+        ],
+        [
+          117.2018500887,
+          39.1370998148
+        ],
+        [
+          117.2010421813,
+          39.13574498
+        ],
+        [
+          117.2066762499,
+          39.1337072008
+        ]
+      ],
+      "corners": [
+        [
+          117.2009311604,
+          39.1355588229
+        ],
+        [
+          117.2065652382,
+          39.1335210403
+        ],
+        [
+          117.2075976419,
+          39.1352523242
+        ],
+        [
+          117.2019635641,
+          39.1372901068
+        ]
+      ],
+      "lengthM": 537.098,
+      "widthM": 211.92,
+      "platformLengthM": 537.1,
+      "platformWidthM": 165.84,
+      "arrivalTracks": [
+        {
+          "wayId": 45759933,
+          "coordinates": [
+            [
+              117.2018661308,
+              39.1371267165
+            ],
+            [
+              117.2020272,
+              39.1370612
+            ],
+            [
+              117.2074519,
+              39.1350935
+            ],
+            [
+              117.2074925233,
+              39.1350760463
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "I-7",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 216761502,
+          "coordinates": [
+            [
+              117.2015311005,
+              39.1365648892
+            ],
+            [
+              117.2015986,
+              39.136537
+            ],
+            [
+              117.2022047,
+              39.1363228
+            ],
+            [
+              117.2071426,
+              39.1345294
+            ],
+            [
+              117.2071623425,
+              39.1345223512
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "maxspeed": "80",
+            "passenger_lines": "2",
+            "railway": "rail",
+            "railway:track_ref": "II-8",
+            "railway:traffic_mode": "passenger",
+            "service": "siding",
+            "source": "bing",
+            "start_date": "2013-12-01",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 216761504,
+          "coordinates": [
+            [
+              117.2072692323,
+              39.1347015996
+            ],
+            [
+              117.2022933,
+              39.1365016
+            ],
+            [
+              117.2018266,
+              39.1366763
+            ],
+            [
+              117.2016538836,
+              39.1367707897
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "I-4",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 216792704,
+          "coordinates": [
+            [
+              117.2069859982,
+              39.1342266317
+            ],
+            [
+              117.2069557,
+              39.1342362
+            ],
+            [
+              117.2020437,
+              39.1360128
+            ],
+            [
+              117.2014711,
+              39.1362602
+            ],
+            [
+              117.2013801934,
+              39.1363118263
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "maxspeed": "80",
+            "name": "津秦高速线",
+            "name:de": "Schnellfahrstrecke Tianjin–Qinhuangdao",
+            "name:en": "Tianjin–Qinhuangdao High-Speed Railway",
+            "name:zh": "津秦高速线",
+            "name:zh-Hans": "津秦高速线",
+            "name:zh-Hant": "津秦高速線",
+            "railway": "rail",
+            "railway:track_ref": "II-XI",
+            "railway:traffic_mode": "passenger",
+            "ref": "3023",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 216871070,
+          "coordinates": [
+            [
+              117.2071971529,
+              39.1345807264
+            ],
+            [
+              117.2071802,
+              39.1345855
+            ],
+            [
+              117.2022261,
+              39.1363873
+            ],
+            [
+              117.2017542,
+              39.136589
+            ],
+            [
+              117.201602252,
+              39.1366842063
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "I-6",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 216875851,
+          "coordinates": [
+            [
+              117.2066920349,
+              39.1337336713
+            ],
+            [
+              117.2066622,
+              39.133743
+            ],
+            [
+              117.2051827,
+              39.1342781
+            ],
+            [
+              117.2011346,
+              39.1357422
+            ],
+            [
+              117.2010585636,
+              39.135772471
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "III-17",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 410925927,
+          "coordinates": [
+            [
+              117.2069600311,
+              39.1341830862
+            ],
+            [
+              117.2069401,
+              39.1341902
+            ],
+            [
+              117.2020223,
+              39.1359795
+            ],
+            [
+              117.2014672,
+              39.1362063
+            ],
+            [
+              117.201351102,
+              39.1362630417
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "II-12",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 410954611,
+          "coordinates": [
+            [
+              117.2017803865,
+              39.136982928
+            ],
+            [
+              117.2019526,
+              39.1368969
+            ],
+            [
+              117.2024165,
+              39.1367201
+            ],
+            [
+              117.2074005518,
+              39.1349218151
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "I-3",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 833094480,
+          "coordinates": [
+            [
+              117.2067617958,
+              39.1338506565
+            ],
+            [
+              117.2011395,
+              39.1358811
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "65",
+            "name": "津山线",
+            "name:en": "Tianjin-Shanhaiguan Railway",
+            "name:zh": "津山线",
+            "name:zh-Hans": "津山线",
+            "name:zh-Hant": "津山線",
+            "old_name": "京哈线",
+            "old_ref": "0007",
+            "railway": "rail",
+            "railway:track_ref": "III-XVI",
+            "ref": "0023",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 833094493,
+          "coordinates": [
+            [
+              117.2011605,
+              39.1359324
+            ],
+            [
+              117.2067884021,
+              39.1338952739
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "65",
+            "name": "津山线",
+            "name:en": "Tianjin-Shanhaiguan Railway",
+            "name:zh": "津山线",
+            "name:zh-Hans": "津山线",
+            "name:zh-Hant": "津山線",
+            "old_name": "京哈线",
+            "old_ref": "0007",
+            "railway": "rail",
+            "railway:track_ref": "III-XV",
+            "ref": "0023",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 846610081,
+          "coordinates": [
+            [
+              117.2073006382,
+              39.1347542654
+            ],
+            [
+              117.2023147,
+              39.1365516
+            ],
+            [
+              117.2018507,
+              39.1367304
+            ],
+            [
+              117.2016816376,
+              39.1368173317
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "maxspeed": "70",
+            "name": "京津城际线",
+            "name:de": "SFS Beijing-Tianjin",
+            "name:en": "Jingjin Intercity Line",
+            "name:zh": "京津城际线",
+            "name:zh-Hans": "京津城际线",
+            "name:zh-Hant": "京津城際線",
+            "passenger_lines": "2",
+            "railway": "rail",
+            "railway:ctcs": "3",
+            "railway:track_ref": "I-II",
+            "railway:traffic_mode": "passenger",
+            "ref": "3010",
+            "start_date": "2008-08-01",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 999905613,
+          "coordinates": [
+            [
+              117.2014438525,
+              39.1364185792
+            ],
+            [
+              117.2016013,
+              39.1363456
+            ],
+            [
+              117.2021,
+              39.1361563
+            ],
+            [
+              117.207046,
+              39.1343588
+            ],
+            [
+              117.2070614865,
+              39.1343532213
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "maxspeed": "80",
+            "name": "津秦高速线",
+            "name:de": "Schnellfahrstrecke Tianjin–Qinhuangdao",
+            "name:en": "Tianjin–Qinhuangdao High-Speed Railway",
+            "name:zh": "津秦高速线",
+            "name:zh-Hans": "津秦高速线",
+            "name:zh-Hant": "津秦高速線",
+            "passenger_lines": "2",
+            "railway": "rail",
+            "railway:track_ref": "II-X",
+            "railway:traffic_mode": "passenger",
+            "ref": "3023",
+            "start_date": "2013-12-01",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1038010597,
+          "coordinates": [
+            [
+              117.2066626715,
+              39.1336844306
+            ],
+            [
+              117.2010327459,
+              39.135729176
+            ]
+          ],
+          "basis": "Shared-node arrival/departure loop side-track within the original station envelope; way may lack service=siding. Through main rail excluded from loop inference.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "III-18",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1038010605,
+          "coordinates": [
+            [
+              117.2014720248,
+              39.1364658226
+            ],
+            [
+              117.2016066,
+              39.1363997
+            ],
+            [
+              117.2021216,
+              39.1362041
+            ],
+            [
+              117.2070569,
+              39.1344086
+            ],
+            [
+              117.2070878709,
+              39.1343974665
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "maxspeed": "80",
+            "passenger_lines": "2",
+            "railway": "rail",
+            "railway:track_ref": "II-9",
+            "railway:traffic_mode": "passenger",
+            "service": "siding",
+            "source": "bing",
+            "start_date": "2013-12-01",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1038010610,
+          "coordinates": [
+            [
+              117.201742866,
+              39.1369200082
+            ],
+            [
+              117.2018856,
+              39.1368532
+            ],
+            [
+              117.2023979,
+              39.1366722
+            ],
+            [
+              117.2073723909,
+              39.1348745908
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "name": "京津城际线",
+            "name:de": "SFS Beijing-Tianjin",
+            "name:en": "Jingjin Intercity Line",
+            "name:zh": "京津城际线",
+            "name:zh-Hans": "京津城际线",
+            "name:zh-Hant": "京津城際線",
+            "railway": "rail",
+            "railway:ctcs": "3",
+            "railway:track_ref": "I-I",
+            "railway:traffic_mode": "passenger",
+            "ref": "3010",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1038010612,
+          "coordinates": [
+            [
+              117.2018330704,
+              39.137071276
+            ],
+            [
+              117.2074269,
+              39.135058
+            ],
+            [
+              117.2074702768,
+              39.13503874
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "I-5",
+            "service": "siding",
+            "start_date": "2008-08-01",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1086113138,
+          "coordinates": [
+            [
+              117.2068903387,
+              39.1340662159
+            ],
+            [
+              117.206853,
+              39.1340778
+            ],
+            [
+              117.2019017,
+              39.1358573
+            ],
+            [
+              117.201616,
+              39.1359846
+            ],
+            [
+              117.2013747,
+              39.1361097
+            ],
+            [
+              117.2012895086,
+              39.1361597529
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "80",
+            "name": "津秦城际联络线",
+            "name:zh": "津秦城际联络线",
+            "name:zh-Hans": "津秦城际联络线",
+            "name:zh-Hant": "津秦城際聯絡線",
+            "railway": "rail",
+            "railway:track_ref": "II-XIII",
+            "ref": "2346",
+            "usage": "branch",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1086113174,
+          "coordinates": [
+            [
+              117.2012274202,
+              39.1360556342
+            ],
+            [
+              117.2042971,
+              39.1349538
+            ],
+            [
+              117.2068384,
+              39.1340416
+            ],
+            [
+              117.2068672312,
+              39.1340274658
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "III-14",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        }
+      ],
+      "arrivalTrackSelection": {
+        "name": "天津",
+        "available": true,
+        "center": [
+          117.2042631693,
+          39.1354035078
+        ],
+        "platformCorners": [
+          [
+            117.2074841572,
+            39.1350620355
+          ],
+          [
+            117.2018500887,
+            39.1370998148
+          ],
+          [
+            117.2010421813,
+            39.13574498
+          ],
+          [
+            117.2066762499,
+            39.1337072008
+          ]
+        ],
+        "axis_unit_east_north": [
+          0.9069634786163366,
+          -0.42120926919543666
+        ],
+        "cross_unit_east_north": [
+          0.42120926919543666,
+          0.9069634786163366
+        ],
+        "axis_bearing_degrees": 114.910957,
+        "axis_source": "Longest original platformCorners edge; corner order is not assumed to start with the longitudinal edge.",
+        "platform_longitudinal_extent_m": [
+          -268.549,
+          268.549
+        ],
+        "platform_lateral_extent_m": [
+          -82.92,
+          82.92
+        ],
+        "lateral_extent_m": [
+          -85.7072,
+          86.2129
+        ],
+        "rail_ids": [
+          45759933,
+          216761502,
+          216761504,
+          216792704,
+          216871070,
+          216875851,
+          410925927,
+          410954611,
+          833094480,
+          833094493,
+          846610081,
+          999905613,
+          1038010597,
+          1038010605,
+          1038010610,
+          1038010612,
+          1086113138,
+          1086113174
+        ],
+        "selection_basis": "Accepted platform adjacency or same-station shared-node side-loop evidence; clipped to fixed original platformCorners longitudinal interval. No whole-throat extent is used.",
+        "reason_if_unavailable": null,
+        "evidence": {
+          "station_node_id": 273088049,
+          "accepted_platform_count": 8,
+          "national_rail_candidate_count": 66,
+          "valid_loop_count": 6,
+          "selected_way_count": 18,
+          "rejected_clipped_candidates": [
+            {
+              "way_id": 108679512,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "maxspeed": "65",
+                "name": "津山线",
+                "name:en": "Tianjin-Shanhaiguan Railway",
+                "name:zh": "津山线",
+                "old_name": "京哈线",
+                "old_ref": "0007",
+                "railway": "rail",
+                "railway:track_ref": "III-XV",
+                "ref": "0023",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 833094483,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "maxspeed": "65",
+                "name": "津山线",
+                "name:en": "Tianjin-Shanhaiguan Railway",
+                "name:zh": "津山线",
+                "old_name": "京哈线",
+                "old_ref": "0007",
+                "railway": "rail",
+                "railway:track_ref": "III-XVI",
+                "ref": "0023",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            }
+          ]
+        },
+        "notes": [
+          "Fixed station anchor and axis retained; caller may extend only lateral bounds to min(raw_min, arrival_min-20) / max(raw_max, arrival_max+20).",
+          "No GNSS observations are read or used to infer track/platform geometry.",
+          "Main-tagged local tracks can serve platforms; non-adjacent through tracks are not used merely because they cross the station."
+        ]
+      },
+      "estimated": true,
+      "quality": "mapped_islands_with_inferred_outer_sides",
+      "centerMethod": "Center of the oriented envelope of all reviewed national-rail platforms; mapped extents retained. No GNSS used.",
+      "lengthSource": {
+        "kind": "mapped_areas_with_default_missing_components",
+        "default": true,
+        "value_m": 537.1,
+        "default_applies_to": "Two missing side-platform components only",
+        "default_component_length_m": 450
+      },
+      "widthSource": {
+        "kind": "mapped_areas_with_default_missing_components",
+        "default": true,
+        "default_component_width_m": 12
+      },
+      "osmPlatforms": [
+        "way/410925918",
+        "way/410925920",
+        "way/410925921",
+        "way/410925922",
+        "way/410925923",
+        "way/410925924",
+        "way/410925925",
+        "way/410925926"
+      ],
+      "railWayIds": [
+        45759933,
+        216761502,
+        216761504,
+        216792704,
+        216871070,
+        216875851,
+        410925927,
+        410954611,
+        833094480,
+        833094493,
+        846610081,
+        999905613,
+        1038010597,
+        1038010605,
+        1038010610,
+        1038010612,
+        1086113138,
+        1086113174
+      ],
+      "sourceUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=117.194789,39.125919,117.212789,39.143919",
+        "https://s.visitbeijing.com.cn/attraction/120446",
+        "https://www.openstreetmap.org/way/1038010597",
+        "https://www.openstreetmap.org/way/1038010605",
+        "https://www.openstreetmap.org/way/1038010610",
+        "https://www.openstreetmap.org/way/1038010612",
+        "https://www.openstreetmap.org/way/1086113138",
+        "https://www.openstreetmap.org/way/1086113174",
+        "https://www.openstreetmap.org/way/216761502",
+        "https://www.openstreetmap.org/way/216761504",
+        "https://www.openstreetmap.org/way/216792704",
+        "https://www.openstreetmap.org/way/216871070",
+        "https://www.openstreetmap.org/way/216875851",
+        "https://www.openstreetmap.org/way/410925918",
+        "https://www.openstreetmap.org/way/410925920",
+        "https://www.openstreetmap.org/way/410925921",
+        "https://www.openstreetmap.org/way/410925922",
+        "https://www.openstreetmap.org/way/410925923",
+        "https://www.openstreetmap.org/way/410925924",
+        "https://www.openstreetmap.org/way/410925925",
+        "https://www.openstreetmap.org/way/410925926",
+        "https://www.openstreetmap.org/way/410925927",
+        "https://www.openstreetmap.org/way/410954611",
+        "https://www.openstreetmap.org/way/45759933",
+        "https://www.openstreetmap.org/way/833094480",
+        "https://www.openstreetmap.org/way/833094493",
+        "https://www.openstreetmap.org/way/846610081",
+        "https://www.openstreetmap.org/way/999905613"
+      ],
+      "notes": [
+        "2026-11-08 complete public station-box audit; bus, subway, construction and unrelated yards excluded.",
+        "All accepted closed national-rail platform polygons retained without default width/length replacement.",
+        "Lateral clearance only: outer accepted passenger stopping tracks +20m; platform longitudinal ends unchanged.",
+        "Tianjin: eight mapped island platform polygons plus two missing side platforms inferred from outer numbered arrival tracks I-7 and III-18 and official 10-platform/18-track scale. Defaults450m length/12m width/2m rail-to-edge are explicit estimates; existing longer mapped polygons are retained."
+      ],
+      "checkedOn": "2026-11-08",
+      "auditComponents": [
+        {
+          "osmId": 410925918,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        },
+        {
+          "osmId": 410925920,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        },
+        {
+          "osmId": 410925921,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        },
+        {
+          "osmId": 410925922,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        },
+        {
+          "osmId": 410925923,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        },
+        {
+          "osmId": 410925924,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        },
+        {
+          "osmId": 410925925,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        },
+        {
+          "osmId": 410925926,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        },
+        {
+          "platformRef": "18",
+          "kind": "side_platform",
+          "adjacentTrackWayId": 45759933,
+          "adjacentTrackRef": "I-7",
+          "neighbourPlatformWayId": 410925925,
+          "defaultLengthM": 450,
+          "defaultWidthM": 12,
+          "defaultTrackEdgeMarginM": 2,
+          "longitudinalCenterBasis": "Longitudinal midpoint of neighbouring mapped island platform; not whole-throat midpoint.",
+          "cornersWgs84": [
+            [
+              117.20737910997653,
+              39.135100029908656
+            ],
+            [
+              117.20732065073246,
+              39.13500199563069
+            ],
+            [
+              117.20265870417032,
+              39.13680734763514
+            ],
+            [
+              117.20260024492623,
+              39.13670931335717
+            ]
+          ],
+          "sourceUrls": [
+            "https://s.visitbeijing.com.cn/attraction/120446",
+            "https://www.openstreetmap.org/way/45759933",
+            "https://www.openstreetmap.org/way/410925925"
+          ]
+        },
+        {
+          "platformRef": "1",
+          "kind": "side_platform",
+          "adjacentTrackWayId": 1038010597,
+          "adjacentTrackRef": "III-18",
+          "neighbourPlatformWayId": 410925926,
+          "defaultLengthM": 450,
+          "defaultWidthM": 12,
+          "defaultTrackEdgeMarginM": 2,
+          "longitudinalCenterBasis": "Longitudinal midpoint of neighbouring mapped island platform; not whole-throat midpoint.",
+          "cornersWgs84": [
+            [
+              117.20625123158185,
+              39.13398010342838
+            ],
+            [
+              117.20619277233776,
+              39.13388206915042
+            ],
+            [
+              117.20153082577562,
+              39.13568742115487
+            ],
+            [
+              117.20147236653155,
+              39.1355893868769
+            ]
+          ],
+          "sourceUrls": [
+            "https://s.visitbeijing.com.cn/attraction/120446",
+            "https://www.openstreetmap.org/way/1038010597",
+            "https://www.openstreetmap.org/way/410925926"
+          ]
+        }
+      ]
+    },
+    "军粮城北": {
+      "center": [
+        117.4211631467,
+        39.0657705809
+      ],
+      "platformCorners": [
+        [
+          117.4237218935,
+          39.0652801619
+        ],
+        [
+          117.4189242547,
+          39.0668536956
+        ],
+        [
+          117.4186044,
+          39.066261
+        ],
+        [
+          117.4234020388,
+          39.0646874663
+        ]
+      ],
+      "corners": [
+        [
+          117.4237757726,
+          39.0653799865
+        ],
+        [
+          117.4189781283,
+          39.0669535221
+        ],
+        [
+          117.4185636866,
+          39.0661855712
+        ],
+        [
+          117.423361331,
+          39.0646120356
+        ]
+      ],
+      "lengthM": 450.468,
+      "widthM": 92.493,
+      "platformLengthM": 450.472,
+      "platformWidthM": 71.385,
+      "arrivalTracks": [
+        {
+          "wayId": 1086276258,
+          "coordinates": [
+            [
+              117.4234509464,
+              39.064778091
+            ],
+            [
+              117.4186643081,
+              39.0663720205
+            ]
+          ],
+          "basis": "Complete national-rail station: platform 3 adjoins track 1, platform 2 adjoins tracks 4 and 5, platform 1 adjoins track 8. Excludes two Jingjin and two Jinqin non-platform through mains plus ground-level Jinshan railway.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "layer": "2",
+            "railway": "rail",
+            "railway:track_ref": "8",
+            "railway:traffic_mode": "passenger",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1086276259,
+          "coordinates": [
+            [
+              117.4187398931,
+              39.0665120778
+            ],
+            [
+              117.4235342154,
+              39.0649323866
+            ]
+          ],
+          "basis": "Complete national-rail station: platform 3 adjoins track 1, platform 2 adjoins tracks 4 and 5, platform 1 adjoins track 8. Excludes two Jingjin and two Jinqin non-platform through mains plus ground-level Jinshan railway.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "layer": "2",
+            "railway": "rail",
+            "railway:track_ref": "5",
+            "railway:traffic_mode": "passenger",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1086276262,
+          "coordinates": [
+            [
+              117.4236004347,
+              39.0650550893
+            ],
+            [
+              117.4188095752,
+              39.0666411972
+            ]
+          ],
+          "basis": "Complete national-rail station: platform 3 adjoins track 1, platform 2 adjoins tracks 4 and 5, platform 1 adjoins track 8. Excludes two Jingjin and two Jinqin non-platform through mains plus ground-level Jinshan railway.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "layer": "2",
+            "railway": "rail",
+            "railway:track_ref": "4",
+            "railway:traffic_mode": "passenger",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1086276263,
+          "coordinates": [
+            [
+              117.4188885128,
+              39.0667874667
+            ],
+            [
+              117.4236816112,
+              39.0652055077
+            ]
+          ],
+          "basis": "Complete national-rail station: platform 3 adjoins track 1, platform 2 adjoins tracks 4 and 5, platform 1 adjoins track 8. Excludes two Jingjin and two Jinqin non-platform through mains plus ground-level Jinshan railway.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "layer": "2",
+            "railway": "rail",
+            "railway:track_ref": "1",
+            "railway:traffic_mode": "passenger",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        }
+      ],
+      "arrivalTrackSelection": {
+        "name": "军粮城北",
+        "available": true,
+        "center": [
+          117.4211631467,
+          39.0657705809
+        ],
+        "platformCorners": [
+          [
+            117.4237218935,
+            39.0652801619
+          ],
+          [
+            117.4189242547,
+            39.0668536956
+          ],
+          [
+            117.4186044,
+            39.066261
+          ],
+          [
+            117.4234020388,
+            39.0646874663
+          ]
+        ],
+        "axis_unit_east_north": [
+          -0.9217462531373267,
+          0.3877935595485043
+        ],
+        "cross_unit_east_north": [
+          -0.3877935595485043,
+          -0.9217462531373267
+        ],
+        "axis_bearing_degrees": 112.817278,
+        "axis_source": "Longest original platformCorners edge; corner order is not assumed to start with the longitudinal edge.",
+        "platform_longitudinal_extent_m": [
+          -225.2342,
+          225.2342
+        ],
+        "platform_lateral_extent_m": [
+          -35.6925,
+          35.6925
+        ],
+        "lateral_extent_m": [
+          -27.7158,
+          24.7775
+        ],
+        "rail_ids": [
+          1086276258,
+          1086276259,
+          1086276262,
+          1086276263
+        ],
+        "selection_basis": "Complete national-rail station: platform 3 adjoins track 1, platform 2 adjoins tracks 4 and 5, platform 1 adjoins track 8. Excludes two Jingjin and two Jinqin non-platform through mains plus ground-level Jinshan railway.",
+        "reason_if_unavailable": null,
+        "evidence": {
+          "station_node_id": 9274358865,
+          "accepted_platform_count": 3,
+          "national_rail_candidate_count": 22,
+          "valid_loop_count": 4,
+          "selected_way_count": 4,
+          "rejected_clipped_candidates": [
+            {
+              "way_id": 1086276236,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "bridge": "yes",
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "layer": "2",
+                "maxspeed": "350",
+                "name": "京津城际线",
+                "name:de": "SFS Beijing-Tianjin",
+                "name:en": "Jingjin Intercity Line",
+                "name:zh": "京津城际线",
+                "name:zh-Hans": "京津城际线",
+                "name:zh-Hant": "京津城際線",
+                "passenger_lines": "2",
+                "railway": "rail",
+                "railway:ctcs": "3",
+                "railway:track_ref": "III",
+                "railway:traffic_mode": "passenger",
+                "ref": "3010",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1086276238,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "maxspeed": "170",
+                "name": "津山线",
+                "name:en": "Tianjin-Shanhaiguan Line",
+                "name:zh": "津山线",
+                "old_name": "京哈线",
+                "old_ref": "0007",
+                "railway": "rail",
+                "ref": "0023",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1086276239,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "maxspeed": "170",
+                "name": "津山线",
+                "name:en": "Tianjin-Shanhaiguan Line",
+                "name:zh": "津山线",
+                "old_name": "京哈线",
+                "old_ref": "0007",
+                "railway": "rail",
+                "ref": "0023",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1086276256,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "bridge": "yes",
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "layer": "2",
+                "maxspeed": "350",
+                "name": "津秦高速线",
+                "name:de": "Schnellfahrstrecke Tianjin–Qinhuangdao",
+                "name:en": "Tianjin–Qinhuangdao High-Speed Railway",
+                "name:zh": "津秦高速线",
+                "passenger_lines": "2",
+                "railway": "rail",
+                "railway:track_ref": "VII",
+                "railway:traffic_mode": "passenger",
+                "ref": "3023",
+                "start_date": "2013-12-01",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1086276257,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "bridge": "yes",
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "layer": "3",
+                "maxspeed": "350",
+                "name": "津秦高速线",
+                "name:de": "Schnellfahrstrecke Tianjin–Qinhuangdao",
+                "name:en": "Tianjin–Qinhuangdao High-Speed Railway",
+                "name:zh": "津秦高速线",
+                "passenger_lines": "2",
+                "railway": "rail",
+                "railway:track_ref": "VI",
+                "railway:traffic_mode": "passenger",
+                "ref": "3023",
+                "start_date": "2013年12月1日",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1086276261,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "bridge": "yes",
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "layer": "2",
+                "maxspeed": "350",
+                "name": "京津城际线",
+                "name:de": "SFS Beijing-Tianjin",
+                "name:en": "Jingjin Intercity Line",
+                "name:zh": "京津城际线",
+                "name:zh-Hans": "京津城际线",
+                "name:zh-Hant": "京津城際線",
+                "passenger_lines": "2",
+                "railway": "rail",
+                "railway:ctcs": "3",
+                "railway:track_ref": "II",
+                "railway:traffic_mode": "passenger",
+                "ref": "3010",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            }
+          ]
+        },
+        "notes": [
+          "Fixed station anchor and axis retained; caller may extend only lateral bounds to min(raw_min, arrival_min-20) / max(raw_max, arrival_max+20).",
+          "No GNSS observations are read or used to infer track/platform geometry.",
+          "Main-tagged local tracks can serve platforms; non-adjacent through tracks are not used merely because they cross the station."
+        ]
+      },
+      "estimated": false,
+      "quality": "mapped_area_envelope",
+      "centerMethod": "Center of the oriented envelope of all reviewed national-rail platforms; mapped vertices and full extents retained. No GNSS used.",
+      "lengthSource": {
+        "kind": "mapped_platform_area_geometry",
+        "default": false,
+        "value_m": 450.472,
+        "source_urls": [
+          "https://www.openstreetmap.org/way/1086276253",
+          "https://www.openstreetmap.org/way/1086276254",
+          "https://www.openstreetmap.org/way/1086276255"
+        ]
+      },
+      "widthSource": {
+        "kind": "existing_platform_area_geometry",
+        "default": false
+      },
+      "osmPlatforms": [
+        "way/1086276253",
+        "way/1086276254",
+        "way/1086276255"
+      ],
+      "railWayIds": [
+        1086276258,
+        1086276259,
+        1086276262,
+        1086276263
+      ],
+      "sourceUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=117.411986,39.056049,117.429986,39.074049",
+        "https://www.openstreetmap.org/way/1086276253",
+        "https://www.openstreetmap.org/way/1086276254",
+        "https://www.openstreetmap.org/way/1086276255",
+        "https://www.openstreetmap.org/way/1086276258",
+        "https://www.openstreetmap.org/way/1086276259",
+        "https://www.openstreetmap.org/way/1086276262",
+        "https://www.openstreetmap.org/way/1086276263"
+      ],
+      "notes": [
+        "2026-11-08 audit of complete station OSM box, including platform multipolygon relations and all national-rail fields.",
+        "Mapped closed platform areas retained; no default length or width used.",
+        "Display transverse clearance only: at least20m beyond outer accepted passenger stopping tracks, clipped to platform longitudinal envelope. No four-side buffer or throat-length expansion."
+      ],
+      "checkedOn": "2026-11-08",
+      "auditComponents": [
+        {
+          "osmType": "way",
+          "osmId": 1086276253,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        },
+        {
+          "osmType": "way",
+          "osmId": 1086276254,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        },
+        {
+          "osmType": "way",
+          "osmId": 1086276255,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        }
+      ]
+    },
+    "塘沽": {
+      "center": [
+        117.6360692693,
+        39.0266206767
+      ],
+      "platformCorners": [
+        [
+          117.6391135475,
+          39.0262064026
+        ],
+        [
+          117.633204204,
+          39.0275239825
+        ],
+        [
+          117.6330249911,
+          39.0270349508
+        ],
+        [
+          117.6389343346,
+          39.0257173709
+        ]
+      ],
+      "corners": [
+        [
+          117.6391348191,
+          39.0262644461
+        ],
+        [
+          117.633225475,
+          39.0275820262
+        ],
+        [
+          117.6329851578,
+          39.026926257
+        ],
+        [
+          117.6388945019,
+          39.0256086769
+        ]
+      ],
+      "lengthM": 532.209,
+      "widthM": 75.717,
+      "platformLengthM": 532.21,
+      "platformWidthM": 56.465,
+      "arrivalTracks": [
+        {
+          "wayId": 623889201,
+          "coordinates": [
+            [
+              117.6331619971,
+              39.0274088097
+            ],
+            [
+              117.6339224,
+              39.027225
+            ],
+            [
+              117.6390546,
+              39.0260848
+            ],
+            [
+              117.6390679695,
+              39.0260820292
+            ]
+          ],
+          "basis": "Complete national-rail station: north platform 4 adjoins Jingjin I-3, shared platform 2/3 adjoins Jingjin I-4 and Jinshan II-I, south platform 1 adjoins Jinshan II-II. I-I and I-II Jingjin through pair lie between stopping tracks and do not directly face platforms. Jinshan usage=main tracks do face platforms and are included. Freight yard, electric-vehicle track and throat-only tracks excluded.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "I-3",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 833094473,
+          "coordinates": [
+            [
+              117.6389579799,
+              39.0257818934
+            ],
+            [
+              117.6334186,
+              39.027017
+            ],
+            [
+              117.6330554777,
+              39.0271181434
+            ]
+          ],
+          "basis": "Complete national-rail station: north platform 4 adjoins Jingjin I-3, shared platform 2/3 adjoins Jingjin I-4 and Jinshan II-I, south platform 1 adjoins Jinshan II-II. I-I and I-II Jingjin through pair lie between stopping tracks and do not directly face platforms. Jinshan usage=main tracks do face platforms and are included. Freight yard, electric-vehicle track and throat-only tracks excluded.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "120",
+            "name": "津山线",
+            "name:en": "Tianjin-Shanhaiguan Line",
+            "name:zh": "津山线",
+            "old_name": "京哈线",
+            "old_ref": "0007",
+            "railway": "rail",
+            "railway:track_ref": "II-II",
+            "ref": "0023",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 833094474,
+          "coordinates": [
+            [
+              117.6330725592,
+              39.0271647547
+            ],
+            [
+              117.6334408,
+              39.0270578
+            ],
+            [
+              117.6389763454,
+              39.0258320086
+            ]
+          ],
+          "basis": "Complete national-rail station: north platform 4 adjoins Jingjin I-3, shared platform 2/3 adjoins Jingjin I-4 and Jinshan II-I, south platform 1 adjoins Jinshan II-II. I-I and I-II Jingjin through pair lie between stopping tracks and do not directly face platforms. Jinshan usage=main tracks do face platforms and are included. Freight yard, electric-vehicle track and throat-only tracks excluded.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "120",
+            "name": "津山线",
+            "name:en": "Tianjin-Shanhaiguan Line",
+            "name:zh": "津山线",
+            "old_name": "京哈线",
+            "old_ref": "0007",
+            "railway": "rail",
+            "railway:track_ref": "II-I",
+            "ref": "0023",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1086455497,
+          "coordinates": [
+            [
+              117.6390224968,
+              39.0259579448
+            ],
+            [
+              117.638996,
+              39.0259639
+            ],
+            [
+              117.6338655,
+              39.0270861
+            ],
+            [
+              117.6331105499,
+              39.0272684223
+            ]
+          ],
+          "basis": "Complete national-rail station: north platform 4 adjoins Jingjin I-3, shared platform 2/3 adjoins Jingjin I-4 and Jinshan II-I, south platform 1 adjoins Jinshan II-II. I-I and I-II Jingjin through pair lie between stopping tracks and do not directly face platforms. Jinshan usage=main tracks do face platforms and are included. Freight yard, electric-vehicle track and throat-only tracks excluded.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "I-4",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        }
+      ],
+      "arrivalTrackSelection": {
+        "name": "塘沽",
+        "available": true,
+        "center": [
+          117.6360692693,
+          39.0266206767
+        ],
+        "platformCorners": [
+          [
+            117.6391135475,
+            39.0262064026
+          ],
+          [
+            117.633204204,
+            39.0275239825
+          ],
+          [
+            117.6330249911,
+            39.0270349508
+          ],
+          [
+            117.6389343346,
+            39.0257173709
+          ]
+        ],
+        "axis_unit_east_north": [
+          -0.9614898746325578,
+          0.274840355441242
+        ],
+        "cross_unit_east_north": [
+          -0.274840355441242,
+          -0.9614898746325578
+        ],
+        "axis_bearing_degrees": 105.952501,
+        "axis_source": "Longest original platformCorners edge; corner order is not assumed to start with the longitudinal edge.",
+        "platform_longitudinal_extent_m": [
+          -266.1044,
+          266.1044
+        ],
+        "platform_lateral_extent_m": [
+          -28.2324,
+          28.2324
+        ],
+        "lateral_extent_m": [
+          -14.9343,
+          20.7825
+        ],
+        "rail_ids": [
+          623889201,
+          833094473,
+          833094474,
+          1086455497
+        ],
+        "selection_basis": "Complete national-rail station: north platform 4 adjoins Jingjin I-3, shared platform 2/3 adjoins Jingjin I-4 and Jinshan II-I, south platform 1 adjoins Jinshan II-II. I-I and I-II Jingjin through pair lie between stopping tracks and do not directly face platforms. Jinshan usage=main tracks do face platforms and are included. Freight yard, electric-vehicle track and throat-only tracks excluded.",
+        "reason_if_unavailable": null,
+        "evidence": {
+          "station_node_id": 2349729514,
+          "accepted_platform_count": 3,
+          "national_rail_candidate_count": 22,
+          "valid_loop_count": 2,
+          "selected_way_count": 4,
+          "rejected_clipped_candidates": [
+            {
+              "way_id": 1086455498,
+              "reason": "No accepted platform adjacency or same-station side-loop support in the clipped interval; excludes unrelated through rail/depot/other-yard tracks.",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "maxspeed": "350",
+                "name": "京津城际线",
+                "name:de": "SFS Beijing-Tianjin",
+                "name:en": "Jingjin Intercity Line",
+                "name:zh": "京津城际线",
+                "name:zh-Hans": "京津城际线",
+                "name:zh-Hant": "京津城際線",
+                "passenger_lines": "2",
+                "railway": "rail",
+                "railway:ctcs": "3",
+                "railway:track_ref": "I-I",
+                "railway:traffic_mode": "passenger",
+                "ref": "3010",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1086455487,
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "maxspeed": "350",
+                "name": "京津城际线",
+                "name:de": "SFS Beijing-Tianjin",
+                "name:en": "Jingjin Intercity Line",
+                "name:zh": "京津城际线",
+                "name:zh-Hans": "京津城际线",
+                "name:zh-Hant": "京津城際線",
+                "passenger_lines": "2",
+                "railway": "rail",
+                "railway:ctcs": "3",
+                "railway:track_ref": "I-II",
+                "railway:traffic_mode": "passenger",
+                "ref": "3010",
+                "usage": "main",
+                "voltage": "25000"
+              },
+              "reason": "Manual platform/track-order review: another railway lies between this candidate and the nearest passenger platform; proximity or shared-loop membership alone does not establish platform adjacency."
+            }
+          ]
+        },
+        "notes": [
+          "Fixed station anchor and axis retained; caller may extend only lateral bounds to min(raw_min, arrival_min-20) / max(raw_max, arrival_max+20).",
+          "No GNSS observations are read or used to infer track/platform geometry.",
+          "Main-tagged local tracks can serve platforms; non-adjacent through tracks are not used merely because they cross the station."
+        ]
+      },
+      "estimated": false,
+      "quality": "mapped_area_envelope",
+      "centerMethod": "Center of the oriented envelope of all reviewed national-rail platforms; mapped vertices and full extents retained. No GNSS used.",
+      "lengthSource": {
+        "kind": "mapped_platform_area_geometry",
+        "default": false,
+        "value_m": 532.21,
+        "source_urls": [
+          "https://www.openstreetmap.org/way/1086455458",
+          "https://www.openstreetmap.org/way/1086455463",
+          "https://www.openstreetmap.org/relation/14462102"
+        ]
+      },
+      "widthSource": {
+        "kind": "existing_platform_area_geometry",
+        "default": false
+      },
+      "osmPlatforms": [
+        "way/1086455458",
+        "way/1086455463",
+        "relation/14462102"
+      ],
+      "railWayIds": [
+        623889201,
+        833094473,
+        833094474,
+        1086455497
+      ],
+      "sourceUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=117.626855,39.017505,117.644855,39.035505",
+        "https://www.openstreetmap.org/relation/14462102",
+        "https://www.openstreetmap.org/way/1086455458",
+        "https://www.openstreetmap.org/way/1086455463",
+        "https://www.openstreetmap.org/way/1086455497",
+        "https://www.openstreetmap.org/way/623889201",
+        "https://www.openstreetmap.org/way/833094473",
+        "https://www.openstreetmap.org/way/833094474"
+      ],
+      "notes": [
+        "2026-11-08 audit of complete station OSM box, including platform multipolygon relations and all national-rail fields.",
+        "Mapped closed platform areas retained; no default length or width used.",
+        "Display transverse clearance only: at least20m beyond outer accepted passenger stopping tracks, clipped to platform longitudinal envelope. No four-side buffer or throat-length expansion."
+      ],
+      "checkedOn": "2026-11-08",
+      "auditComponents": [
+        {
+          "osmType": "way",
+          "osmId": 1086455458,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        },
+        {
+          "osmType": "way",
+          "osmId": 1086455463,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        },
+        {
+          "osmType": "relation",
+          "osmId": 14462102,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        }
+      ]
+    },
+    "滨海": {
+      "center": [
+        117.6786048641,
+        39.0044845027
+      ],
+      "platformCorners": [
+        [
+          117.6792185328,
+          39.0025059031
+        ],
+        [
+          117.6785874531,
+          39.0065201705
+        ],
+        [
+          117.6779911953,
+          39.0064631023
+        ],
+        [
+          117.678622275,
+          39.0024488349
+        ]
+      ],
+      "corners": [
+        [
+          117.6794707337,
+          39.0025300406
+        ],
+        [
+          117.6788396539,
+          39.0065443086
+        ],
+        [
+          117.6777429232,
+          39.0064393408
+        ],
+        [
+          117.678374003,
+          39.0024250729
+        ]
+      ],
+      "lengthM": 448.986,
+      "widthM": 95.712,
+      "platformLengthM": 448.986,
+      "platformWidthM": 52.036,
+      "arrivalTracks": [
+        {
+          "wayId": 820090028,
+          "coordinates": [
+            [
+              117.6790735116,
+              39.0024920226
+            ],
+            [
+              117.6784441153,
+              39.0065064517
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "350",
+            "railway": "rail",
+            "railway:track_ref": "2",
+            "service": "siding",
+            "tunnel": "yes",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 820090029,
+          "coordinates": [
+            [
+              117.6786031764,
+              39.002447007
+            ],
+            [
+              117.6779736826,
+              39.0064614267
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "350",
+            "railway": "rail",
+            "railway:track_ref": "6",
+            "service": "siding",
+            "tunnel": "yes",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 820090030,
+          "coordinates": [
+            [
+              117.6787694588,
+              39.0024629218
+            ],
+            [
+              117.6781400625,
+              39.0064773509
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "350",
+            "railway": "rail",
+            "railway:track_ref": "5",
+            "service": "siding",
+            "tunnel": "yes",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 820090031,
+          "coordinates": [
+            [
+              117.6792398921,
+              39.0025079468
+            ],
+            [
+              117.6786104805,
+              39.0065223744
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "350",
+            "railway": "rail",
+            "railway:track_ref": "1",
+            "service": "siding",
+            "tunnel": "yes",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1366100932,
+          "coordinates": [
+            [
+              117.6783752152,
+              39.0064998573
+            ],
+            [
+              117.6790047242,
+              39.002485439
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "layer": "-1",
+            "maxspeed": "350",
+            "name": "京津城际线",
+            "name:de": "SFS Beijing-Tianjin",
+            "name:en": "Jingjin Intercity Line",
+            "name:zh": "京津城际线",
+            "name:zh-Hans": "京津城际线",
+            "name:zh-Hant": "京津城際線",
+            "passenger_lines": "2",
+            "railway": "rail",
+            "railway:ctcs": "3",
+            "railway:track_ref": "III",
+            "railway:traffic_mode": "passenger",
+            "ref": "3010",
+            "tunnel": "yes",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1366100933,
+          "coordinates": [
+            [
+              117.6788383442,
+              39.0024695148
+            ],
+            [
+              117.6782089479,
+              39.0064839439
+            ]
+          ],
+          "basis": "Accepted passenger-platform adjacency, parallel alignment and longitudinal overlap; usage=main/branch or a depot route name does not override this local stopping-track evidence.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "highspeed": "yes",
+            "layer": "-1",
+            "maxspeed": "350",
+            "name": "京津城际线",
+            "name:de": "SFS Beijing-Tianjin",
+            "name:en": "Jingjin Intercity Line",
+            "name:zh": "京津城际线",
+            "name:zh-Hans": "京津城际线",
+            "name:zh-Hant": "京津城際線",
+            "passenger_lines": "2",
+            "railway": "rail",
+            "railway:ctcs": "3",
+            "railway:track_ref": "IV",
+            "railway:traffic_mode": "passenger",
+            "ref": "3010",
+            "tunnel": "yes",
+            "usage": "main",
+            "voltage": "25000"
+          }
+        }
+      ],
+      "arrivalTrackSelection": {
+        "name": "滨海",
+        "available": true,
+        "center": [
+          117.6786048641,
+          39.0044845027
+        ],
+        "platformCorners": [
+          [
+            117.6792185328,
+            39.0025059031
+          ],
+          [
+            117.6785874531,
+            39.0065201705
+          ],
+          [
+            117.6779911953,
+            39.0064631023
+          ],
+          [
+            117.678622275,
+            39.0024488349
+          ]
+        ],
+        "axis_unit_east_north": [
+          -0.12175139462791662,
+          0.9925606268163962
+        ],
+        "cross_unit_east_north": [
+          -0.9925606268163962,
+          -0.12175139462791662
+        ],
+        "axis_bearing_degrees": 173.006809,
+        "axis_source": "Longest original platformCorners edge; corner order is not assumed to start with the longitudinal edge.",
+        "platform_longitudinal_extent_m": [
+          -224.4932,
+          224.4932
+        ],
+        "platform_lateral_extent_m": [
+          -26.0178,
+          26.0178
+        ],
+        "lateral_extent_m": [
+          -28.0274,
+          27.6845
+        ],
+        "rail_ids": [
+          820090028,
+          820090029,
+          820090030,
+          820090031,
+          1366100932,
+          1366100933
+        ],
+        "selection_basis": "Accepted platform adjacency or same-station shared-node side-loop evidence; clipped to fixed original platformCorners longitudinal interval. No whole-throat extent is used.",
+        "reason_if_unavailable": null,
+        "evidence": {
+          "station_node_id": 3657675426,
+          "accepted_platform_count": 3,
+          "national_rail_candidate_count": 14,
+          "valid_loop_count": 0,
+          "selected_way_count": 6,
+          "rejected_clipped_candidates": []
+        },
+        "notes": [
+          "Fixed station anchor and axis retained; caller may extend only lateral bounds to min(raw_min, arrival_min-20) / max(raw_max, arrival_max+20).",
+          "No GNSS observations are read or used to infer track/platform geometry.",
+          "Main-tagged local tracks can serve platforms; non-adjacent through tracks are not used merely because they cross the station."
+        ]
+      },
+      "estimated": false,
+      "quality": "mapped_area_envelope",
+      "centerMethod": "Center of the oriented envelope of all reviewed national-rail platforms; mapped extents retained. No GNSS used.",
+      "lengthSource": {
+        "kind": "mapped_platform_area_geometry",
+        "default": false,
+        "value_m": 448.986
+      },
+      "widthSource": {
+        "kind": "existing_platform_area_geometry",
+        "default": false
+      },
+      "osmPlatforms": [
+        "way/1366100934",
+        "way/1366100935",
+        "way/1366100936"
+      ],
+      "railWayIds": [
+        820090028,
+        820090029,
+        820090030,
+        820090031,
+        1366100932,
+        1366100933
+      ],
+      "sourceUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=117.669518,38.995117,117.687518,39.013117",
+        "https://www.openstreetmap.org/way/1366100932",
+        "https://www.openstreetmap.org/way/1366100933",
+        "https://www.openstreetmap.org/way/1366100934",
+        "https://www.openstreetmap.org/way/1366100935",
+        "https://www.openstreetmap.org/way/1366100936",
+        "https://www.openstreetmap.org/way/820090028",
+        "https://www.openstreetmap.org/way/820090029",
+        "https://www.openstreetmap.org/way/820090030",
+        "https://www.openstreetmap.org/way/820090031"
+      ],
+      "notes": [
+        "2026-11-08 complete public station-box audit; bus, subway, construction and unrelated yards excluded.",
+        "All accepted closed national-rail platform polygons retained without default width/length replacement.",
+        "Lateral clearance only: outer accepted passenger stopping tracks +20m; platform longitudinal ends unchanged.",
+        "Binhai: mapped platform polygons are layer=-3, while connected national-rail main tracks III/IV retain layer=-1. Resolve inconsistent OSM layering by national-rail tags, common station-core geometry, numbering and shared-node topology. Metro tracks/station remain excluded."
+      ],
+      "checkedOn": "2026-11-08",
+      "auditComponents": [
+        {
+          "osmId": 1366100934,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        },
+        {
+          "osmId": 1366100935,
+          "geometryType": "Polygon",
+          "estimatedWidth": false
+        },
+        {
+          "osmId": 1366100936,
           "geometryType": "Polygon",
           "estimatedWidth": false
         }

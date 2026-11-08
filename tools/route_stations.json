@@ -3,7 +3,7 @@
   "coordinateSystem": "WGS84",
   "coordinateMethod": "Public AMap station POI coordinates are GCJ-02. Catalog lon/lat uses an iterative inverse of the existing project transform; precision is approximate. The map generator replaces references with nearby actual WGS84 GNSS samples where available. Guang’anmen uses the WGS84 OpenStreetMap station node.",
   "stationScope": "全部展示区间起终点与沿途已建车站，包括不办客、暂停办客车站；不含线路所。京津现有记录已明确标记的永乐预留站作为命名位置保留，不扩展其他未来/未建站。",
-  "checkedOn": "2026-11-05",
+  "checkedOn": "2026-11-08",
   "stations": {
     "临清东": {
       "lon": 115.7568902,
@@ -1513,6 +1513,94 @@
         "lat": 40.125094,
         "poiId": "B000A88DL3"
       }
+    },
+    "天津": {
+      "lon": 117.2036841,
+      "lat": 39.1357517,
+      "sources": [
+        {
+          "title": "天津站 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/273088049"
+        },
+        {
+          "title": "天津站 · 高德地图",
+          "url": "https://www.amap.com/place/B00160EDSG"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.210089,
+        "lat": 39.135951,
+        "poiId": "B00160EDSG"
+      },
+      "coordinateMethod": "Public WGS84 OSM national-rail station node; AMap GCJ-02 reference retained separately.",
+      "osmStationNode": 273088049
+    },
+    "军粮城北": {
+      "lon": 117.4211857,
+      "lat": 39.0657874,
+      "sources": [
+        {
+          "title": "军粮城北站 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/9274358865"
+        },
+        {
+          "title": "军粮城北站 · 高德地图",
+          "url": "https://www.amap.com/place/B00161C3AB"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.427538,
+        "lat": 39.066183,
+        "poiId": "B00161C3AB"
+      },
+      "coordinateMethod": "Public WGS84 OSM national-rail station node; AMap GCJ-02 reference retained separately.",
+      "osmStationNode": 9274358865
+    },
+    "塘沽": {
+      "lon": 117.634889,
+      "lat": 39.0264297,
+      "sources": [
+        {
+          "title": "塘沽站 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/2349729514"
+        },
+        {
+          "title": "塘沽站 · 高德地图",
+          "url": "https://www.amap.com/place/B00160DKGA"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.641983,
+        "lat": 39.027286,
+        "poiId": "B00160DKGA"
+      },
+      "coordinateMethod": "Public WGS84 OSM national-rail station node; AMap GCJ-02 reference retained separately.",
+      "osmStationNode": 2349729514
+    },
+    "滨海": {
+      "lon": 117.6787732,
+      "lat": 39.0034792,
+      "sources": [
+        {
+          "title": "滨海站 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/3657675426"
+        },
+        {
+          "title": "滨海站 · 高德地图",
+          "url": "https://www.amap.com/place/B0FFFQ2NHL"
+        }
+      ],
+      "publicCoordinate": {
+        "system": "GCJ-02",
+        "lon": 117.684732,
+        "lat": 39.00496,
+        "poiId": "B0FFFQ2NHL"
+      },
+      "coordinateMethod": "Public WGS84 OSM national-rail station node; AMap GCJ-02 reference retained separately.",
+      "osmStationNode": 3657675426
     }
   },
   "routes": {
@@ -1655,6 +1743,23 @@
       "北京南",
       "亦庄",
       "永乐",
+      "武清"
+    ],
+    "261108055843": [
+      "北京南",
+      "亦庄",
+      "永乐",
+      "武清",
+      "天津",
+      "军粮城北",
+      "塘沽",
+      "滨海"
+    ],
+    "261108075718": [
+      "滨海",
+      "塘沽",
+      "军粮城北",
+      "天津",
       "武清"
     ]
   },
@@ -1803,6 +1908,18 @@
       {
         "title": "京包铁路车站列表（上行经青龙桥）",
         "url": "https://zh.wikipedia.org/wiki/京包铁路车站列表"
+      }
+    ],
+    "261108055843": [
+      {
+        "title": "天津市交通运输委员会：京津城际及延伸线运营补贴绩效评价（天津—军粮城北—塘沽—滨海）",
+        "url": "https://jtys.tj.gov.cn/ZWGK6002/ZFXXGK204/FDZDGKNR/CZYJS4206/202203/W020220323615776039514.pdf"
+      }
+    ],
+    "261108075718": [
+      {
+        "title": "天津市交通运输委员会：京津城际及延伸线运营补贴绩效评价（天津—军粮城北—塘沽—滨海）",
+        "url": "https://jtys.tj.gov.cn/ZWGK6002/ZFXXGK204/FDZDGKNR/CZYJS4206/202203/W020220323615776039514.pdf"
       }
     ]
   }
