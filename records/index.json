@@ -61,6 +61,30 @@
     "sampleCount": 855
   },
   {
+    "id": "261025125920",
+    "title": "C2575 次（北京南—武清）",
+    "train": "C2575",
+    "origin": "北京南",
+    "destination": "武清",
+    "partial": false,
+    "beta": false,
+    "start": 1792904425737,
+    "end": 1792905710000,
+    "sampleCount": 1285
+  },
+  {
+    "id": "261024183513",
+    "title": "C2630 次（武清—北京南）",
+    "train": "C2630",
+    "origin": "武清",
+    "destination": "北京南",
+    "partial": false,
+    "beta": false,
+    "start": 1792838213423,
+    "end": 1792839507000,
+    "sampleCount": 1291
+  },
+  {
     "id": "261021131636",
     "title": "G3681 次（石家庄—天津西）",
     "train": "G3681",

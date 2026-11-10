@@ -308,8 +308,13 @@ function footprintFrame(footprint) {
     '261017113104': [['永乐', 116.7892581, 39.6524566]],
     '261018184017': [['永乐', 116.7887907, 39.6529622]]
   };
+  const originalRecords = new Set([
+    '260923162858', '260925172446', '260928140519', '260930090532',
+    '261010211508', '261012141302', '261017113104', '261018184017',
+    '261020093057', '261020155428', '261021131636'
+  ]);
   for (const route of routes) {
-    if (route.id >= '261105000000') continue; // Later records have no pre-padding baseline.
+    if (!originalRecords.has(route.id)) continue; // Backfilled runs have no pre-padding baseline.
     assert.deepEqual(route.stations.filter(station => !station.platform).map(station => [station.name, station.lon, station.lat]), originalCircles[route.id] || [], `${route.id}: arrival-track clearance leaves all original circles unchanged`);
   }
   const realRecords = JSON.parse(fs.readFileSync(path.join(recordsRoot, 'index.json'), 'utf8'));
