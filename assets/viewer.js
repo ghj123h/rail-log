@@ -62,6 +62,10 @@
   $('trip-date').textContent=`${formatDate(samples[0].t)} · 北京时间 UTC+8`;
   const crossDate=formatDate(samples[0].t)!==formatDate(samples.at(-1).t);
   $('trip-summary').textContent=`${trip.partial?'部分记录':'运行记录'} ${formatTime(samples[0].t)}—${crossDate?formatDate(samples.at(-1).t)+' ':''}${formatTime(samples.at(-1).t)} · ${samples.length.toLocaleString()} 个采样点`;
+  if(trip.speedCleaning?.removedCount){
+    $('cleaning-note').textContent=`已按加速度绝对值 ${trip.speedCleaning.maxAbsAccelerationMps2} m/s² 上限剔除 ${trip.speedCleaning.removedCount} 个异常速度点；删除处留空，不插值。`;
+    $('cleaning-note').hidden=false;
+  }
   $('load-message').hidden=true;$('viewer-content').hidden=false;
   const initialPage = document.documentElement.outerHTML;
   const chart = echarts.init($('chart'),null,{renderer:'canvas'});
@@ -150,7 +154,7 @@
   $('chart').addEventListener('keydown',e=>{const step=(view[1]-view[0])*.2;if(e.key==='ArrowLeft')zoom(view[0]-step,view[1]-step);else if(e.key==='ArrowRight')zoom(view[0]+step,view[1]+step);else if(['+','='].includes(e.key))scale(.5);else if(e.key==='-')scale(2);else if(e.key==='Home')zoom(...full);else return;e.preventDefault();});
   new ResizeObserver(()=>{chart.resize();hideTip();}).observe($('chart-wrap'));
   setMode('select');updateRange();
-  $('events-root').innerHTML=`<details class="event-details"><summary>区间标记 <span>查看停车、通过的起止时间</span></summary><div class="event-body"><p class="event-note">${trip.eventNote?escape(trip.eventNote)+" ":""}时间均为北京时间；起止相同表示时间点。平均速度为通过区间内原始速度采样的算术平均值。</p><div class="event-list"><table><thead><tr><th>名称</th><th>类型</th><th>时间范围</th><th>时长</th><th>平均速度</th><th class="actions">查看</th></tr></thead><tbody id="event-rows"></tbody></table></div></div></details>`;
+  $('events-root').innerHTML=`<details class="event-details"><summary>区间标记 <span>查看停车、通过的起止时间</span></summary><div class="event-body"><p class="event-note">${trip.eventNote?escape(trip.eventNote)+" ":""}时间均为北京时间；起止相同表示时间点。平均速度为通过区间内保留速度采样的算术平均值。</p><div class="event-list"><table><thead><tr><th>名称</th><th>类型</th><th>时间范围</th><th>时长</th><th>平均速度</th><th class="actions">查看</th></tr></thead><tbody id="event-rows"></tbody></table></div></div></details>`;
   $('event-rows').innerHTML=events.map(e=>`<tr><td>${escape(e.name)} ${inferenceTag(e)}</td><td><span class="type-tag ${e.type}">${e.type==='stop'?'停车':'通过'}</span></td><td>${crossDate?formatDate(e.start)+' ':''}${formatTime(e.start)} — ${crossDate?formatDate(e.end)+' ':''}${formatTime(e.end)}</td><td>${e.start===e.end?'时间点':duration(e.end-e.start)}</td><td>${e.type==='pass'?passAverages.get(e.id):'—'}</td><td class="actions"><button type="button" data-id="${escape(e.id)}" aria-label="查看${escape(e.name)}区间">查看</button></td></tr>`).join('')||'<tr><td colspan="6">尚无区间标记</td></tr>';
   $('event-rows').onclick=e=>{
     const button=e.target.closest('button[data-id]');if(!button)return;

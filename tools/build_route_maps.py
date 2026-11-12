@@ -1,7 +1,7 @@
 """Build separate WGS84 route-map files from the original GPS Fix samples.
 
-Only positions belonging to published speed samples are included. Every raw
-sample is retained, and the speed chart's 1.5-interval gap rule is reused.
+Only positions belonging to retained published speed samples are included.
+The speed chart's 1.5-interval gap rule is reused, including cleanup gaps.
 Station lists and public reference positions live in route_stations.json.
 Reviewed WGS84 platform envelopes live in station_footprints.json. Stations
 without a usable envelope keep the original point-position selection.

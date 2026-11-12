@@ -41,13 +41,14 @@
   </section>
   <div id="events-root"></div>
   <p id="download-error" class="download-error" role="alert" hidden></p>
-  <p class="footnote">图表背景按五阶速度区间着色，与速度数值文本一致。曲线周围的色带为速度 ± 设备报告的速度精度（约 68% 置信水平），下限取 0。保留原始采样与数据中断，不做平滑。</p>
+  <p class="footnote">图表背景按五阶速度区间着色，与速度数值文本一致。曲线周围的色带为速度 ± 设备报告的速度精度（约 68% 置信水平），下限取 0。保留有效采样值和采样空缺，不做平滑。</p>
+  <p class="footnote" id="cleaning-note" hidden></p>
   <p class="sr-only" id="status" aria-live="polite"></p>
   </div>
 </main>
 <script src="assets/echarts.min.js"></script>
 <script id="trip-data"></script>
 <script src="assets/route-map.js?v=19"></script>
-<script src="assets/viewer.js?v=17"></script>
+<script src="assets/viewer.js?v=18"></script>
 </body>
 </html>
