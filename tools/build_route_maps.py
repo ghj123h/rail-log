@@ -48,26 +48,30 @@ def platform_envelope(corners, center, arrival_tracks, clearance_m):
     return envelope, round(bounds[0][1] - bounds[0][0], 3), round(bounds[1][1] - bounds[1][0], 3)
 
 
-def read_positions(path, samples):
+def read_positions(paths, samples):
+    """Read retained fixes across one original log or several continuation logs."""
+    if isinstance(paths, Path):
+        paths = [paths]
     wanted = {sample["t"] for sample in samples}
     positions = {}
-    with path.open(encoding="utf-8-sig") as source:
-        for line in source:
-            if not line.startswith("Fix,gps,"):
-                continue
-            fields = line.rstrip().split(",")
-            timestamp = int(fields[8])
-            if timestamp not in wanted:
-                continue
-            lon, lat = float(fields[3]), float(fields[2])
-            if not (math.isfinite(lon) and math.isfinite(lat) and -180 <= lon <= 180 and -90 <= lat <= 90):
-                raise ValueError(f"Invalid coordinate at {timestamp} in {path.name}")
-            if timestamp in positions:
-                raise ValueError(f"Duplicate GPS Fix at {timestamp} in {path.name}")
-            positions[timestamp] = [lon, lat, timestamp]
+    for path in paths:
+        with path.open(encoding="utf-8-sig") as source:
+            for line in source:
+                if not line.startswith("Fix,gps,"):
+                    continue
+                fields = line.rstrip().split(",")
+                timestamp = int(fields[8])
+                if timestamp not in wanted:
+                    continue
+                lon, lat = float(fields[3]), float(fields[2])
+                if not (math.isfinite(lon) and math.isfinite(lat) and -180 <= lon <= 180 and -90 <= lat <= 90):
+                    raise ValueError(f"Invalid coordinate at {timestamp} in {path.name}")
+                if timestamp in positions:
+                    raise ValueError(f"Duplicate GPS Fix at {timestamp} in {path.name}")
+                positions[timestamp] = [lon, lat, timestamp]
     missing = wanted - positions.keys()
     if missing:
-        raise ValueError(f"{path.name}: missing {len(missing)} published sample positions")
+        raise ValueError(f"{', '.join(path.name for path in paths)}: missing {len(missing)} published sample positions")
     return [positions[sample["t"]] for sample in samples]
 
 
@@ -99,11 +103,16 @@ def station_position(station, points, events):
 
 def build(trip, source_root, definitions, footprints):
     record_id = trip["id"]
-    source_name = f"gnss_log_20{record_id[:2]}_{record_id[2:4]}_{record_id[4:6]}_{record_id[6:8]}_{record_id[8:10]}_{record_id[10:12]}.txt"
-    source = source_root / source_name
-    if not source.exists():
-        source = source_root / f"{trip['train']}_20{record_id[:2]}-{record_id[2:4]}-{record_id[4:6]}_{record_id[6:8]}-{record_id[8:10]}-{record_id[10:12]}.txt"
-    points = read_positions(source, trip["samples"])
+    source_names = definitions.get("sourceFiles", {}).get(record_id)
+    if source_names:
+        sources = [source_root / name for name in source_names]
+    else:
+        source_name = f"gnss_log_20{record_id[:2]}_{record_id[2:4]}_{record_id[4:6]}_{record_id[6:8]}_{record_id[8:10]}_{record_id[10:12]}.txt"
+        source = source_root / source_name
+        if not source.exists():
+            source = source_root / f"{trip['train']}_20{record_id[:2]}-{record_id[2:4]}-{record_id[4:6]}_{record_id[6:8]}-{record_id[8:10]}-{record_id[10:12]}.txt"
+        sources = [source]
+    points = read_positions(sources, trip["samples"])
     segments = []
     for index, point in enumerate(points):
         if not index or point[2] - points[index - 1][2] > 1.5 * trip.get("sampleIntervalMs", 1000):

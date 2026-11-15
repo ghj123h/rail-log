@@ -1,7 +1,7 @@
 {
   "version": 2,
   "coordinateSystem": "WGS84",
-  "checkedOn": "2026-11-08",
+  "checkedOn": "2026-11-16",
   "license": {
     "attribution": "© OpenStreetMap contributors",
     "license": "ODbL-1.0",
@@ -42169,6 +42169,748 @@
           "estimatedWidth": false
         }
       ]
+    },
+    "胜芳": {
+      "center": [
+        116.7538277014,
+        39.1372782231
+      ],
+      "platformCorners": [
+        [
+          116.751708613,
+          39.1360848347
+        ],
+        [
+          116.7561971039,
+          39.1381400592
+        ],
+        [
+          116.7559467899,
+          39.1384716115
+        ],
+        [
+          116.7514582989,
+          39.1364163871
+        ]
+      ],
+      "corners": [
+        [
+          116.7558941428,
+          39.1385413493
+        ],
+        [
+          116.7514056498,
+          39.136486124
+        ],
+        [
+          116.7517408302,
+          39.1360421575
+        ],
+        [
+          116.7562293232,
+          39.1380973828
+        ]
+      ],
+      "lengthM": 450.176,
+      "widthM": 57.176,
+      "platformLengthM": 450.174,
+      "platformWidthM": 42.699,
+      "arrivalTracks": [
+        {
+          "wayId": 1077987619,
+          "coordinates": [
+            [
+              116.7515229195,
+              39.1363307942
+            ],
+            [
+              116.7560113857,
+              39.1383860514
+            ]
+          ],
+          "basis": "Track 4/3 directly adjoins the north/south mapped passenger platform line; outer side-loop topology reconnects to the national-rail through pair. Clipped to original/default platform longitudinal range; through mains I/II, maintenance sidings, safety lines and throat-only parts excluded.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "80",
+            "railway": "rail",
+            "railway:track_ref": "4",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1077987620,
+          "coordinates": [
+            [
+              116.7561047218,
+              39.1382624235
+            ],
+            [
+              116.7516235872,
+              39.1361974553
+            ]
+          ],
+          "basis": "Track 4/3 directly adjoins the north/south mapped passenger platform line; outer side-loop topology reconnects to the national-rail through pair. Clipped to original/default platform longitudinal range; through mains I/II, maintenance sidings, safety lines and throat-only parts excluded.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "80",
+            "railway": "rail",
+            "railway:track_ref": "3",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        }
+      ],
+      "estimated": true,
+      "quality": "estimated_width_from_mapped_platform_lines",
+      "centerMethod": "Center of the oriented envelope of both mapped national-rail platform centerlines, preserving all mapped vertices and longitudinal extents; 12m authorized width, 450m minimum only where needed. No GNSS used.",
+      "lengthSource": {
+        "kind": "mapped_longitudinal_extent_with_authorized_minimum",
+        "default": true,
+        "value_m": 450,
+        "source_urls": [
+          "https://www.openstreetmap.org/way/1077987625",
+          "https://www.openstreetmap.org/way/1077987626"
+        ]
+      },
+      "widthSource": {
+        "kind": "authorized_default",
+        "default": true,
+        "value_m": 12
+      },
+      "osmPlatforms": [
+        "way/1077987625",
+        "way/1077987626"
+      ],
+      "railWayIds": [
+        1077987619,
+        1077987620
+      ],
+      "sourceUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=116.7415,39.12565,116.7655,39.14965",
+        "https://www.openstreetmap.org/node/3949357977",
+        "https://www.openstreetmap.org/way/1077987625",
+        "https://www.openstreetmap.org/way/1077987626",
+        "https://www.openstreetmap.org/way/1077987619",
+        "https://www.openstreetmap.org/way/1077987620"
+      ],
+      "notes": [
+        "2026-11-16 complete public station box audit: two national-rail platform lines, no additional platform polygon or multipolygon relation; all same-station fields reviewed.",
+        "Open lines retain full mapped length; 450m authorized minimum and 12m default width used, not surveyed dimensions.",
+        "Only lateral display padding reaches 20m beyond clipped outer passenger tracks. No longitudinal throat expansion."
+      ],
+      "checkedOn": "2026-11-16",
+      "auditComponents": [
+        {
+          "osmId": 1077987625,
+          "geometryType": "LineString",
+          "estimatedWidth": true,
+          "mappedLengthM": 448.992,
+          "retainedLengthM": 450.0,
+          "defaultLengthM": 450,
+          "defaultWidthM": 12
+        },
+        {
+          "osmId": 1077987626,
+          "geometryType": "LineString",
+          "estimatedWidth": true,
+          "mappedLengthM": 449.613,
+          "retainedLengthM": 450.0,
+          "defaultLengthM": 450,
+          "defaultWidthM": 12
+        }
+      ]
+    },
+    "永清东": {
+      "center": [
+        116.5052599858,
+        39.3040799812
+      ],
+      "corners": [
+        [
+          116.5026098779,
+          39.3038991236
+        ],
+        [
+          116.5077955062,
+          39.3034543825
+        ],
+        [
+          116.5079093991,
+          39.3042559509
+        ],
+        [
+          116.5027237708,
+          39.304700692
+        ]
+      ],
+      "lengthM": 450.0,
+      "widthM": 89.532,
+      "platformCorners": [
+        [
+          116.5079015913,
+          39.3042010001
+        ],
+        [
+          116.5027159631,
+          39.3046457411
+        ],
+        [
+          116.5026183803,
+          39.3039589624
+        ],
+        [
+          116.5078040085,
+          39.3035142213
+        ]
+      ],
+      "platformLengthM": 450,
+      "platformWidthM": 76.71,
+      "arrivalTracks": [
+        {
+          "wayId": 1423065288,
+          "coordinates": [
+            [
+              116.5078679482,
+              39.3039642234
+            ],
+            [
+              116.5053981,
+              39.3041756
+            ],
+            [
+              116.5039179,
+              39.3042988
+            ]
+          ],
+          "basis": "One of four station-core arrival/departure side tracks belonging to shared-node two-ended loops around the two named Jinxing through mains. Whole-throat lengths excluded; clip to the450m longitudinal platform estimate.",
+          "tags": {
+            "bridge": "yes",
+            "highspeed": "yes",
+            "layer": "1",
+            "railway": "rail"
+          }
+        },
+        {
+          "wayId": 1423065289,
+          "coordinates": [
+            [
+              116.5037772,
+              39.3040725
+            ],
+            [
+              116.5078323874,
+              39.3037139499
+            ]
+          ],
+          "basis": "One of four station-core arrival/departure side tracks belonging to shared-node two-ended loops around the two named Jinxing through mains. Whole-throat lengths excluded; clip to the450m longitudinal platform estimate.",
+          "tags": {
+            "bridge": "yes",
+            "highspeed": "yes",
+            "layer": "1",
+            "railway": "rail"
+          }
+        },
+        {
+          "wayId": 1423065290,
+          "coordinates": [
+            [
+              116.5039837,
+              39.3044047
+            ],
+            [
+              116.5050342,
+              39.3043213
+            ],
+            [
+              116.5078820134,
+              39.3040632125
+            ]
+          ],
+          "basis": "One of four station-core arrival/departure side tracks belonging to shared-node two-ended loops around the two named Jinxing through mains. Whole-throat lengths excluded; clip to the450m longitudinal platform estimate.",
+          "tags": {
+            "bridge": "yes",
+            "highspeed": "yes",
+            "layer": "1",
+            "railway": "rail"
+          }
+        },
+        {
+          "wayId": 1423065291,
+          "coordinates": [
+            [
+              116.5037286,
+              39.3039942
+            ],
+            [
+              116.507820948,
+              39.3036334404
+            ]
+          ],
+          "basis": "One of four station-core arrival/departure side tracks belonging to shared-node two-ended loops around the two named Jinxing through mains. Whole-throat lengths excluded; clip to the450m longitudinal platform estimate.",
+          "tags": {
+            "bridge": "yes",
+            "highspeed": "yes",
+            "layer": "1",
+            "railway": "rail"
+          }
+        },
+        {
+          "wayId": 1423065305,
+          "coordinates": [
+            [
+              116.5026380608,
+              39.3040974714
+            ],
+            [
+              116.5027692,
+              39.3040788
+            ],
+            [
+              116.5036519,
+              39.304001
+            ]
+          ],
+          "basis": "One of four station-core arrival/departure side tracks belonging to shared-node two-ended loops around the two named Jinxing through mains. Whole-throat lengths excluded; clip to the450m longitudinal platform estimate.",
+          "tags": {
+            "highspeed": "yes",
+            "railway": "rail"
+          }
+        },
+        {
+          "wayId": 1423065306,
+          "coordinates": [
+            [
+              116.5036519,
+              39.304001
+            ],
+            [
+              116.5037286,
+              39.3039942
+            ]
+          ],
+          "basis": "One of four station-core arrival/departure side tracks belonging to shared-node two-ended loops around the two named Jinxing through mains. Whole-throat lengths excluded; clip to the450m longitudinal platform estimate.",
+          "tags": {
+            "bridge": "yes",
+            "highspeed": "yes",
+            "layer": "1",
+            "railway": "rail"
+          }
+        },
+        {
+          "wayId": 1423065307,
+          "coordinates": [
+            [
+              116.5026489527,
+              39.3041741279
+            ],
+            [
+              116.5027854,
+              39.3041602
+            ],
+            [
+              116.5037006,
+              39.3040793
+            ]
+          ],
+          "basis": "One of four station-core arrival/departure side tracks belonging to shared-node two-ended loops around the two named Jinxing through mains. Whole-throat lengths excluded; clip to the450m longitudinal platform estimate.",
+          "tags": {
+            "highspeed": "yes",
+            "railway": "rail"
+          }
+        },
+        {
+          "wayId": 1423065308,
+          "coordinates": [
+            [
+              116.5037006,
+              39.3040793
+            ],
+            [
+              116.5037772,
+              39.3040725
+            ]
+          ],
+          "basis": "One of four station-core arrival/departure side tracks belonging to shared-node two-ended loops around the two named Jinxing through mains. Whole-throat lengths excluded; clip to the450m longitudinal platform estimate.",
+          "tags": {
+            "bridge": "yes",
+            "highspeed": "yes",
+            "layer": "1",
+            "railway": "rail"
+          }
+        },
+        {
+          "wayId": 1423065309,
+          "coordinates": [
+            [
+              116.5038411,
+              39.3043052
+            ],
+            [
+              116.5027427,
+              39.3043967
+            ],
+            [
+              116.5026812504,
+              39.3044014363
+            ]
+          ],
+          "basis": "One of four station-core arrival/departure side tracks belonging to shared-node two-ended loops around the two named Jinxing through mains. Whole-throat lengths excluded; clip to the450m longitudinal platform estimate.",
+          "tags": {
+            "highspeed": "yes",
+            "railway": "rail"
+          }
+        },
+        {
+          "wayId": 1423065310,
+          "coordinates": [
+            [
+              116.5039179,
+              39.3042988
+            ],
+            [
+              116.5038411,
+              39.3043052
+            ]
+          ],
+          "basis": "One of four station-core arrival/departure side tracks belonging to shared-node two-ended loops around the two named Jinxing through mains. Whole-throat lengths excluded; clip to the450m longitudinal platform estimate.",
+          "tags": {
+            "bridge": "yes",
+            "highspeed": "yes",
+            "layer": "1",
+            "railway": "rail"
+          }
+        },
+        {
+          "wayId": 1423065311,
+          "coordinates": [
+            [
+              116.5026954859,
+              39.3045016243
+            ],
+            [
+              116.5028101,
+              39.3044979
+            ],
+            [
+              116.5039068,
+              39.3044108
+            ]
+          ],
+          "basis": "One of four station-core arrival/departure side tracks belonging to shared-node two-ended loops around the two named Jinxing through mains. Whole-throat lengths excluded; clip to the450m longitudinal platform estimate.",
+          "tags": {
+            "highspeed": "yes",
+            "railway": "rail"
+          }
+        },
+        {
+          "wayId": 1423065312,
+          "coordinates": [
+            [
+              116.5039068,
+              39.3044108
+            ],
+            [
+              116.5039837,
+              39.3044047
+            ]
+          ],
+          "basis": "One of four station-core arrival/departure side tracks belonging to shared-node two-ended loops around the two named Jinxing through mains. Whole-throat lengths excluded; clip to the450m longitudinal platform estimate.",
+          "tags": {
+            "bridge": "yes",
+            "highspeed": "yes",
+            "layer": "1",
+            "railway": "rail"
+          }
+        }
+      ],
+      "arrivalTrackSelection": {
+        "name": "永清东",
+        "available": true,
+        "selection_basis": "Complete station-core six-track section and shared-node topology: four non-main stopping tracks flank two named through mains; stopping tracks have no service=siding tag. Two through mains are excluded from stopping-track clearance.",
+        "rail_ids": [
+          1423065288,
+          1423065289,
+          1423065290,
+          1423065291,
+          1423065305,
+          1423065306,
+          1423065307,
+          1423065308,
+          1423065309,
+          1423065310,
+          1423065311,
+          1423065312
+        ],
+        "topology_basis": {
+          "station_node_id": 9225780497,
+          "station_node_wgs84": [
+            116.5060859,
+            39.3041239
+          ],
+          "loops": [
+            {
+              "rail_ids": [
+                1423065288,
+                1423065290,
+                1423065309,
+                1423065310,
+                1423065311,
+                1423065312
+              ],
+              "connection_node_ids": [
+                13078282599,
+                13078302105
+              ],
+              "connection_points_wgs84": [
+                [
+                  116.5118124,
+                  39.3035251
+                ],
+                [
+                  116.4990938,
+                  39.3046159
+                ]
+              ],
+              "connection_longitudinal_m": [
+                -498.2475609943941,
+                605.4509375245524
+              ],
+              "longitudinal_midpoint_m": 53.60168826507913,
+              "connection_span_m": 1103.6984985189465,
+              "boundary_node_ids": [
+                13078282599,
+                13078302105
+              ],
+              "basis": "Non-main high-speed passenger-rail component branches from and rejoins named Jinxing through rails at shared nodes; service=siding is not required. Loop span is not platform length."
+            },
+            {
+              "rail_ids": [
+                1423065289,
+                1423065291,
+                1423065305,
+                1423065306,
+                1423065307,
+                1423065308
+              ],
+              "connection_node_ids": [
+                13078302111,
+                13078302106
+              ],
+              "connection_points_wgs84": [
+                [
+                  116.5107612,
+                  39.3035584
+                ],
+                [
+                  116.4993614,
+                  39.3045421
+                ]
+              ],
+              "connection_longitudinal_m": [
+                -407.71880393353797,
+                581.6096316558161
+              ],
+              "longitudinal_midpoint_m": 86.94541386113906,
+              "connection_span_m": 989.3284355893541,
+              "boundary_node_ids": [
+                13078302106,
+                13078302111
+              ],
+              "basis": "Non-main high-speed passenger-rail component branches from and rejoins named Jinxing through rails at shared nodes; service=siding is not required. Loop span is not platform length."
+            }
+          ],
+          "loop_midpoint_spread_m": 33.344,
+          "loop_center_used": true,
+          "cross_section": [
+            {
+              "way_id": 1423065290,
+              "cross_m": -11.692051402787804,
+              "point_wgs84": [
+                116.5052909678,
+                39.30429803
+              ],
+              "tags": {
+                "bridge": "yes",
+                "highspeed": "yes",
+                "layer": "1",
+                "railway": "rail"
+              }
+            },
+            {
+              "way_id": 1423065288,
+              "cross_m": 0.8386922184270356,
+              "point_wgs84": [
+                116.5052750275,
+                39.3041858436
+              ],
+              "tags": {
+                "bridge": "yes",
+                "highspeed": "yes",
+                "layer": "1",
+                "railway": "rail"
+              }
+            },
+            {
+              "way_id": 878496138,
+              "cross_m": 11.881659486162722,
+              "point_wgs84": [
+                116.5052609798,
+                39.304086977
+              ],
+              "tags": {
+                "bridge": "yes",
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "layer": "1",
+                "maxspeed": "250",
+                "name": "津兴城际线",
+                "name:en": "Jinxing Intercity Line",
+                "railway": "rail",
+                "ref": "3117",
+                "source": "GF1C",
+                "start_date": "2023-12-18",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 878496137,
+              "cross_m": 17.835491309083988,
+              "point_wgs84": [
+                116.505253406,
+                39.304033673
+              ],
+              "tags": {
+                "bridge": "yes",
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "layer": "1",
+                "maxspeed": "250",
+                "name": "津兴城际线",
+                "name:en": "Jinxing Intercity Line",
+                "railway": "rail",
+                "ref": "3117",
+                "source": "GF1C",
+                "start_date": "2023-12-18",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1423065289,
+              "cross_m": 27.950424550843202,
+              "point_wgs84": [
+                116.5052405388,
+                39.303943115
+              ],
+              "tags": {
+                "bridge": "yes",
+                "highspeed": "yes",
+                "layer": "1",
+                "railway": "rail"
+              }
+            },
+            {
+              "way_id": 1423065291,
+              "cross_m": 37.018175650302375,
+              "point_wgs84": [
+                116.5052290038,
+                39.3038619324
+              ],
+              "tags": {
+                "bridge": "yes",
+                "highspeed": "yes",
+                "layer": "1",
+                "railway": "rail"
+              }
+            }
+          ]
+        },
+        "excludedThroughWayIds": [
+          878496137,
+          878496138
+        ],
+        "clippedLongitudinalRangeM": [
+          -225,
+          225
+        ]
+      },
+      "estimated": true,
+      "quality": "estimated_from_two_ended_arrival_departure_topology",
+      "centerMethod": "Median longitudinal midpoint of valid two-ended arrival/departure rail components; direction from nearby named national-rail through tangent. Approximate topology center, not surveyed platform midpoint.",
+      "lengthSource": {
+        "kind": "public_primary_design_dimensions",
+        "default": false,
+        "value_m": 450,
+        "source_urls": [
+          "https://www.lf.gov.cn/UploadFiles/zwgk/2019/9/201909051509408809.pdf"
+        ],
+        "note": "2019 environmental impact report, section2.1.2.2, printed page27: Yongqingnan (current Yongqingdong), same Xima/NorthYuanzi site, two450x12x1.25m island platforms and six tracks. 2023 Yongqing government opening announcement confirms current two-platform/six-track scale. Design dimension used for geometry estimation; not an as-built survey."
+      },
+      "widthSource": {
+        "kind": "public_primary_design_dimensions",
+        "default": false,
+        "value_m": 12,
+        "source_urls": [
+          "https://www.lf.gov.cn/UploadFiles/zwgk/2019/9/201909051509408809.pdf"
+        ],
+        "note": "2019 environmental impact report, section2.1.2.2, printed page27: Yongqingnan (current Yongqingdong), same Xima/NorthYuanzi site, two450x12x1.25m island platforms and six tracks. 2023 Yongqing government opening announcement confirms current two-platform/six-track scale. Design dimension used for geometry estimation; not an as-built survey. Lateral inference additionally uses the authorized2m rail-to-edge parameter, not a measured gap."
+      },
+      "osmPlatforms": [],
+      "railWayIds": [
+        878496137,
+        878496138,
+        1423065288,
+        1423065289,
+        1423065290,
+        1423065291,
+        1423065305,
+        1423065306,
+        1423065307,
+        1423065308,
+        1423065309,
+        1423065310,
+        1423065311,
+        1423065312
+      ],
+      "sourceUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=116.49,39.294,116.52,39.314",
+        "https://www.openstreetmap.org/node/9225780497",
+        "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202312/t20231218_3502113.html",
+        "https://www.lf.gov.cn/UploadFiles/zwgk/2019/9/201909051509408809.pdf",
+        "https://www.yongqing.gov.cn/xinwenzhongxin/gongshigonggao/25778.html",
+        "https://www.openstreetmap.org/way/878496137",
+        "https://www.openstreetmap.org/way/878496138",
+        "https://www.openstreetmap.org/way/1423065288",
+        "https://www.openstreetmap.org/way/1423065289",
+        "https://www.openstreetmap.org/way/1423065290",
+        "https://www.openstreetmap.org/way/1423065291",
+        "https://www.openstreetmap.org/way/1423065305",
+        "https://www.openstreetmap.org/way/1423065306",
+        "https://www.openstreetmap.org/way/1423065307",
+        "https://www.openstreetmap.org/way/1423065308",
+        "https://www.openstreetmap.org/way/1423065309",
+        "https://www.openstreetmap.org/way/1423065310",
+        "https://www.openstreetmap.org/way/1423065311",
+        "https://www.openstreetmap.org/way/1423065312"
+      ],
+      "notes": [
+        "2026-11-16 public OSM box audit: no mapped national-rail platform areas, lines, or platform relations; full way geometries and all relation members checked.",
+        "Six station-core national-rail tracks and valid shared-node two-ended stopping-loop components supply footprint support; the two through mains alone are not used to establish platforms.",
+        "Only reviewed high-speed national-rail ways enter the envelope; bus, urban rail, unrelated fields and buildings are excluded.",
+        "Two island platforms/four stopping tracks match the2019 primary design and2023 official two-platform/six-track scale.450m/12m are design dimensions used for estimation, not surveyed as-built measurements.",
+        "Lateral display clearance extends to20m beyond outer accepted stopping tracks; longitudinal450m remains fixed, no four-side buffer. No GNSS read or used."
+      ],
+      "checkedOn": "2026-11-16"
     }
   },
   "pointStations": {
@@ -42214,6 +42956,21 @@
       "reason": "No accepted national-rail platform area/centerline and no valid two-ended arrival/departure loop in cached geometry; available main rail does not establish platform extent.",
       "quality": "retained_original_circle",
       "sourceUrls": []
+    },
+    "安次": {
+      "reason": "Complete public OSM station box reviewed: no national-rail platform area, centerline or platform multipolygon relation, and no mapped arrival/departure side loop. Only two Jinxing through main rails are available; the station node and through pair do not establish platform geometry. Retain point marker under the confirmed rule.",
+      "quality": "retained_original_circle",
+      "checkedOn": "2026-11-16",
+      "sourceUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=116.678942,39.224093,116.702942,39.248093",
+        "https://www.openstreetmap.org/node/9457049792",
+        "https://www.openstreetmap.org/way/1275062413",
+        "https://www.openstreetmap.org/way/1275062414"
+      ],
+      "reviewedRailWayIds": [
+        1275062413,
+        1275062414
+      ]
     }
   },
   "recordExceptions": {
