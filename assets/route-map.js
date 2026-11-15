@@ -19,10 +19,17 @@
     return [];
   }
   function pathData(coordinates) {
-    return coordinates.map((point, index) => {
+    const commands = [];
+    let previous;
+    for (const point of coordinates) {
       const [x, y] = project(point);
-      return `${index ? 'L' : 'M'}${x.toFixed(9)},${y.toFixed(9)}`;
-    }).join('');
+      const position = `${x.toFixed(9)},${y.toFixed(9)}`;
+      // Avoid zero-length SVG lines, including points made identical by rounding.
+      if (position === previous) continue;
+      commands.push(`${commands.length ? 'L' : 'M'}${position}`);
+      previous = position;
+    }
+    return commands.join('');
   }
   function nearestTrack(point, segments) {
     let nearest, offset = 0;
