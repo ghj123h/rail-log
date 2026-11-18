@@ -4,34 +4,69 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>运转记录册 · Rail Log</title>
-  <meta name="description" content="按日期查看历次铁路运行记录，交互探索速度、速度精度、通过和停车区间。">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23155b9b'/%3E%3Cpath d='M5 23L11 13L17 16L27 7' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/styles.css?v=16">
+  <meta name="description" content="浏览历次铁路运行记录、实测线路图、速度和沿途停车与通过区间。">
+  <link rel="icon" href="assets/rail-mark.svg">
+  <link rel="stylesheet" href="assets/styles.css?v=17">
+  <link rel="stylesheet" href="assets/catalog.css?v=1">
 </head>
 <body>
-<main class="catalog">
-  <header class="catalog-head"><p class="eyebrow">RAIL LOG</p><h1>运转记录册</h1><p class="subtitle">查看速度、速度精度与沿途通过和停车区间。</p></header>
-  <details id="network-map-section" class="chart-card route-map-card network-map-card" aria-labelledby="network-map-title">
-    <summary class="network-map-toggle"><div class="network-map-heading"><h2 id="network-map-title">总线路图</h2><span id="network-map-summary"></span></div></summary>
-    <div class="toolbar">
-      <div class="zoom-buttons" role="group" aria-label="总线路图缩放"><button id="map-zoom-in" aria-label="放大总线路图" disabled>＋</button><button id="map-zoom-out" aria-label="缩小总线路图" disabled>−</button><button id="map-reset" disabled>全程</button></div>
+<header class="site-bar">
+  <div class="site-bar-inner">
+    <a class="brand" href="./" aria-label="Rail Log 首页"><span class="brand-mark" aria-hidden="true"></span>Rail Log</a>
+    <nav aria-label="站点导航">
+      <a href="./" aria-current="page">记录目录</a>
+      <a href="./#collection-section">线路合集</a>
+    </nav>
+  </div>
+</header>
+<main class="catalog-shell">
+  <header class="catalog-cover">
+    <img src="assets/rail-hero.webp" class="cover-image" alt="" fetchpriority="high">
+    <div class="cover-copy">
+      <p id="catalog-period" class="catalog-period" hidden></p>
+      <h1>运转记录册</h1>
+      <p id="catalog-stats" class="cover-stats" hidden></p>
     </div>
-    <div id="route-map" tabindex="0" role="application" aria-label="全部运行记录的总线路图。滚轮缩放，拖动平移，加减键缩放，Home 键或双击显示全程。"></div>
-    <p id="map-message" class="map-message" role="status">正在载入总线路图…</p>
-    <div class="chart-footer"><span>全部运行轨迹 · 仅标注起止站和交汇站 <a class="map-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">河道与站台 © OpenStreetMap contributors</a></span><span>滚轮缩放 · 拖动平移 · 双击还原</span></div>
-  </details>
-  <section id="collection-section" class="collection-section" aria-labelledby="collection-heading" hidden>
-    <div class="catalog-label"><h2 id="collection-heading">线路合集</h2></div>
-    <div id="collections" class="collection-list"></div>
+  </header>
+  <div class="catalog-entries">
+    <section id="collection-section" aria-label="线路合集" hidden>
+      <div id="collections" class="collection-list"></div>
+    </section>
+    <details id="network-map-section" class="chart-card route-map-card network-map-card catalog-map" aria-labelledby="network-map-title">
+      <summary class="network-map-toggle">
+        <span class="catalog-symbol map-symbol" aria-hidden="true"><i></i></span>
+        <span class="map-entry-text"><span id="network-map-title">总线路图</span><span class="map-caption"><span id="network-map-summary"></span><span class="map-scope">起止站与交汇站</span></span></span>
+      </summary>
+      <div class="toolbar">
+        <div class="zoom-buttons" role="group" aria-label="线路图缩放">
+          <button id="map-zoom-in" aria-label="放大线路图" disabled>＋</button>
+          <button id="map-zoom-out" aria-label="缩小线路图" disabled>−</button>
+          <button id="map-reset" disabled>全程</button>
+        </div>
+      </div>
+      <div id="route-map" tabindex="0" role="application" aria-label="线路图。滚轮缩放，拖动平移，Home 键或双击显示全程。"></div>
+      <p id="map-message" class="map-message" role="status">正在载入线路图…</p>
+      <div class="chart-footer">
+        <a class="map-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">河道与站台 © OpenStreetMap contributors</a>
+        <span>滚轮缩放 · 拖动平移 · 双击还原</span>
+      </div>
+    </details>
+  </div>
+  <section class="timetable" aria-labelledby="record-heading">
+    <div class="timetable-heading">
+      <h2 id="record-heading">运行记录</h2>
+      <span class="record-list-meta"><span id="record-count"></span><span>北京时间 UTC+8</span></span>
+    </div>
+    <p id="catalog-message" class="notice" role="status">正在载入记录目录…</p>
+    <div id="timetable-columns" class="timetable-columns" aria-hidden="true" hidden>
+      <span>记录日期</span><span>车次</span><span>记录区间</span><span>采样时段</span><span>采样点</span><span></span>
+    </div>
+    <ul id="records" class="timetable-list" aria-label="运行记录目录"></ul>
   </section>
-  <div class="catalog-label"><h2 id="record-heading">运行记录</h2><span id="record-count"></span></div>
-  <p id="catalog-message" class="notice" role="status">正在载入记录目录…</p>
-  <div id="records" class="record-list" aria-label="运行记录目录"></div>
-  <p class="footnote">所有记录使用北京时间（UTC+8）。进入记录后可沿时间轴放大，悬停查看逐点数据。</p>
 </main>
 <script src="assets/network-map-data.js?v=4"></script>
 <script src="assets/route-map.js?v=20"></script>
 <script src="assets/network-map.js?v=5"></script>
-<script src="assets/catalog.js?v=8"></script>
+<script src="assets/catalog.js?v=9"></script>
 </body>
 </html>

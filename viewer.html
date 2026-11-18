@@ -3,52 +3,85 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>查看运行记录 · 运转记录册</title>
-  <meta name="description" content="查看列车速度、速度精度、停车和通过区间，以及 GNSS 线路图，缩放查看逐秒数据与沿途车站。">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23155b9b'/%3E%3Cpath d='M5 23L11 13L17 16L27 7' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/styles.css?v=16">
+  <title>运行记录 · Rail Log</title>
+  <meta name="description" content="查看列车实测速度、线路轨迹和沿途的停车、通过区间。">
+  <link rel="icon" href="assets/rail-mark.svg">
+  <link rel="stylesheet" href="assets/styles.css?v=17">
+  <link rel="stylesheet" href="assets/viewer.css?v=1">
 </head>
 <body>
-<main>
-  <a class="back-link" href="index.html">← 全部运行记录</a>
-  <p id="load-message" class="notice" role="status">正在载入运行记录…</p>
-  <div id="viewer-content" hidden>
-  <header class="page-head">
-    <div><p class="eyebrow">运行记录 <span id="trip-date"></span></p><h1><span id="trip-title"></span> <span id="trip-beta" class="beta-badge" hidden>Beta 版</span></h1><p class="subtitle" id="trip-summary"></p></div>
-    <div class="export-actions"><button id="export-record" class="secondary">导出记录数据</button><button id="save-page" class="secondary" hidden>保存离线网页</button></div>
-  </header>
-  <section class="chart-card" aria-label="速度与区间交互图">
-    <div class="toolbar">
-      <div class="modes" role="group" aria-label="鼠标操作"><button id="select-mode" aria-pressed="true">框选放大</button><button id="pan-mode" aria-pressed="false">拖动平移</button></div>
-      <div class="zoom-buttons" role="group" aria-label="时间轴缩放"><button id="zoom-in" aria-label="放大时间轴">＋</button><button id="zoom-out" aria-label="缩小时间轴">−</button><button id="reset-view">全程</button></div>
-      <div class="legend"><span><i class="line-key"></i>实时速度</span><span><i class="band-key"></i>速度精度范围</span></div>
-    </div>
-    <div class="chart-wrap" id="chart-wrap">
-      <div id="chart" tabindex="0" role="application" aria-label="速度图。滚轮缩放时间轴，拖动框选放大，左右方向键平移，加减键缩放，Home 键显示全程。"></div>
-      <div id="hover-span" class="hover-span" hidden></div><div id="crosshair" class="crosshair" hidden></div><div id="hover-dot" class="hover-dot" hidden></div><div id="selection" class="selection" hidden></div>
-      <div id="tooltip" class="tooltip" role="status" hidden></div>
-    </div>
-    <div class="chart-footer"><span id="view-range"></span><span>滚轮缩放 · 拖动框选 · 双击还原 · 悬停查看数值与区间</span></div>
-  </section>
-  <section id="route-map-card" class="chart-card route-map-card" aria-labelledby="route-map-title">
-    <div class="toolbar">
-      <h2 id="route-map-title">线路图</h2>
-      <div class="zoom-buttons" role="group" aria-label="线路图缩放"><button id="map-zoom-in" aria-label="放大线路图">＋</button><button id="map-zoom-out" aria-label="缩小线路图">−</button><button id="map-reset">全程</button></div>
-    </div>
-    <div id="route-map" tabindex="0" role="application" aria-label="GNSS 线路图。滚轮缩放，拖动平移，加减键缩放，Home 键或双击显示全程。"></div>
-    <p id="map-message" class="map-message" role="status">正在载入线路图…</p>
-    <div class="chart-footer"><span>GNSS 轨迹 · 缺失区段留空 <a class="map-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">河道与站台 © OpenStreetMap contributors</a></span><span>滚轮缩放 · 拖动平移 · 双击还原</span></div>
-  </section>
-  <div id="events-root"></div>
-  <p id="download-error" class="download-error" role="alert" hidden></p>
-  <p class="footnote">图表背景按五阶速度区间着色，与速度数值文本一致。曲线周围的色带为速度 ± 设备报告的速度精度（约 68% 置信水平），下限取 0。保留有效采样值和采样空缺，不做平滑。</p>
-  <p class="footnote" id="cleaning-note" hidden></p>
-  <p class="sr-only" id="status" aria-live="polite"></p>
+<header class="site-bar">
+  <div class="site-bar-inner">
+    <a class="brand" href="./" aria-label="Rail Log 首页"><span class="brand-mark" aria-hidden="true"></span>Rail Log</a>
+    <nav aria-label="站点导航"><a href="./">记录目录</a><a href="./#collection-section">线路合集</a></nav>
   </div>
+</header>
+<main class="shell viewer">
+  <p id="load-message" class="notice" role="status">正在载入运行记录…</p>
+  <article id="viewer-content" hidden>
+    <header class="trip-head">
+      <div class="trip-identity">
+        <div class="trip-dateline"><time id="trip-date"></time><span id="trip-partial" hidden>部分记录</span><span id="trip-beta" class="beta-badge" hidden>Beta 版</span></div>
+        <h1 id="trip-title"><span class="train-number" id="trip-train"></span><span class="trip-route"><span id="trip-origin"></span><span class="trip-arrow" aria-hidden="true">→</span><span id="trip-destination"></span></span></h1>
+      </div>
+      <dl id="trip-summary" class="trip-stats">
+        <div><dt>采样时段 <span>UTC+8</span></dt><dd id="sample-range"></dd></div>
+        <div><dt>有效采样点</dt><dd id="sample-count"></dd></div>
+      </dl>
+    </header>
+
+    <section class="speed-panel" aria-labelledby="speed-heading">
+      <div class="speed-head">
+        <h2 id="speed-heading">速度曲线</h2>
+        <div class="legend" aria-label="图例"><span><i class="line-key"></i>采样速度</span><span><i class="band-key"></i>速度精度范围</span></div>
+      </div>
+      <div class="speed-tools">
+        <div class="modes" role="group" aria-label="图表操作模式"><button type="button" id="select-mode" aria-pressed="true">框选放大</button><button type="button" id="pan-mode" aria-pressed="false">拖动平移</button></div>
+        <div class="zoom-buttons" role="group" aria-label="时间轴缩放"><button type="button" id="zoom-in" aria-label="放大时间轴">＋</button><button type="button" id="zoom-out" aria-label="缩小时间轴">−</button><button type="button" id="reset-view">全程</button></div>
+      </div>
+      <div class="chart-wrap" id="chart-wrap">
+        <div id="chart" tabindex="0" role="application" aria-label="交互速度图。左右方向键平移，加减键缩放，Home 键恢复全程。"></div>
+        <div id="hover-span" class="hover-span" hidden></div>
+        <div id="crosshair" class="crosshair" hidden></div>
+        <div id="hover-dot" class="hover-dot" hidden></div>
+        <div id="selection" class="selection" hidden></div>
+        <div id="tooltip" class="tooltip" role="status" hidden></div>
+      </div>
+      <div class="speed-foot"><span id="view-range"></span><span class="mouse-hint">悬停读数 · 滚轮缩放 · 双击还原</span></div>
+      <details class="measurement-note">
+        <summary>采样说明</summary>
+        <p>所有时间均为北京时间（UTC+8）。色带为采样速度 ± 设备报告的速度精度，约对应 68% 置信水平，下限取 0。曲线保留有效采样值，缺测处留空。</p>
+        <p id="cleaning-note" hidden></p>
+      </details>
+    </section>
+
+    <details id="events-root" class="event-details">
+      <summary><span>区间标记</span><span id="event-count" class="event-count"></span></summary>
+      <div class="event-body">
+        <div class="event-list">
+          <table aria-label="沿途区间标记">
+            <thead><tr><th scope="col">名称</th><th scope="col">类型</th><th scope="col">时间范围</th><th scope="col">时长</th><th scope="col">平均速度</th><th scope="col" class="actions">曲线定位</th></tr></thead>
+            <tbody id="event-rows"></tbody>
+          </table>
+        </div>
+        <p id="average-note" class="event-note" hidden>通过区间的平均速度取区间内有效速度采样的算术平均值。</p>
+        <p id="trip-event-note" class="event-note" hidden></p>
+      </div>
+    </details>
+
+    <section id="route-map-card" class="chart-card route-map-card" aria-labelledby="route-map-title">
+      <div class="toolbar">
+        <h2 id="route-map-title">线路图</h2>
+        <div class="zoom-buttons" role="group" aria-label="线路图缩放"><button type="button" id="map-zoom-in" aria-label="放大线路图" disabled>＋</button><button type="button" id="map-zoom-out" aria-label="缩小线路图" disabled>−</button><button type="button" id="map-reset" disabled>全程</button></div>
+      </div>
+      <div id="route-map" tabindex="0" role="application" aria-label="实测线路图。拖动或方向键平移，滚轮或加减键缩放，Home 键或双击恢复全程。"></div>
+      <p id="map-message" class="map-message" role="status">正在载入线路图…</p>
+      <div class="chart-footer"><span>GNSS 实测轨迹 · 缺测处留空</span><a class="map-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">河道与站台 © OpenStreetMap contributors</a></div>
+    </section>
+  </article>
 </main>
 <script src="assets/echarts.min.js"></script>
-<script id="trip-data"></script>
 <script src="assets/route-map.js?v=20"></script>
-<script src="assets/viewer.js?v=18"></script>
+<script src="assets/viewer.js?v=19"></script>
 </body>
 </html>

@@ -1,27 +1,24 @@
 "use strict";
 (async () => {
   const $ = id => document.getElementById(id);
-  let trip = window.TRIP;
-  if (!trip) {
-    const id = new URLSearchParams(location.search).get('id');
-    if (!id || !/^\d{12}$/.test(id)) throw new Error('请从记录目录选择一条运行记录。');
-    const response = await fetch(`records/${id}.json`,{cache:'no-cache'});
-    if (!response.ok) throw new Error('没有找到这条运行记录，请返回目录重新选择。');
-    trip = await response.json();
-  }
+  const id = new URLSearchParams(location.search).get('id');
+  if (!id || !/^\d{12}$/.test(id)) throw new Error('请从记录目录选择一条运行记录。');
+  const response = await fetch(`records/${id}.json`, {cache: 'no-cache'});
+  if (!response.ok) throw new Error('没有找到这条运行记录，请返回目录重新选择。');
+  const trip = await response.json();
   if (!Array.isArray(trip.samples) || !trip.samples.length) throw new Error('这条记录没有可显示的速度数据。');
-  let inCollection=window.TRIP_IN_COLLECTION===true;
-  if(typeof window.TRIP_IN_COLLECTION!=='boolean'&&!window.TRIP){
-    try{
-      const response=await fetch('records/collections.json',{cache:'no-cache'});
-      if(response.ok){
-        const collections=await response.json();
-        inCollection=collections.some(collection=>collection.recordIds?.includes(trip.id));
-      }
-    }catch{}
+  let inCollection = false;
+  try {
+    const groups = await fetch('records/collections.json', {cache: 'no-cache'});
+    if (groups.ok) {
+      const collections = await groups.json();
+      inCollection = collections.some(collection => collection.recordIds?.includes(trip.id));
+    }
+  } catch {
+    // The speed chart and independent route remain available if the catalog is unavailable.
   }
-  if(inCollection)$('route-map-card')?.remove();
-  const colors = {speed:'#155b9b', band:'#eda33c', pass:'#7c61a5', stop:'#168677'};
+  if (inCollection) $('route-map-card').remove();
+  const colors = {speed:'#216052', band:'#ba8b47', pass:'#746082', stop:'#387661'};
   const speedLevels = [
     {min:0,max:200,label:'[0, 200)',color:'#155b9b',background:'#eef4fb'},
     {min:200,max:250,label:'[200, 250)',color:'#19734c',background:'#eff7f1'},
@@ -57,17 +54,22 @@
   }
   const passAverages=new Map(events.filter(e=>e.type==='pass').map(e=>[e.id,averageSpeed(e)]));
   document.title=`${trip.title} · 运转记录册${trip.beta===true?' Beta':''}`;
-  $('trip-title').textContent=trip.title;
+  $('trip-title').setAttribute('aria-label',trip.title);
+  $('trip-train').textContent=trip.train;
+  $('trip-origin').textContent=trip.origin;
+  $('trip-destination').textContent=trip.destination;
+  $('trip-partial').hidden=!trip.partial;
   $('trip-beta').hidden=trip.beta!==true;
-  $('trip-date').textContent=`${formatDate(samples[0].t)} · 北京时间 UTC+8`;
+  $('trip-date').textContent=formatDate(samples[0].t);
+  $('trip-date').dateTime=formatDate(samples[0].t);
   const crossDate=formatDate(samples[0].t)!==formatDate(samples.at(-1).t);
-  $('trip-summary').textContent=`${trip.partial?'部分记录':'运行记录'} ${formatTime(samples[0].t)}—${crossDate?formatDate(samples.at(-1).t)+' ':''}${formatTime(samples.at(-1).t)} · ${samples.length.toLocaleString()} 个采样点`;
+  $('sample-range').textContent=`${formatTime(samples[0].t)} — ${crossDate?formatDate(samples.at(-1).t)+' ':''}${formatTime(samples.at(-1).t)}`;
+  $('sample-count').textContent=samples.length.toLocaleString('zh-CN');
   if(trip.speedCleaning?.removedCount){
-    $('cleaning-note').textContent=`已按加速度绝对值 ${trip.speedCleaning.maxAbsAccelerationMps2} m/s² 上限剔除 ${trip.speedCleaning.removedCount} 个异常速度点；删除处留空，不插值。`;
+    $('cleaning-note').textContent=`按加速度绝对值 ${trip.speedCleaning.maxAbsAccelerationMps2} m/s² 的上限剔除 ${trip.speedCleaning.removedCount} 个异常速度点，删除处留空。`;
     $('cleaning-note').hidden=false;
   }
   $('load-message').hidden=true;$('viewer-content').hidden=false;
-  const initialPage = document.documentElement.outerHTML;
   const chart = echarts.init($('chart'),null,{renderer:'canvas'});
   const data = [];
   for(let i=0;i<samples.length;i++){
@@ -86,20 +88,20 @@
   }
   const commonLine={type:'line',symbol:'none',connectNulls:false,smooth:false,animation:false,clip:true,emphasis:{disabled:true},silent:true};
   const speedMax=Math.max(50,Math.ceil(samples.reduce((max,s)=>Math.max(max,s.v+s.a),0)/50)*50);
-  chart.setOption({animation:false,textStyle:{fontFamily:'"Segoe UI","Microsoft YaHei",sans-serif'},
+  chart.setOption({animation:false,textStyle:{fontFamily:'Inter, "Microsoft YaHei", sans-serif'},
     grid:[{left:66,right:28,top:36,bottom:167},{left:66,right:28,height:56,bottom:73}],
     xAxis:[0,1].map(i=>({type:'time',gridIndex:i,min:full[0],max:full[1],boundaryGap:false,
-      axisLine:{show:i===0,lineStyle:{color:'#cbd6e3'}},axisTick:{show:false},
-      axisLabel:{show:i===0,color:'#65758a',fontSize:12,hideOverlap:true,formatter:t=>formatTime(t)},
-      splitLine:{show:i===0,lineStyle:{color:'#f0f3f7'}}})),
-    yAxis:[{type:'value',min:0,max:speedMax,name:'速度 / km/h',nameTextStyle:{color:'#65758a',fontSize:12},axisLabel:{fontSize:12,formatter:value=>`{speed${speedLevel(value)}|${value}}`,rich:Object.fromEntries(speedLevels.map((level,i)=>[`speed${i}`,{color:level.color,fontSize:12}]))},splitLine:{lineStyle:{color:'#e8edf4'}}},
-      {type:'category',gridIndex:1,data:['通过','停车'],inverse:true,axisLine:{show:false},axisTick:{show:false},axisLabel:{color:'#65758a',fontSize:12},splitLine:{show:true,lineStyle:{color:'#f1f4f8'}}}],
+      axisLine:{show:i===0,lineStyle:{color:'#b8c3bc'}},axisTick:{show:false},
+      axisLabel:{show:i===0,color:'#53645a',fontSize:12,hideOverlap:true,formatter:t=>formatTime(t)},
+      splitLine:{show:i===0,lineStyle:{color:'#edf0e9'}}})),
+    yAxis:[{type:'value',min:0,max:speedMax,name:'速度 / km/h',nameTextStyle:{color:'#53645a',fontSize:12},axisLabel:{fontSize:12,formatter:value=>`{speed${speedLevel(value)}|${value}}`,rich:Object.fromEntries(speedLevels.map((level,i)=>[`speed${i}`,{color:level.color,fontSize:12}]))},splitLine:{lineStyle:{color:'#dce3db'}}},
+      {type:'category',gridIndex:1,data:['通过','停车'],inverse:true,axisLine:{show:false},axisTick:{show:false},axisLabel:{color:'#53645a',fontSize:12},splitLine:{show:true,lineStyle:{color:'#e9ede6'}}}],
     dataZoom:[{id:'inside',type:'inside',xAxisIndex:[0,1],filterMode:'none',minValueSpan:2000,zoomOnMouseWheel:true,moveOnMouseMove:false,moveOnMouseWheel:false,preventDefaultMouseMove:true},
-      {id:'slider',type:'slider',xAxisIndex:[0,1],filterMode:'none',minValueSpan:2000,bottom:14,left:66,right:28,height:26,showDetail:false,brushSelect:false,borderColor:'#dce4ee',backgroundColor:'#f7f9fc',fillerColor:'#155b9b18',handleStyle:{color:'#fff',borderColor:'#7193b9'},dataBackground:{lineStyle:{color:'#9fb2c8'},areaStyle:{color:'#dde7f2'}},selectedDataBackground:{lineStyle:{color:colors.speed},areaStyle:{color:'#c7d9ee'}}}],
+      {id:'slider',type:'slider',xAxisIndex:[0,1],filterMode:'none',minValueSpan:2000,bottom:14,left:66,right:28,height:26,showDetail:false,brushSelect:false,borderColor:'#bbc8bc',backgroundColor:'#f4f5ee',fillerColor:'#477b671f',handleStyle:{color:'#fff',borderColor:'#688477'},dataBackground:{lineStyle:{color:'#a5b5a7'},areaStyle:{color:'#e1e9db'}},selectedDataBackground:{lineStyle:{color:colors.speed},areaStyle:{color:'#bbd3c1'}}}],
     series:[{...commonLine,id:'speed-scale-background',data:[],z:0,markArea:{silent:true,z:0,label:{show:false},data:speedLevels.filter(level=>level.min<speedMax).map(level=>[{yAxis:level.min,itemStyle:{color:level.background}},{yAxis:Math.min(level.max,speedMax)}])}},
       {...commonLine,id:'lower',stack:'band',lineStyle:{opacity:0},areaStyle:{opacity:0},data:data.map(d=>[d[0],d[2]])},
       {...commonLine,id:'band',stack:'band',lineStyle:{opacity:0},areaStyle:{color:colors.band,opacity:.4},data:data.map(d=>[d[0],d[2]===null?null:d[3]-d[2]])},
-      {...commonLine,id:'speed',lineStyle:{color:colors.speed,width:1.7},data:data.map(d=>[d[0],d[1]]),z:5},eventSeries()]
+      {...commonLine,id:'speed',lineStyle:{color:colors.speed,width:2},data:data.map(d=>[d[0],d[1]]),z:5},eventSeries()]
   });
   function bounds(){return chart.getModel().getComponent('grid',0).coordinateSystem.getRect();}
   function updateRange(){
@@ -140,6 +142,7 @@
     }
   }
   chart.getZr().on('mousemove',e=>showAt(e.offsetX,e.offsetY));
+  chart.getZr().on('click',e=>showAt(e.offsetX,e.offsetY));
   chart.getZr().on('globalout',()=>{if(!drag)hideTip();});
   chart.getZr().on('dblclick',()=>zoom(...full));
   chart.on('datazoom',()=>{updateRange();hideTip();});
@@ -154,69 +157,33 @@
   $('chart').addEventListener('keydown',e=>{const step=(view[1]-view[0])*.2;if(e.key==='ArrowLeft')zoom(view[0]-step,view[1]-step);else if(e.key==='ArrowRight')zoom(view[0]+step,view[1]+step);else if(['+','='].includes(e.key))scale(.5);else if(e.key==='-')scale(2);else if(e.key==='Home')zoom(...full);else return;e.preventDefault();});
   new ResizeObserver(()=>{chart.resize();hideTip();}).observe($('chart-wrap'));
   setMode('select');updateRange();
-  $('events-root').innerHTML=`<details class="event-details"><summary>区间标记 <span>查看停车、通过的起止时间</span></summary><div class="event-body"><p class="event-note">${trip.eventNote?escape(trip.eventNote)+" ":""}时间均为北京时间；起止相同表示时间点。平均速度为通过区间内保留速度采样的算术平均值。</p><div class="event-list"><table><thead><tr><th>名称</th><th>类型</th><th>时间范围</th><th>时长</th><th>平均速度</th><th class="actions">查看</th></tr></thead><tbody id="event-rows"></tbody></table></div></div></details>`;
-  $('event-rows').innerHTML=events.map(e=>`<tr><td>${escape(e.name)} ${inferenceTag(e)}</td><td><span class="type-tag ${e.type}">${e.type==='stop'?'停车':'通过'}</span></td><td>${crossDate?formatDate(e.start)+' ':''}${formatTime(e.start)} — ${crossDate?formatDate(e.end)+' ':''}${formatTime(e.end)}</td><td>${e.start===e.end?'时间点':duration(e.end-e.start)}</td><td>${e.type==='pass'?passAverages.get(e.id):'—'}</td><td class="actions"><button type="button" data-id="${escape(e.id)}" aria-label="查看${escape(e.name)}区间">查看</button></td></tr>`).join('')||'<tr><td colspan="6">尚无区间标记</td></tr>';
+  $('event-count').textContent = `${events.length} 处`;
+  if (trip.eventNote) {
+    $('trip-event-note').textContent = trip.eventNote;
+    $('trip-event-note').hidden = false;
+  }
+  $('average-note').hidden = !events.some(event => event.type === 'pass' && event.start !== event.end);
+  $('event-rows').innerHTML = events.map(event => {
+    const isPoint = event.start === event.end;
+    const from = (crossDate ? formatDate(event.start) + ' ' : '') + formatTime(event.start);
+    const to = (crossDate ? formatDate(event.end) + ' ' : '') + formatTime(event.end);
+    return `<tr>
+      <th scope="row">${escape(event.name)} ${inferenceTag(event)}</th>
+      <td class="event-kind"><span class="type-tag ${event.type === 'stop' ? 'stop' : 'pass'}">${event.type === 'stop' ? '停车' : '通过'}</span></td>
+      <td class="event-time" data-label="时间">${isPoint ? from : from + ' — ' + to}</td>
+      <td class="event-duration" data-label="时长">${isPoint ? '时间点' : duration(event.end-event.start)}</td>
+      <td class="event-mean" data-label="均速">${event.type === 'pass' ? passAverages.get(event.id) : '—'}</td>
+      <td class="actions"><button type="button" data-id="${escape(event.id)}" aria-label="查看${escape(event.name)}区间">查看 <span aria-hidden="true">↗</span></button></td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="6" class="event-empty">尚无区间标记</td></tr>';
   $('event-rows').onclick=e=>{
     const button=e.target.closest('button[data-id]');if(!button)return;
     const event=events.find(item=>item.id===button.dataset.id);if(!event)return;
     const padding=Math.max(10000,(event.end-event.start)*.5);zoom(event.start-padding,event.end+padding);$('chart').scrollIntoView({block:'center',behavior:'smooth'});
   };
   let routeMap=null;
-  const routeMapReady=inCollection?Promise.resolve(null):Promise.resolve().then(()=>{
-    if(!window.RailRouteMap?.mount)throw new Error('无法读取线路图组件');
-    return window.RailRouteMap.mount(trip);
-  }).then(instance=>{routeMap=instance;return instance;}).catch(error=>{
-    $('map-message').hidden=false;$('map-message').textContent='线路图载入失败：'+error.message;return null;
-  });
-  async function portableHtml(){
-    await routeMapReady;
-    if(!inCollection&&!routeMap)throw new Error('线路图未能载入，无法生成完整离线网页；请重新载入后重试。');
-    const doc=new DOMParser().parseFromString(initialPage,'text/html');
-    if(inCollection)doc.querySelector('script[src^="assets/route-map.js"]')?.remove();
-    for(const link of doc.querySelectorAll('link[rel="stylesheet"]')){
-      const response=await fetch(new URL(link.getAttribute('href'),location.href));if(!response.ok)throw new Error('无法读取样式');
-      const style=doc.createElement('style');style.textContent=await response.text();link.replaceWith(style);
-    }
-    for(const script of doc.querySelectorAll('script[src]')){
-      if(script.id==='trip-data'){script.removeAttribute('src');continue;}
-      const response=await fetch(new URL(script.getAttribute('src'),location.href));if(!response.ok)throw new Error('无法读取网页组件');
-      script.textContent=(await response.text()).replace(/<\/script/gi,'<\\/script');script.removeAttribute('src');
-    }
-    if(!doc.getElementById('third-party-licenses')){
-      const licenses=await Promise.all(['LICENSE-echarts.txt','NOTICE-echarts.txt',...(!inCollection?['maps/README.md','maps/LICENSE-coordtransform.txt','maps/RIVERS.md','maps/STATIONS.md']:[])].map(async name=>{
-        const response=await fetch(new URL('assets/'+name,location.href));
-        if(!response.ok)throw new Error('无法读取第三方许可');return response.text();
-      }));
-      const notice=doc.createElement('script');notice.type='text/plain';notice.id='third-party-licenses';notice.textContent=licenses.join('\n\n').replace(/<\/script/gi,'<\\/script');doc.head.append(notice);
-    }
-    doc.querySelector('.back-link').href=new URL('index.html',location.href).href;
-    const portableTrip={...trip,events};
-    if(routeMap)portableTrip.routeMap=routeMap.route;else delete portableTrip.routeMap;
-    doc.getElementById('trip-data').textContent='window.TRIP='+JSON.stringify(portableTrip).replace(/</g,'\\u003c')+';window.TRIP_IN_COLLECTION='+inCollection+';'+(routeMap?'window.ROUTE_BASEMAP='+JSON.stringify(routeMap.basemap).replace(/</g,'\\u003c')+';window.ROUTE_RIVERS='+JSON.stringify(routeMap.rivers).replace(/</g,'\\u003c')+';':'');
-    return '<!doctype html>\n'+doc.documentElement.outerHTML;
-  }
-  $('save-page').hidden=false;$('save-page').disabled=true;
-  $('save-page').onclick=async()=>{
-    const button=$('save-page');button.disabled=true;button.textContent='正在保存…';
-    $('download-error').hidden=true;
-    try{
-      const html=await portableHtml(),url=URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));
-      const link=document.createElement('a');link.href=url;link.download=`${trip.train||"rail-log"}_${trip.id}.html`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent=inCollection?'已生成包含速度图与当前区间的离线网页':'已生成包含线路图与当前区间的离线网页';
-    }catch(error){$('status').textContent='保存失败：'+error.message;$('download-error').textContent='保存失败：'+error.message;$('download-error').hidden=false;}
-    finally{button.disabled=false;button.textContent='保存离线网页';}
-  };
-  $('export-record').onclick=async()=>{
-    const button=$('export-record');button.disabled=true;
-    try{
-      await routeMapReady;
-      const payload={...trip,events,...(routeMap?{routeMap:routeMap.route}:{})};
-      const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)+'\n'],{type:'application/json;charset=utf-8'}));
-      const link=document.createElement('a');link.href=url;link.download=trip.id+'.json';link.click();
-      setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent=routeMap?'已导出包含线路图的记录数据':inCollection?'已导出速度与区间数据':'已导出速度与区间数据；线路图未能载入';
-    }finally{button.disabled=false;}
-  };
   const getState=()=>({view:[...view],events:events.map(e=>({...e})),samples:samples.length});
-  window.TRIP_VIEWER={chart,zoom,getState,nearest,portableHtml,get routeMap(){return routeMap;}};
+  window.TRIP_VIEWER={chart,zoom,getState,nearest,get routeMap(){return routeMap;}};
   if(document.modelContext?.registerTool){
     const lifecycle=new AbortController();
     const register=tool=>{try{Promise.resolve(document.modelContext.registerTool(tool,{signal:lifecycle.signal})).catch(()=>{});}catch{}};
@@ -224,8 +191,15 @@
     register({name:'set_time_window',description:'将速度图放大到指定北京时间范围。只调整图表视窗，不修改记录。',inputSchema:{type:'object',properties:{start:{type:'string',description:'带时区的 ISO 开始时间，例如 2026-09-23T16:36:10+08:00'},end:{type:'string',description:'带时区的 ISO 结束时间'}},required:['start','end'],additionalProperties:false},annotations:{readOnlyHint:false},execute:input=>{if(!input||typeof input.start!=='string'||typeof input.end!=='string'||!/[+-]\d\d:\d\d$|Z$/.test(input.start)||!/[+-]\d\d:\d\d$|Z$/.test(input.end))throw new Error('时间必须包含时区');return zoom(Date.parse(input.start),Date.parse(input.end));}});
     window.addEventListener('pagehide',()=>lifecycle.abort(),{once:true});
   }
-  await routeMapReady;
-  $('save-page').disabled=false;
+
+  if (!inCollection) {
+    try {
+      routeMap = await window.RailRouteMap.mount(trip);
+    } catch (error) {
+      $('map-message').hidden = false;
+      $('map-message').textContent = '线路图载入失败：' + error.message;
+    }
+  }
 })().catch(error=>{
   document.getElementById('viewer-content').hidden=true;
   const message=document.getElementById('load-message');message.hidden=false;message.textContent=error.message;
