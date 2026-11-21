@@ -230,7 +230,7 @@ function footprintFrame(footprint) {
     assert.equal(Boolean(station.platform), !sparse.has(station.name), `${station.name}: uses the selected station geometry policy`);
     if (station.platform) assert.ok([4, 5].includes(station.platform.corners.length));
   }
-  assert.equal(seen.size, 99);
+  assert.equal(seen.size, 125);
 
   // The display boundary uses clearance from the outer arrival/departure track,
   // keeping the source platform extent and longitudinal endpoints unchanged.

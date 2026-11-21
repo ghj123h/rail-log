@@ -3,7 +3,7 @@
   "coordinateSystem": "WGS84",
   "coordinateMethod": "Public AMap station POI coordinates are GCJ-02. Catalog lon/lat uses an iterative inverse of the existing project transform; precision is approximate. The map generator replaces references with nearby actual WGS84 GNSS samples where available. Guang’anmen uses the WGS84 OpenStreetMap station node.",
   "stationScope": "全部展示区间起终点与沿途已建车站，包括不办客、暂停办客车站；不含线路所。京津现有记录已明确标记的永乐预留站作为命名位置保留，不扩展其他未来/未建站。",
-  "checkedOn": "2026-11-16",
+  "checkedOn": "2026-11-21",
   "stations": {
     "临清东": {
       "lon": 115.7568902,
@@ -1635,6 +1635,318 @@
       ],
       "coordinateMethod": "Public WGS84 OSM national-rail station node.",
       "osmStationNode": 9225780497
+    },
+    "北京": {
+      "lon": 116.4210134,
+      "lat": 39.9011168,
+      "sources": [
+        {
+          "title": "北京 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/269996666"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 269996666
+    },
+    "北京东": {
+      "lon": 116.478656,
+      "lat": 39.901096,
+      "sources": [
+        {
+          "title": "北京东 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/7907338281"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 7907338281
+    },
+    "中仓": {
+      "lon": 116.657085,
+      "lat": 39.8960646,
+      "sources": [
+        {
+          "title": "中仓 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/4883415766"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 4883415766
+    },
+    "燕郊": {
+      "lon": 116.8197765,
+      "lat": 39.9407362,
+      "sources": [
+        {
+          "title": "燕郊 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/8431451892"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 8431451892
+    },
+    "大厂": {
+      "lon": 116.8975599,
+      "lat": 39.8885609,
+      "sources": [
+        {
+          "title": "大厂 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/10293210794"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 10293210794
+    },
+    "香河": {
+      "lon": 117.0276648,
+      "lat": 39.7188328,
+      "sources": [
+        {
+          "title": "香河 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/10296507040"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 10296507040
+    },
+    "宝坻": {
+      "lon": 117.2768641,
+      "lat": 39.6632222,
+      "sources": [
+        {
+          "title": "宝坻 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/6124512542"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 6124512542
+    },
+    "玉田南": {
+      "lon": 117.8083825,
+      "lat": 39.6963116,
+      "sources": [
+        {
+          "title": "玉田南 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/6124510824"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 6124510824
+    },
+    "唐山西": {
+      "lon": 118.0170976,
+      "lat": 39.6951226,
+      "sources": [
+        {
+          "title": "唐山西 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/6124511976"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 6124511976
+    },
+    "唐山": {
+      "lon": 118.1116984,
+      "lat": 39.6242388,
+      "sources": [
+        {
+          "title": "唐山 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/7783472725"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 7783472725
+    },
+    "滨海北": {
+      "lon": 117.7557697,
+      "lat": 39.2351206,
+      "sources": [
+        {
+          "title": "滨海北 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/9276824795"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 9276824795
+    },
+    "滨海西": {
+      "lon": 117.605684,
+      "lat": 39.0800307,
+      "sources": [
+        {
+          "title": "滨海西 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/3657675428"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 3657675428
+    },
+    "霸州南": {
+      "lon": 116.4202379,
+      "lat": 39.0770859,
+      "sources": [
+        {
+          "title": "霸州南 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/9763960468"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 9763960468
+    },
+    "霸州西": {
+      "lon": 116.3441688,
+      "lat": 39.092365,
+      "sources": [
+        {
+          "title": "霸州西 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/3931584035"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 3931584035
+    },
+    "白沟": {
+      "lon": 116.0866639,
+      "lat": 39.0859629,
+      "sources": [
+        {
+          "title": "白沟 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/3947949904"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 3947949904
+    },
+    "白洋淀": {
+      "lon": 115.8685484,
+      "lat": 39.0686429,
+      "sources": [
+        {
+          "title": "白洋淀 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/9269060395"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 9269060395
+    },
+    "正定": {
+      "lon": 114.5510825,
+      "lat": 38.1621065,
+      "sources": [
+        {
+          "title": "正定 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/8308266734"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 8308266734
+    },
+    "定州": {
+      "lon": 114.9671026,
+      "lat": 38.5298375,
+      "sources": [
+        {
+          "title": "定州 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/7890361040"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 7890361040
+    },
+    "保定": {
+      "lon": 115.473167,
+      "lat": 38.8627726,
+      "sources": [
+        {
+          "title": "保定 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/8308266733"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 8308266733
+    },
+    "徐水": {
+      "lon": 115.6392198,
+      "lat": 39.0329643,
+      "sources": [
+        {
+          "title": "徐水 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/2329466302"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 2329466302
+    },
+    "高碑店": {
+      "lon": 115.8527002,
+      "lat": 39.3278413,
+      "sources": [
+        {
+          "title": "高碑店 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/8313484665"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 8313484665
+    },
+    "涿州": {
+      "lon": 115.978183,
+      "lat": 39.479732,
+      "sources": [
+        {
+          "title": "涿州 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/2329466304"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 2329466304
+    },
+    "良乡": {
+      "lon": 116.1504813,
+      "lat": 39.7401245,
+      "sources": [
+        {
+          "title": "良乡 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/8313484663"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 8313484663
+    },
+    "房山东": {
+      "lon": 116.170501,
+      "lat": 39.7649308,
+      "sources": [
+        {
+          "title": "房山东 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/13706600750"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 13706600750
+    },
+    "后吕村": {
+      "lon": 116.1649503,
+      "lat": 39.8293557,
+      "sources": [
+        {
+          "title": "后吕村 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/4708350145"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 4708350145
+    },
+    "衙门口东": {
+      "lon": 116.2143956,
+      "lat": 39.8945158,
+      "sources": [
+        {
+          "title": "衙门口东 · OpenStreetMap 国铁车站节点",
+          "url": "https://www.openstreetmap.org/node/9831083408"
+        }
+      ],
+      "coordinateMethod": "Public WGS84 OSM national-rail station node.",
+      "osmStationNode": 9831083408
     }
   },
   "routes": {
@@ -1831,6 +2143,49 @@
       "安次",
       "胜芳",
       "天津西"
+    ],
+    "261116123504": [
+      "北京",
+      "北京东",
+      "中仓",
+      "燕郊",
+      "大厂",
+      "香河",
+      "宝坻",
+      "玉田南",
+      "唐山西",
+      "唐山"
+    ],
+    "261116142839": [
+      "唐山",
+      "滨海北",
+      "滨海西",
+      "军粮城北",
+      "天津",
+      "天津西",
+      "胜芳",
+      "霸州南",
+      "霸州西",
+      "白沟",
+      "白洋淀",
+      "徐水东",
+      "保定东",
+      "定州东",
+      "正定机场",
+      "石家庄"
+    ],
+    "261116191856": [
+      "正定",
+      "定州",
+      "保定",
+      "徐水",
+      "高碑店",
+      "涿州",
+      "良乡",
+      "房山东",
+      "后吕村",
+      "衙门口东",
+      "北京西"
     ]
   },
   "routeSources": {
@@ -2044,6 +2399,52 @@
       {
         "title": "天津西站 · 国家铁路局",
         "url": "https://source.nra.gov.cn/tlfc/tpsy/202204/t20220405_292984.shtml"
+      }
+    ],
+    "261116123504": [
+      {
+        "title": "京哈铁路（北京—哈尔滨） · OpenStreetMap 线路关系",
+        "url": "https://www.openstreetmap.org/relation/198494"
+      },
+      {
+        "title": "京唐城际铁路 · OpenStreetMap 线路关系",
+        "url": "https://www.openstreetmap.org/relation/11898032"
+      },
+      {
+        "title": "中国政府网：京唐城际铁路开通运营",
+        "url": "https://www.gov.cn/xinwen/2022-12/30/content_5734224.htm"
+      }
+    ],
+    "261116142839": [
+      {
+        "title": "津秦高速铁路 · OpenStreetMap 线路关系",
+        "url": "https://www.openstreetmap.org/relation/13471015"
+      },
+      {
+        "title": "天津地下直径线 · OpenStreetMap 线路关系",
+        "url": "https://www.openstreetmap.org/relation/13460161"
+      },
+      {
+        "title": "津霸客运专线 · OpenStreetMap 线路关系",
+        "url": "https://www.openstreetmap.org/relation/8400844"
+      },
+      {
+        "title": "津保铁路（霸徐线） · OpenStreetMap 线路关系",
+        "url": "https://www.openstreetmap.org/relation/14068467"
+      },
+      {
+        "title": "京广高速铁路 · OpenStreetMap 线路关系",
+        "url": "https://www.openstreetmap.org/relation/12265072"
+      }
+    ],
+    "261116191856": [
+      {
+        "title": "京广铁路 · OpenStreetMap 线路关系",
+        "url": "https://www.openstreetmap.org/relation/193064"
+      },
+      {
+        "title": "西长铁路（良乡—北京西） · OpenStreetMap 线路关系",
+        "url": "https://www.openstreetmap.org/relation/12257095"
       }
     ]
   },
