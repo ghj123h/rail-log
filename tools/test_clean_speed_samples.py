@@ -3,7 +3,7 @@ import itertools
 import random
 import unittest
 
-from clean_speed_samples import compatible, filter_route, retained_indices
+from clean_speed_samples import compatible, retained_indices
 
 
 def samples(speeds, times=None, accuracy=None):
@@ -47,14 +47,6 @@ class CleanupTests(unittest.TestCase):
             points = [data[i] for i in indices]
             self.assertEqual((len(indices), -sum(p['a'] for p in points)), max(feasible))
             self.assertEqual(retained_indices(points, 1.5), list(range(len(points))))
-
-    def test_route_deletions_preserve_stations_coordinates_and_breaks(self):
-        route = dict(id='test', stations=[dict(name='站', lon=1, lat=2)],
-                     segments=[[[1, 2, 0], [2, 3, 1000], [3, 4, 2000]], [[4, 5, 10000]]])
-        result = filter_route(route, {0, 2000, 10000}, 1000)
-        self.assertEqual(result['segments'], [[[1, 2, 0]], [[3, 4, 2000]], [[4, 5, 10000]]])
-        self.assertEqual(result['stations'], route['stations'])
-        self.assertEqual(len(route['segments'][0]), 3)
 
 
 if __name__ == '__main__':

@@ -176,18 +176,18 @@
       buttons.forEach(button => { button.disabled = true; });
       try {
         const [route, basemap, rivers] = await Promise.all([
-          trip.routeMap || readJson(`records/${trip.id}.route.json`, '无法读取这条记录的线路图数据。', {cache: 'no-cache'}),
-          window.ROUTE_BASEMAP || readJson('assets/maps/china-prefectures.geojson', '无法读取线路图底图。'),
-          window.ROUTE_RIVERS || readJson('assets/maps/major-rivers.geojson?v=2', '无法读取线路图水道数据。')
+          trip.routeMap || readJson(`records/${trip.id}.route.json`, '线路数据暂时取不到，请稍后刷新。', {cache: 'no-cache'}),
+          window.ROUTE_BASEMAP || readJson('assets/maps/china-prefectures.geojson', '底图文件未能载入。'),
+          window.ROUTE_RIVERS || readJson('assets/maps/major-rivers.geojson?v=2', '水系数据未能载入。')
         ]);
         if (route.id !== trip.id || route.coordinateSystem !== 'WGS84' || !route.stations.length || !route.segments.length) {
-          throw new Error('线路图数据与当前记录不符。');
+          throw new Error('线路文件与本条记录对不上。');
         }
         const stationCount = new Set(route.stations.map(station => station.name)).size;
         const conventional = trip.railType === 'conventional';
-        const svg = element('svg', {role: 'img', class: conventional ? 'rail-conventional' : '', 'aria-label': options.accessibleLabel || `${trip.origin}至${trip.destination}的 GNSS 线路图，包含${stationCount}个车站。${conventional ? '紫色' : '朱红色'}为运转轨迹，蓝色为黄河和长江。`});
+        const svg = element('svg', {role: 'img', class: conventional ? 'rail-conventional' : '', 'aria-label': options.accessibleLabel || `${trip.origin ? `${trip.origin}至` : ''}${trip.destination}的 GNSS 实测线路图，包含 ${stationCount} 座车站。${conventional ? '薄荷绿' : '琥珀色'}线为 GNSS 实测轨迹，蓝色线为黄河与长江。`});
         const title = element('title');
-        title.textContent = `${trip.title} · 线路图`;
+        title.textContent = `${trip.title} · 沿途线路`;
         svg.append(title);
         const geometry = element('g', {'aria-hidden': 'true', fill: 'none', 'stroke-linejoin': 'round', 'stroke-linecap': 'round'});
         for (const feature of basemap.features) {
@@ -209,12 +209,28 @@
         geometry.append(element('path', {
           d: route.segments.map(pathData).join(''), class: 'map-track', 'vector-effect': 'non-scaling-stroke'
         }));
+        const focusPath = element('path', {
+          d: '', class: 'map-focus', 'vector-effect': 'non-scaling-stroke'
+        });
+        geometry.append(focusPath);
         svg.append(geometry);
         const isolated = route.segments.filter(segment => segment.length === 1).map(segment => ({
           point: project(segment[0]), node: element('circle', {r: 1.5, class: 'map-isolated'})
         }));
         for (const item of isolated) svg.append(item.node);
         const projectedSegments = route.segments.map(segment => segment.map(project));
+        const timed = [];
+        for (let segIndex = 0; segIndex < route.segments.length; segIndex++) {
+          const rawSegment = route.segments[segIndex];
+          const projSegment = projectedSegments[segIndex];
+          for (let pointIndex = 0; pointIndex < rawSegment.length; pointIndex++) {
+            const t = rawSegment[pointIndex][2];
+            if (Number.isFinite(t)) {
+              timed.push({x: projSegment[pointIndex][0], y: projSegment[pointIndex][1], t, seg: segIndex});
+            }
+          }
+        }
+        timed.sort((a, b) => a.t - b.t);
         const track = projectedSegments.flat();
         const stationPoints = route.stations.map(station => project([station.lon, station.lat]));
         const journey = [stationPoints.at(-1)[0] - stationPoints[0][0], stationPoints.at(-1)[1] - stationPoints[0][1]];
@@ -229,15 +245,74 @@
           svg.append(item.group);
           return [item];
         });
+        const cursorNode = element('circle', {r: 5, class: 'map-cursor', visibility: 'hidden'});
+        svg.append(cursorNode);
         container.replaceChildren(svg);
         const coordinates = track.concat(stationPoints, stations.flatMap(station => station.platform?.corners || []));
         const extent = coordinates.reduce((box, [x, y]) => [Math.min(box[0], x), Math.min(box[1], y), Math.max(box[2], x), Math.max(box[3], y)], [Infinity, Infinity, -Infinity, -Infinity]);
         const center = [(extent[0] + extent[2]) / 2, (extent[1] + extent[3]) / 2];
         const span = [Math.max(.0003, extent[2] - extent[0]), Math.max(.0003, extent[3] - extent[1])];
-        let width, height, fitScale, labelScale, zoom = 1, offset = [0, 0], frame;
+        let width, height, fitScale, labelScale, zoom = 1, offset = [0, 0], frame, cursorPoint = null;
         function screen(point) {
           const scale = fitScale * zoom;
           return [width / 2 + offset[0] + (point[0] - center[0]) * scale, height / 2 + offset[1] + (point[1] - center[1]) * scale];
+        }
+        function updateCursor() {
+          if (!cursorPoint) {
+            cursorNode.setAttribute('visibility', 'hidden');
+            return;
+          }
+          const [cx, cy] = screen([cursorPoint.x, cursorPoint.y]);
+          cursorNode.setAttribute('cx', cx);
+          cursorNode.setAttribute('cy', cy);
+          cursorNode.setAttribute('visibility', 'visible');
+        }
+        function nearestTimed(t) {
+          if (!timed.length) return null;
+          let lo = 0, hi = timed.length;
+          while (lo < hi) {
+            const mid = (lo + hi) >> 1;
+            if (timed[mid].t < t) lo = mid + 1;
+            else hi = mid;
+          }
+          if (lo === 0) return timed[0];
+          if (lo === timed.length) return timed[timed.length - 1];
+          return t - timed[lo - 1].t <= timed[lo].t - t ? timed[lo - 1] : timed[lo];
+        }
+        function setCursor(t) {
+          if (t == null || !Number.isFinite(t)) {
+            cursorPoint = null;
+            updateCursor();
+            return;
+          }
+          const tolerance = options.cursorToleranceMs ?? 2500;
+          const found = nearestTimed(t);
+          cursorPoint = found && Math.abs(found.t - t) <= tolerance ? found : null;
+          updateCursor();
+        }
+        function setFocus(start, end) {
+          const hasFocus = start != null && end != null && Number.isFinite(start) && Number.isFinite(end) && end >= start;
+          if (!hasFocus) {
+            focusPath.setAttribute('d', '');
+            svg.setAttribute('class', conventional ? 'rail-conventional' : '');
+            return;
+          }
+          const parts = [];
+          for (const segment of route.segments) {
+            let run = [];
+            for (const point of segment) {
+              const t = point[2];
+              if (Number.isFinite(t) && t >= start && t <= end) {
+                run.push(point);
+              } else {
+                if (run.length >= 2) parts.push(pathData(run));
+                run = [];
+              }
+            }
+            if (run.length >= 2) parts.push(pathData(run));
+          }
+          focusPath.setAttribute('d', parts.join(''));
+          svg.setAttribute('class', [conventional ? 'rail-conventional' : '', 'has-focus'].join(' ').trim());
         }
         function render() {
           const scale = fitScale * zoom;
@@ -259,6 +334,7 @@
             item.node.setAttribute('cx', x);
             item.node.setAttribute('cy', y);
           }
+          updateCursor();
           container.dataset.zoom = String(zoom);
         }
         function schedule() {
@@ -292,7 +368,43 @@
           zoomAt(Math.exp(-Math.max(-200, Math.min(200, event.deltaY)) * .004), local(event));
         }, {passive: false});
         const pointers = new Map();
-        let gesture;
+        const onHover = typeof options.onHover === 'function' ? options.onHover : null;
+        let gesture, hoverCoords = null, hoverScheduled = false;
+        function runHover() {
+          hoverScheduled = false;
+          if (!hoverCoords || pointers.size > 0 || !width || !timed.length) return;
+          const [mx, my] = hoverCoords;
+          const scale = fitScale * zoom;
+          const baseX = width / 2 + offset[0] - center[0] * scale;
+          const baseY = height / 2 + offset[1] - center[1] * scale;
+          let best = null, bestDist2 = 14 * 14;
+          for (let index = 0; index < timed.length; index++) {
+            const item = timed[index];
+            const dx = baseX + item.x * scale - mx;
+            const dy = baseY + item.y * scale - my;
+            const dist2 = dx * dx + dy * dy;
+            if (dist2 <= bestDist2) {
+              bestDist2 = dist2;
+              best = item;
+            }
+          }
+          if (best) {
+            cursorPoint = best;
+            updateCursor();
+            onHover(best.t);
+          } else {
+            cursorPoint = null;
+            updateCursor();
+            onHover(null);
+          }
+        }
+        function scheduleHover(event) {
+          hoverCoords = local(event);
+          if (!hoverScheduled) {
+            hoverScheduled = true;
+            requestAnimationFrame(runHover);
+          }
+        }
         function pointerState() {
           const positions = [...pointers.values()];
           return positions.length === 1 ? {center: positions[0], distance: 0} : {
@@ -303,6 +415,7 @@
         container.addEventListener('pointerdown', event => {
           if (event.button !== 0) return;
           event.preventDefault();
+          if (onHover) hoverCoords = null;
           container.focus({preventScroll: true});
           container.setPointerCapture(event.pointerId);
           pointers.set(event.pointerId, local(event));
@@ -310,7 +423,10 @@
           container.classList.add('is-dragging');
         });
         container.addEventListener('pointermove', event => {
-          if (!pointers.has(event.pointerId)) return;
+          if (!pointers.has(event.pointerId)) {
+            if (onHover && pointers.size === 0) scheduleHover(event);
+            return;
+          }
           pointers.set(event.pointerId, local(event));
           const next = pointerState();
           if (gesture.distance > 0 && next.distance > 0) zoomAt(next.distance / gesture.distance, gesture.center);
@@ -327,6 +443,14 @@
         container.addEventListener('pointerup', release);
         container.addEventListener('pointercancel', release);
         container.addEventListener('lostpointercapture', release);
+        if (onHover) {
+          container.addEventListener('pointerleave', () => {
+            hoverCoords = null;
+            cursorPoint = null;
+            updateCursor();
+            onHover(null);
+          });
+        }
         container.addEventListener('dblclick', reset);
         container.addEventListener('keydown', event => {
           if (event.key === '+' || event.key === '=') zoomAt(1.5);
@@ -347,7 +471,7 @@
         message.hidden = true;
         new ResizeObserver(resize).observe(container);
         resize();
-        return {route, basemap, rivers, getState: () => ({zoom, offset: [...offset], stations: stations.length, segments: route.segments.length, width, height})};
+        return {route, basemap, rivers, setCursor, setFocus, getState: () => ({zoom, offset: [...offset], stations: stations.length, segments: route.segments.length, width, height})};
       } catch (error) {
         message.hidden = false;
         message.textContent = error.message;

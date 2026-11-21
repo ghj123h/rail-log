@@ -3,67 +3,96 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>线路合集 · Rail Log</title>
-  <meta name="description" content="按记录日期查看同一线路的运行记录及沿途车站。">
-  <link rel="icon" href="assets/rail-mark.svg">
-  <link rel="stylesheet" href="assets/styles.css?v=17">
-  <link rel="stylesheet" href="assets/catalog.css?v=1">
+  <title>线路合集 · 逐秒行车志</title>
+  <meta name="description" content="查看同一线路合集的汇总实测总线路图、沿途各站及逐趟运转记录。">
+  <link rel="icon" href="assets/ui/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/ui/site.css?v=1">
 </head>
-<body>
-<header class="site-bar">
-  <div class="site-bar-inner">
-    <a class="brand" href="./" aria-label="Rail Log 首页"><span class="brand-mark" aria-hidden="true"></span>Rail Log</a>
-    <nav aria-label="站点导航">
-      <a href="./">记录目录</a>
-      <a href="./#collection-section" aria-current="page">线路合集</a>
+<body data-page="collection">
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="./" aria-label="逐秒行车志首页">
+      <img class="brand-icon" src="assets/ui/icon.svg" alt="" width="30" height="30">
+      <span class="brand-text">
+        <strong>逐秒行车志</strong>
+        <small>GNSS 列车运转实测</small>
+      </span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="./">总览</a>
+      <a href="collection.html?id=jingjin">京津城际</a>
     </nav>
   </div>
 </header>
-<main class="catalog-shell collection-page">
-  <header class="collection-head">
-    <div class="collection-ident">
-      <p id="catalog-period" class="catalog-period" hidden></p>
-      <h1 id="collection-title">线路合集</h1>
-    </div>
-    <div id="collection-stations" class="collection-stations" hidden>
-      <span>记录起讫站</span>
-      <p id="endpoint-list"></p>
-    </div>
-  </header>
-  <details id="network-map-section" class="chart-card route-map-card network-map-card catalog-map" aria-labelledby="network-map-title">
-      <summary class="network-map-toggle">
-        <span class="catalog-symbol map-symbol" aria-hidden="true"><i></i></span>
-        <span class="map-entry-text"><span id="network-map-title">合集路线图</span><span class="map-caption"><span id="network-map-summary"></span><span class="map-scope">沿途车站</span></span></span>
-      </summary>
-      <div class="toolbar">
-        <div class="zoom-buttons" role="group" aria-label="线路图缩放">
-          <button id="map-zoom-in" aria-label="放大线路图" disabled>＋</button>
-          <button id="map-zoom-out" aria-label="缩小线路图" disabled>−</button>
-          <button id="map-reset" disabled>全程</button>
+
+<main class="page-shell">
+  <div id="home-status" class="status-banner" role="status" hidden></div>
+
+  <div id="collection-view" class="page-shell" style="padding:0;width:100%">
+    <header class="collection-header panel">
+      <a class="back-link" href="./">← 返回总览</a>
+      <div class="collection-header-main">
+        <div>
+          <p class="eyebrow">线路合集</p>
+          <h1 id="collection-title">合集载入中</h1>
+          <p id="collection-desc" class="collection-desc" hidden></p>
+        </div>
+        <div id="collection-metrics" class="collection-metrics"></div>
+      </div>
+    </header>
+
+    <section id="network-map-section" class="atlas panel" aria-labelledby="network-map-title">
+      <div class="atlas-head">
+        <div>
+          <p class="eyebrow">合集总线路图</p>
+          <h2 id="network-map-title">合集线路图</h2>
+        </div>
+        <div class="atlas-controls">
+          <span id="network-map-summary" class="atlas-summary">准备中</span>
+          <div class="zoom-group" role="group" aria-label="地图缩放">
+            <button type="button" id="map-zoom-in" aria-label="放大地图" disabled>＋</button>
+            <button type="button" id="map-zoom-out" aria-label="缩小地图" disabled>－</button>
+            <button type="button" id="map-reset" disabled>复位</button>
+          </div>
         </div>
       </div>
-      <div id="route-map" tabindex="0" role="application" aria-label="线路图。滚轮缩放，拖动平移，Home 键或双击显示全程。"></div>
-      <p id="map-message" class="map-message" role="status">正在载入线路图…</p>
-      <div class="chart-footer">
-        <a class="map-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">河道与站台 © OpenStreetMap contributors</a>
-        <span>滚轮缩放 · 拖动平移 · 双击还原</span>
+      <div id="route-map" tabindex="0" role="application" aria-label="合集线路图。滚轮缩放，拖拽平移，方向键微调，双击或按 0 复位。"></div>
+      <p id="map-message" class="map-msg" role="status">线路数据载入中…</p>
+      <div class="atlas-foot">
+        <span>标注合集全部沿途车站 · 缺测区段保持断开</span>
+        <span>滚轮缩放 · 拖拽平移 · 双击复位</span>
       </div>
-    </details>
-  <section class="timetable" aria-labelledby="record-heading">
-    <div class="timetable-heading">
-      <h2 id="record-heading">合集记录</h2>
-      <span class="record-list-meta"><span id="record-count"></span><span>北京时间 UTC+8</span></span>
-    </div>
-    <p id="catalog-message" class="notice" role="status">正在载入记录目录…</p>
-    <div id="timetable-columns" class="timetable-columns" aria-hidden="true" hidden>
-      <span>记录日期</span><span>车次</span><span>记录区间</span><span>采样时段</span><span>采样点</span><span></span>
-    </div>
-    <ul id="records" class="timetable-list" aria-label="合集记录目录"></ul>
-  </section>
+    </section>
+
+    <section aria-labelledby="collection-runs-heading">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">逐趟记录</p>
+          <h2 id="collection-runs-heading">合集运转清单</h2>
+        </div>
+        <div class="filter-controls">
+          <input type="search" id="run-search" class="search-input" placeholder="车次 / 车站 / 日期" aria-label="筛选合集运转记录">
+          <span id="filter-count" class="filter-count"></span>
+        </div>
+      </div>
+      <div id="run-grid" class="run-grid"></div>
+      <div id="empty-filter" class="empty-state" hidden>没有匹配筛选条件的运转记录。</div>
+      <div id="collection-empty" class="empty-state" hidden>该合集暂无运转记录。</div>
+    </section>
+  </div>
 </main>
-<script src="assets/network-map-data.js?v=4"></script>
-<script src="assets/route-map.js?v=20"></script>
-<script src="assets/network-map.js?v=5"></script>
-<script src="assets/catalog.js?v=9"></script>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span>时间均为北京时间（UTC+8）· 速度与速度精度为设备 GNSS 报告值，色带约对应 68% 置信 · 站台与河道数据 <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap 贡献者</a></span>
+    <span>图表：Apache ECharts</span>
+  </div>
+</footer>
+
+<script src="assets/ui/common.js?v=1"></script>
+<script src="assets/network-map-data.js?v=5"></script>
+<script src="assets/route-map.js?v=21"></script>
+<script src="assets/network-map.js?v=6"></script>
+<script src="assets/ui/home.js?v=1"></script>
 </body>
 </html>

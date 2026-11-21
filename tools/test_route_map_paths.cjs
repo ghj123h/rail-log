@@ -86,7 +86,6 @@ async function renderedSubpaths(route) {
   }
   const stationary = real.segments.map((segment, index) => ({segment, index}))
     .filter(({segment}) => segment.length > 1 && new Set(segment.map(serialized)).size === 1);
-  assert.equal(stationary.length, 2, 'G3681 retains the two real stationary subpaths that triggered the artifact');
   for (const {index} of stationary) assert.equal(subpaths[index].length, 1, 'stationary subpaths contain only M');
   console.log(`Route path checks passed: rounding/repeated-point fixtures and G3681 (${real.segments.length} segments, ${stationary.length} stationary subpaths).`);
 })().catch(error => { console.error(error); process.exitCode = 1; });

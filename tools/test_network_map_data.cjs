@@ -127,8 +127,13 @@ assert.equal(mountedRecords.some(record => record.train === 'S206'), false);
 assert.equal(nodes.get('network-map-summary').textContent, `${overviewRecords.length} 条记录`);
 mapBrowser.window.RailNetworkMap.init(records, {includeIntermediateStations: true});
 assert.equal(mountedRecords.length, records.length, 'collection selection remains intact');
+const sumRoutePoints = items => items.reduce((sum, item) => sum + item.segments.reduce((n, segment) => n + segment.length, 0), 0);
 for (const item of routes) {
   assert.deepEqual(item.stations.map(station => station.name), catalog.routes[item.id], `${item.id}: use the complete along-line catalog`);
+  const timestamps = item.segments.flat().map(point => point[2]);
+  for (let index = 1; index < timestamps.length; index++) {
+    assert.ok(timestamps[index] > timestamps[index - 1], `${item.id}: route timestamps remain strictly increasing`);
+  }
 }
 const real = build(overviewRecords, Object.fromEntries(overviewRoutes.map(item => [item.id, item])));
 const endpoints = [...new Set(overviewRecords.flatMap(record => [record.origin, record.destination]).filter(Boolean))].sort();
@@ -137,7 +142,8 @@ assert.equal(real.summary.recordCount, overviewRecords.length);
 assert.equal(real.summary.endpointCount, endpoints.length);
 assert.ok(real.stations.every(station => station.endpoint || station.junction && station.neighbors.length >= 3));
 assert.equal(real.summary.segmentCount, overviewRoutes.reduce((sum, item) => sum + item.segments.length, 0));
-assert.equal(real.summary.pointCount, overviewRecords.reduce((sum, record) => sum + record.sampleCount, 0));
+assert.equal(real.summary.pointCount, sumRoutePoints(overviewRoutes));
+assert.ok(real.summary.pointCount <= overviewRecords.reduce((sum, record) => sum + record.sampleCount, 0));
 
 // A collection receives only its own records and shows all along-line stations.
 // Its bounds come from those records, so later recorded coverage extends it.
@@ -152,9 +158,18 @@ assert.deepEqual(names(collection), collectionStationNames);
 assert.ok(['北京南', '亦庄', '永乐', '武清'].every(name => names(collection).includes(name)));
 assert.equal(collection.summary.stationCount, collectionStationNames.length);
 assert.equal(collection.summary.segmentCount, collectionRoutes.reduce((sum, item) => sum + item.segments.length, 0));
-assert.equal(collection.summary.pointCount, collectionRecords.reduce((sum, record) => sum + record.sampleCount, 0));
+assert.equal(collection.summary.pointCount, sumRoutePoints(collectionRoutes));
+assert.ok(collection.summary.pointCount <= collectionRecords.reduce((sum, record) => sum + record.sampleCount, 0));
 assert.deepEqual(collection.segments, collectionRoutes.flatMap(item => item.segments));
 assert.deepEqual(names(build(collectionRecords, collectionRoutes)), collection.stations.filter(station => station.endpoint || station.junction).map(station => station.name));
+
+// Map-only drift filtering can reduce route points below sampleCount without breaking aggregation.
+const filteredRun = route('drift-filtered', ['甲', '乙'], {sampleCount: 5});
+filteredRun.route.segments = [[[110, 30, 1000], [110.01, 30, 2000]], [[110.03, 30, 5000]]];
+const filteredNetwork = network(filteredRun);
+assert.equal(filteredNetwork.summary.pointCount, 3);
+assert.equal(filteredNetwork.summary.segmentCount, 2);
+assert.deepEqual(filteredNetwork.segments, filteredRun.route.segments);
 
 const eastward = route('future-jingjin-east', ['武清', '东侧新增站']);
 const wuqing = collection.stations.find(station => station.name === '武清');
