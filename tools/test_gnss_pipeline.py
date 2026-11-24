@@ -261,7 +261,8 @@ class GnssPipelineTests(unittest.TestCase):
         self.assertIn("platform", route["stations"][0])
         self.assertNotIn("platform", route["stations"][2])  # 永乐 stays a point station
         self.assertEqual(index[0]["sampleCount"], 12)
-        self.assertEqual(collections[0]["recordIds"][0], "261118090000")
+        self.assertIn("261118090000", collections[0]["recordIds"])
+        self.assertEqual(collections[0]["recordIds"], sorted(collections[0]["recordIds"], reverse=True))
         self.assertEqual(definitions["sourceFiles"]["261118090000"], [part1.name, part2.name])
 
         # Duplicate import without --overwrite fails; with --overwrite succeeds.
