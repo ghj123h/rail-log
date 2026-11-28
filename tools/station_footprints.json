@@ -1,7 +1,7 @@
 {
   "version": 2,
   "coordinateSystem": "WGS84",
-  "checkedOn": "2026-11-21",
+  "checkedOn": "2026-11-28",
   "license": {
     "attribution": "© OpenStreetMap contributors",
     "license": "ODbL-1.0",
@@ -53463,6 +53463,1462 @@
         "Lateral clearance only: display corners extend to at least 20m beyond clipped outer arrival/departure tracks while keeping platform longitudinal ends unchanged; no four-side uniform padding and no GNSS coordinates read or used."
       ],
       "checkedOn": "2026-11-21"
+    },
+    "滦河": {
+      "center": [
+        118.6664280558,
+        39.852888843
+      ],
+      "corners": [
+        [
+          118.6690514496,
+          39.8530630662
+        ],
+        [
+          118.6638500435,
+          39.8533018518
+        ],
+        [
+          118.6638089091,
+          39.8527695773
+        ],
+        [
+          118.6690103152,
+          39.8525307917
+        ]
+      ],
+      "lengthM": 445.909,
+      "widthM": 59.204,
+      "platformCorners": [
+        [
+          118.6638131981,
+          39.8528250762
+        ],
+        [
+          118.6690146041,
+          39.8525862906
+        ],
+        [
+          118.6690429135,
+          39.8529526098
+        ],
+        [
+          118.6638415075,
+          39.8531913954
+        ]
+      ],
+      "platformLengthM": 445.909,
+      "platformWidthM": 40.745,
+      "arrivalTracks": [
+        {
+          "wayId": 602122364,
+          "coordinates": [
+            [
+              118.6638348482,
+              39.8531052264
+            ],
+            [
+              118.6690375538,
+              39.8528832563
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "3",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 602122365,
+          "coordinates": [
+            [
+              118.6638228049,
+              39.8529493872
+            ],
+            [
+              118.6690243079,
+              39.8527118557
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "4",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        }
+      ],
+      "arrivalTrackSelection": {
+        "name": "滦河",
+        "available": true,
+        "center": [
+          118.6664280558,
+          39.852888843
+        ],
+        "platformCorners": [
+          [
+            118.6638131981,
+            39.8528250762
+          ],
+          [
+            118.6690146041,
+            39.8525862906
+          ],
+          [
+            118.6690429135,
+            39.8529526098
+          ],
+          [
+            118.6638415075,
+            39.8531913954
+          ]
+        ],
+        "axis_unit_east_north": [
+          -0.9982308139230851,
+          0.0594579022036171
+        ],
+        "cross_unit_east_north": [
+          -0.0594579022036171,
+          -0.9982308139230851
+        ],
+        "axis_bearing_degrees": 93.408697,
+        "axis_source": "Longest original platformCorners edge; corner order is not assumed to start with the longitudinal edge.",
+        "platform_longitudinal_extent_m": [
+          -222.9544,
+          222.9544
+        ],
+        "platform_lateral_extent_m": [
+          -20.3726,
+          20.3726
+        ],
+        "lateral_extent_m": [
+          -12.6585,
+          6.5456
+        ],
+        "rail_ids": [
+          602122364,
+          602122365
+        ],
+        "selection_basis": "Direct passenger-platform-facing arrival/departure tracks clipped to fixed original platformCorners longitudinal interval; non-platform through mains and separate corridors excluded. No whole-throat extent is used.",
+        "reason_if_unavailable": null,
+        "evidence": {
+          "station_node_id": 9276824793,
+          "accepted_platform_count": 2,
+          "national_rail_candidate_count": 20,
+          "valid_loop_count": 0,
+          "selected_way_count": 2,
+          "rejected_clipped_candidates": [
+            {
+              "way_id": 602122357,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "maxspeed": "350",
+                "name": "津秦高速线",
+                "name:de": "Schnellfahrstrecke Tianjin–Qinhuangdao",
+                "name:en": "Tianjin–Qinhuangdao High-Speed Railway",
+                "name:zh": "津秦高速线",
+                "passenger_lines": "2",
+                "railway": "rail",
+                "railway:track_ref": "II",
+                "railway:traffic_mode": "passenger",
+                "ref": "3023",
+                "start_date": "2013-12-01",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1106422917,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "maxspeed": "350",
+                "name": "津秦高速线",
+                "name:de": "Schnellfahrstrecke Tianjin–Qinhuangdao",
+                "name:en": "Tianjin–Qinhuangdao High-Speed Railway",
+                "name:zh": "津秦高速线",
+                "passenger_lines": "2",
+                "railway": "rail",
+                "railway:track_ref": "I",
+                "railway:traffic_mode": "passenger",
+                "ref": "3023",
+                "start_date": "2013-12-01",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            }
+          ]
+        }
+      },
+      "estimated": false,
+      "quality": "mapped_area_envelope",
+      "centerMethod": "Center of the oriented envelope of all accepted closed national-rail platform polygons/multipolygons; mapped extents and vertices preserved without default replacement. No GNSS used.",
+      "osmPlatforms": [
+        "way/606598666",
+        "way/606598667"
+      ],
+      "railWayIds": [
+        602122364,
+        602122365
+      ],
+      "sourceUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=118.654451,39.840887,118.678451,39.864887",
+        "https://www.openstreetmap.org/node/9276824793",
+        "https://www.openstreetmap.org/way/606598666",
+        "https://www.openstreetmap.org/way/606598667",
+        "https://www.openstreetmap.org/way/602122364",
+        "https://www.openstreetmap.org/way/602122365"
+      ],
+      "notes": [
+        "2026-11-28 complete public OSM station box audit (china-261120): bus, subway/light-rail, railway=construction, freight/non-platform corridors excluded.",
+        "Retained both 津秦高速线 closed side-platform polygons (way/606598666 Platform 1, way/606598667 Platform 2) and direct platform-facing arrival/departure tracks 3 & 4 (way/602122364, way/602122365); central non-platform through mains I/II and yard/safety tracks excluded.",
+        "Lateral clearance only: display corners extend to at least 20m beyond clipped outer arrival/departure tracks while keeping platform longitudinal ends unchanged; no four-side uniform padding and no GNSS coordinates read or used."
+      ],
+      "checkedOn": "2026-11-28"
+    },
+    "北戴河": {
+      "center": [
+        119.4131695221,
+        39.8502460031
+      ],
+      "corners": [
+        [
+          119.4107646924,
+          39.848225076
+        ],
+        [
+          119.4164436619,
+          39.8513189702
+        ],
+        [
+          119.4155101741,
+          39.8523369143
+        ],
+        [
+          119.4098312046,
+          39.8492430201
+        ]
+      ],
+      "lengthM": 595.155,
+      "widthM": 138.407,
+      "platformCorners": [
+        [
+          119.4107617305,
+          39.8482283058
+        ],
+        [
+          119.4164407,
+          39.8513222
+        ],
+        [
+          119.4155773137,
+          39.8522637004
+        ],
+        [
+          119.4098983442,
+          39.8491698062
+        ]
+      ],
+      "platformLengthM": 595.155,
+      "platformWidthM": 128.013,
+      "arrivalTracks": [
+        {
+          "wayId": 668148882,
+          "coordinates": [
+            [
+              119.4161794932,
+              39.8516070393
+            ],
+            [
+              119.4105029997,
+              39.848510445
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "3",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 668148883,
+          "coordinates": [
+            [
+              119.410404537,
+              39.8486178161
+            ],
+            [
+              119.4160797526,
+              39.8517158038
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 668148884,
+          "coordinates": [
+            [
+              119.4162457042,
+              39.851534838
+            ],
+            [
+              119.4158999,
+              39.8512958
+            ],
+            [
+              119.4106796,
+              39.8484498
+            ],
+            [
+              119.4105983199,
+              39.8484065008
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "2",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 668148885,
+          "coordinates": [
+            [
+              119.4162604126,
+              39.8515187988
+            ],
+            [
+              119.4159298,
+              39.8512672
+            ],
+            [
+              119.4107209,
+              39.8484218
+            ],
+            [
+              119.4106288559,
+              39.8483732021
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "railway:track_ref": "1",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 668148886,
+          "coordinates": [
+            [
+              119.4102999777,
+              39.8487318352
+            ],
+            [
+              119.4157224,
+              39.8516711
+            ],
+            [
+              119.4159950985,
+              39.851808117
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "maxspeed": "45",
+            "railway": "rail",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 668148893,
+          "coordinates": [
+            [
+              119.4157755432,
+              39.8520475363
+            ],
+            [
+              119.4150078,
+              39.8516276
+            ],
+            [
+              119.4100853302,
+              39.8489659027
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "9",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 668148894,
+          "coordinates": [
+            [
+              119.4099703577,
+              39.8490912772
+            ],
+            [
+              119.4101764,
+              39.8492105
+            ],
+            [
+              119.4151276,
+              39.8518978
+            ],
+            [
+              119.4156664851,
+              39.8521664614
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "railway": "rail",
+            "railway:track_ref": "12",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 668148895,
+          "coordinates": [
+            [
+              119.4158024828,
+              39.8520181594
+            ],
+            [
+              119.4150051,
+              39.8514915
+            ],
+            [
+              119.4105124,
+              39.8490525
+            ],
+            [
+              119.4101591777,
+              39.848885374
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "8",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        }
+      ],
+      "arrivalTrackSelection": {
+        "name": "北戴河",
+        "available": true,
+        "center": [
+          119.4131695221,
+          39.8502460031
+        ],
+        "platformCorners": [
+          [
+            119.4107617305,
+            39.8482283058
+          ],
+          [
+            119.4164407,
+            39.8513222
+          ],
+          [
+            119.4155773137,
+            39.8522637004
+          ],
+          [
+            119.4098983442,
+            39.8491698062
+          ]
+        ],
+        "axis_unit_east_north": [
+          0.8166060415843508,
+          0.5771954373069292
+        ],
+        "cross_unit_east_north": [
+          -0.5771954373069292,
+          0.8166060415843508
+        ],
+        "axis_bearing_degrees": 54.746475,
+        "axis_source": "Longest original platformCorners edge; corner order is not assumed to start with the longitudinal edge.",
+        "platform_longitudinal_extent_m": [
+          -297.5773,
+          297.5773
+        ],
+        "platform_lateral_extent_m": [
+          -64.0067,
+          64.0067
+        ],
+        "lateral_extent_m": [
+          -44.4458,
+          53.9614
+        ],
+        "rail_ids": [
+          668148882,
+          668148883,
+          668148884,
+          668148885,
+          668148886,
+          668148893,
+          668148894,
+          668148895
+        ],
+        "selection_basis": "Direct passenger-platform-facing arrival/departure tracks clipped to fixed original platformCorners longitudinal interval; non-platform through mains and separate corridors excluded. No whole-throat extent is used.",
+        "reason_if_unavailable": null,
+        "evidence": {
+          "station_node_id": 2349729507,
+          "accepted_platform_count": 5,
+          "national_rail_candidate_count": 85,
+          "valid_loop_count": 0,
+          "selected_way_count": 8,
+          "rejected_clipped_candidates": [
+            {
+              "way_id": 366064047,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "maxspeed": "165",
+                "name": "京哈线",
+                "name:de": "Jingha Bahn",
+                "name:en": "Jingha Line",
+                "name:zh": "京哈线",
+                "name:zh-Hans": "京哈线",
+                "name:zh-Hant": "京哈線",
+                "old_name": "京秦线",
+                "railway": "rail",
+                "railway:track_ref": "V",
+                "ref": "0007",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 668148887,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "maxspeed": "310",
+                "name": "津秦高速线",
+                "name:de": "Schnellfahrstrecke Tianjin–Qinhuangdao",
+                "name:en": "Tianjin–Qinhuangdao High-Speed Railway",
+                "name:zh": "津秦高速线",
+                "passenger_lines": "2",
+                "railway": "rail",
+                "railway:track_ref": "X",
+                "railway:traffic_mode": "passenger",
+                "ref": "3023",
+                "source": "bing",
+                "start_date": "2013-12-01",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1093425833,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "maxspeed": "165",
+                "name": "京哈线",
+                "name:de": "Jingha Bahn",
+                "name:en": "Jingha Line",
+                "name:zh": "京哈线",
+                "name:zh-Hans": "京哈线",
+                "name:zh-Hant": "京哈線",
+                "old_name": "京秦线",
+                "railway": "rail",
+                "railway:track_ref": "IV",
+                "ref": "0007",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1093425874,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "maxspeed": "310",
+                "name": "津秦高速线",
+                "name:de": "Schnellfahrstrecke Tianjin–Qinhuangdao",
+                "name:en": "Tianjin–Qinhuangdao High-Speed Railway",
+                "name:zh": "津秦高速线",
+                "passenger_lines": "2",
+                "railway": "rail",
+                "railway:track_ref": "XI",
+                "railway:traffic_mode": "passenger",
+                "ref": "3023",
+                "start_date": "2013-12-01",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            }
+          ]
+        }
+      },
+      "estimated": false,
+      "quality": "mapped_area_envelope",
+      "centerMethod": "Center of the oriented envelope of all accepted closed national-rail platform polygons/multipolygons; mapped extents and vertices preserved without default replacement. No GNSS used.",
+      "osmPlatforms": [
+        "way/1093425843",
+        "relation/14564526",
+        "relation/14564527",
+        "relation/14564529",
+        "way/1093425866"
+      ],
+      "railWayIds": [
+        668148882,
+        668148883,
+        668148884,
+        668148885,
+        668148886,
+        668148893,
+        668148894,
+        668148895
+      ],
+      "sourceUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=119.401724,39.837582,119.425724,39.861582",
+        "https://www.openstreetmap.org/node/2349729507",
+        "https://www.openstreetmap.org/way/1093425843",
+        "https://www.openstreetmap.org/relation/14564526",
+        "https://www.openstreetmap.org/relation/14564527",
+        "https://www.openstreetmap.org/relation/14564529",
+        "https://www.openstreetmap.org/way/1093425866",
+        "https://www.openstreetmap.org/way/668148882",
+        "https://www.openstreetmap.org/way/668148883",
+        "https://www.openstreetmap.org/way/668148884",
+        "https://www.openstreetmap.org/way/668148885",
+        "https://www.openstreetmap.org/way/668148886",
+        "https://www.openstreetmap.org/way/668148893",
+        "https://www.openstreetmap.org/way/668148894",
+        "https://www.openstreetmap.org/way/668148895"
+      ],
+      "notes": [
+        "2026-11-28 complete public OSM station box audit (china-261120): bus, subway/light-rail, railway=construction, freight/non-platform corridors excluded.",
+        "Retained all 5 national-rail closed platform areas covering Platforms 1–8 across both 京哈场 (way/1093425843, relation/14564526, relation/14564527) and 津秦场 (relation/14564529, way/1093425866), plus all 8 direct platform-facing arrival/departure tracks; central non-platform through main pairs (京哈线 IV/V, 津秦高速线 X/XI) and yard/safety tracks excluded.",
+        "Lateral clearance only: display corners extend to at least 20m beyond clipped outer arrival/departure tracks while keeping platform longitudinal ends unchanged; no four-side uniform padding and no GNSS coordinates read or used."
+      ],
+      "checkedOn": "2026-11-28"
+    },
+    "秦皇岛": {
+      "center": [
+        119.5861840504,
+        39.9646949562
+      ],
+      "corners": [
+        [
+          119.5829885061,
+          39.9640043813
+        ],
+        [
+          119.5894235785,
+          39.9641388009
+        ],
+        [
+          119.5893723021,
+          39.9655922426
+        ],
+        [
+          119.5829372296,
+          39.965457823
+        ]
+      ],
+      "lengthM": 550.001,
+      "widthM": 161.441,
+      "platformCorners": [
+        [
+          119.5829885061,
+          39.9640043813
+        ],
+        [
+          119.5894235785,
+          39.9641388009
+        ],
+        [
+          119.5893795947,
+          39.9653855311
+        ],
+        [
+          119.5829445223,
+          39.9652511115
+        ]
+      ],
+      "platformLengthM": 550.001,
+      "platformWidthM": 138.48,
+      "arrivalTracks": [
+        {
+          "wayId": 471313099,
+          "coordinates": [
+            [
+              119.5894142871,
+              39.964402168
+            ],
+            [
+              119.5888862,
+              39.9643717
+            ],
+            [
+              119.5835359,
+              39.9642489
+            ],
+            [
+              119.5829794806,
+              39.9642602115
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "2",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 471313100,
+          "coordinates": [
+            [
+              119.5829703433,
+              39.9645192086
+            ],
+            [
+              119.5889371,
+              39.9646559
+            ],
+            [
+              119.5894048899,
+              39.9646685324
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "6",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 471313101,
+          "coordinates": [
+            [
+              119.5894100775,
+              39.9645214906
+            ],
+            [
+              119.5833823,
+              39.9643825
+            ],
+            [
+              119.5829755191,
+              39.9643725006
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "3",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 471313102,
+          "coordinates": [
+            [
+              119.5829642319,
+              39.9646924379
+            ],
+            [
+              119.5834172,
+              39.9647135
+            ],
+            [
+              119.5889304,
+              39.9648337
+            ],
+            [
+              119.5893341,
+              39.9648275
+            ],
+            [
+              119.5893993461,
+              39.9648256724
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "8",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 471313103,
+          "coordinates": [
+            [
+              119.5894160586,
+              39.9643519548
+            ],
+            [
+              119.5888882,
+              39.9643146
+            ],
+            [
+              119.583541,
+              39.9641967
+            ],
+            [
+              119.5829811994,
+              39.9642114903
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "1",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 471313104,
+          "coordinates": [
+            [
+              119.5829438827,
+              39.9652692419
+            ],
+            [
+              119.5882592,
+              39.9653888
+            ],
+            [
+              119.588919,
+              39.9653888
+            ],
+            [
+              119.5893803225,
+              39.9653649003
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "14",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 471313107,
+          "coordinates": [
+            [
+              119.5893902996,
+              39.9650820991
+            ],
+            [
+              119.5890331,
+              39.9650909
+            ],
+            [
+              119.5829548635,
+              39.9649579867
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "11",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 471313109,
+          "coordinates": [
+            [
+              119.5829480781,
+              39.9651503209
+            ],
+            [
+              119.589297,
+              39.9652852
+            ],
+            [
+              119.5893831343,
+              39.9652852
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "13",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 471313111,
+          "coordinates": [
+            [
+              119.5893939628,
+              39.9649782631
+            ],
+            [
+              119.5890679,
+              39.9649848
+            ],
+            [
+              119.5829588083,
+              39.9648461724
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "9",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 471669839,
+          "coordinates": [
+            [
+              119.5829662125,
+              39.9646362971
+            ],
+            [
+              119.5834949,
+              39.9646713
+            ],
+            [
+              119.588799,
+              39.9647885
+            ],
+            [
+              119.5894012062,
+              39.9647729485
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "7",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        },
+        {
+          "wayId": 1093337107,
+          "coordinates": [
+            [
+              119.5893851382,
+              39.9652284
+            ],
+            [
+              119.589316,
+              39.9652284
+            ],
+            [
+              119.5829502107,
+              39.9650898719
+            ]
+          ],
+          "basis": "Accepted direct passenger-platform-facing arrival/departure track, parallel alignment and longitudinal overlap within platform extent.",
+          "tags": {
+            "electrified": "contact_line",
+            "frequency": "50",
+            "gauge": "1435",
+            "railway": "rail",
+            "railway:track_ref": "12",
+            "service": "siding",
+            "voltage": "25000"
+          }
+        }
+      ],
+      "arrivalTrackSelection": {
+        "name": "秦皇岛",
+        "available": true,
+        "center": [
+          119.5861840504,
+          39.9646949562
+        ],
+        "platformCorners": [
+          [
+            119.5829885061,
+            39.9640043813
+          ],
+          [
+            119.5894235785,
+            39.9641388009
+          ],
+          [
+            119.5893795947,
+            39.9653855311
+          ],
+          [
+            119.5829445223,
+            39.9652511115
+          ]
+        ],
+        "axis_unit_east_north": [
+          0.9996317356515505,
+          0.0271365634940902
+        ],
+        "cross_unit_east_north": [
+          -0.0271365634940902,
+          0.9996317356515505
+        ],
+        "axis_bearing_degrees": 88.444999,
+        "axis_source": "Longest original platformCorners edge; corner order is not assumed to start with the longitudinal edge.",
+        "platform_longitudinal_extent_m": [
+          -275.0005,
+          275.0005
+        ],
+        "platform_lateral_extent_m": [
+          -69.2402,
+          69.2402
+        ],
+        "lateral_extent_m": [
+          -49.1751,
+          72.2006
+        ],
+        "rail_ids": [
+          471313099,
+          471313100,
+          471313101,
+          471313102,
+          471313103,
+          471313104,
+          471313107,
+          471313109,
+          471313111,
+          471669839,
+          1093337107
+        ],
+        "selection_basis": "Direct passenger-platform-facing arrival/departure tracks clipped to fixed original platformCorners longitudinal interval; non-platform through mains and separate corridors excluded. No whole-throat extent is used.",
+        "reason_if_unavailable": null,
+        "evidence": {
+          "station_node_id": 3523553900,
+          "accepted_platform_count": 6,
+          "national_rail_candidate_count": 124,
+          "valid_loop_count": 0,
+          "selected_way_count": 11,
+          "rejected_clipped_candidates": [
+            {
+              "way_id": 471313108,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "maxspeed": "120",
+                "name": "京哈线",
+                "name:de": "Jingha Bahn",
+                "name:en": "Jingha Line",
+                "name:zh": "京哈线",
+                "name:zh-Hans": "京哈线",
+                "name:zh-Hant": "京哈線",
+                "railway": "rail",
+                "railway:track_ref": "X",
+                "ref": "0007",
+                "start_date": "2003-10-12",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1093063990,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "embankment": "yes",
+                "frequency": "50",
+                "gauge": "1435",
+                "layer": "1",
+                "maxspeed": "120",
+                "name": "津山线",
+                "name:en": "Jinshan Line",
+                "name:zh": "津山线",
+                "old_name": "京哈线",
+                "old_ref": "0007",
+                "railway": "rail",
+                "railway:track_ref": "XXII",
+                "ref": "0023",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1093063991,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "embankment": "yes",
+                "frequency": "50",
+                "gauge": "1435",
+                "layer": "1",
+                "maxspeed": "120",
+                "name": "津山线",
+                "name:en": "Jinshan Line",
+                "name:zh": "津山线",
+                "old_name": "京哈线",
+                "old_ref": "0007",
+                "railway": "rail",
+                "railway:track_ref": "XXI",
+                "ref": "0023",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1093337103,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "maxspeed": "120",
+                "name": "京哈线",
+                "name:de": "Jingha Bahn",
+                "name:en": "Jingha Line",
+                "name:zh": "京哈线",
+                "name:zh-Hans": "京哈线",
+                "name:zh-Hant": "京哈線",
+                "railway": "rail",
+                "railway:track_ref": "XV",
+                "ref": "0007",
+                "start_date": "2003-10-12",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1093352685,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "maxspeed": "250",
+                "name": "津秦高速线",
+                "name:de": "Schnellfahrstrecke Tianjin–Qinhuangdao",
+                "name:en": "Tianjin–Qinhuangdao High-Speed Railway",
+                "name:zh": "津秦高速线",
+                "railway": "rail",
+                "railway:track_ref": "V",
+                "railway:traffic_mode": "passenger",
+                "ref": "3023",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1093352686,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "highspeed": "yes",
+                "maxspeed": "250",
+                "name": "津秦高速线",
+                "name:de": "Schnellfahrstrecke Tianjin–Qinhuangdao",
+                "name:en": "Tianjin–Qinhuangdao High-Speed Railway",
+                "name:zh": "津秦高速线",
+                "railway": "rail",
+                "railway:track_ref": "IV",
+                "railway:traffic_mode": "passenger",
+                "ref": "3023",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1493773462,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "maxspeed": "60",
+                "name": "秦东联络线",
+                "name:zh": "秦东联络线",
+                "passenger_lines": "2",
+                "railway": "rail",
+                "railway:traffic_mode": "freight",
+                "ref": "1343",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1493773464,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "maxspeed": "60",
+                "name": "秦东联络线",
+                "name:zh": "秦东联络线",
+                "passenger_lines": "2",
+                "railway": "rail",
+                "railway:traffic_mode": "freight",
+                "ref": "1343",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1493773466,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "no",
+                "gauge": "1435",
+                "name": "秦山线",
+                "railway": "rail",
+                "ref": "8301",
+                "usage": "branch"
+              }
+            },
+            {
+              "way_id": 1493773468,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "maxspeed": "90",
+                "name": "大秦线",
+                "name:en": "Daqin Line",
+                "name:zh": "大秦线",
+                "railway": "rail",
+                "railway:traffic_mode": "freight",
+                "ref": "0313",
+                "source": "bing",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1493773470,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "maxspeed": "85",
+                "name": "大秦线",
+                "name:en": "Daqin Line",
+                "name:zh": "大秦线",
+                "railway": "rail",
+                "railway:traffic_mode": "freight",
+                "ref": "0313",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1578275361,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "maxspeed": "120",
+                "name": "京哈线",
+                "name:de": "Jingha Bahn",
+                "name:en": "Jingha Line",
+                "name:zh": "京哈线",
+                "name:zh-Hans": "京哈线",
+                "name:zh-Hant": "京哈線",
+                "railway": "rail",
+                "railway:track_ref": "X",
+                "ref": "0007",
+                "start_date": "2003-10-12",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            },
+            {
+              "way_id": 1578275362,
+              "reason": "Non-platform central through main or separate corridor track (no direct passenger platform face).",
+              "tags": {
+                "electrified": "contact_line",
+                "frequency": "50",
+                "gauge": "1435",
+                "maxspeed": "120",
+                "name": "京哈线",
+                "name:de": "Jingha Bahn",
+                "name:en": "Jingha Line",
+                "name:zh": "京哈线",
+                "name:zh-Hans": "京哈线",
+                "name:zh-Hant": "京哈線",
+                "railway": "rail",
+                "railway:track_ref": "XV",
+                "ref": "0007",
+                "start_date": "2003-10-12",
+                "usage": "main",
+                "voltage": "25000"
+              }
+            }
+          ]
+        }
+      },
+      "estimated": false,
+      "quality": "mapped_area_envelope",
+      "centerMethod": "Center of the oriented envelope of all accepted closed national-rail platform polygons/multipolygons; mapped extents and vertices preserved without default replacement. No GNSS used.",
+      "osmPlatforms": [
+        "way/471669835",
+        "relation/14563365",
+        "way/471313097",
+        "relation/14563242",
+        "relation/14563243",
+        "relation/14563244"
+      ],
+      "railWayIds": [
+        471313099,
+        471313100,
+        471313101,
+        471313102,
+        471313103,
+        471313104,
+        471313107,
+        471313109,
+        471313111,
+        471669839,
+        1093337107
+      ],
+      "sourceUrls": [
+        "https://api.openstreetmap.org/api/0.6/map?bbox=119.574319,39.952861,119.598319,39.976861",
+        "https://www.openstreetmap.org/node/3523553900",
+        "https://www.openstreetmap.org/way/471669835",
+        "https://www.openstreetmap.org/relation/14563365",
+        "https://www.openstreetmap.org/way/471313097",
+        "https://www.openstreetmap.org/relation/14563242",
+        "https://www.openstreetmap.org/relation/14563243",
+        "https://www.openstreetmap.org/relation/14563244",
+        "https://www.openstreetmap.org/way/471313099",
+        "https://www.openstreetmap.org/way/471313100",
+        "https://www.openstreetmap.org/way/471313101",
+        "https://www.openstreetmap.org/way/471313102",
+        "https://www.openstreetmap.org/way/471313103",
+        "https://www.openstreetmap.org/way/471313104",
+        "https://www.openstreetmap.org/way/471313107",
+        "https://www.openstreetmap.org/way/471313109",
+        "https://www.openstreetmap.org/way/471313111",
+        "https://www.openstreetmap.org/way/471669839",
+        "https://www.openstreetmap.org/way/1093337107"
+      ],
+      "notes": [
+        "2026-11-28 complete public OSM station box audit (china-261120): bus, subway/light-rail, railway=construction, freight/non-platform corridors excluded.",
+        "Retained all 6 national-rail closed platform areas covering Platforms 1–11 across both 津秦场 (way/471669835, relation/14563365, way/471313097) and 京哈场 (relation/14563242, relation/14563243, relation/14563244), plus all 11 direct platform-facing arrival/departure tracks (tracks 1–3, 6–9, 11–14); non-platform through mains (津秦高速线 IV/V, 京哈线 X/XV) and northern non-platform corridors (秦东联络线, 秦山线, 大秦线, 津山线) excluded.",
+        "Lateral clearance only: display corners extend to at least 20m beyond clipped outer arrival/departure tracks while keeping platform longitudinal ends unchanged; no four-side uniform padding and no GNSS coordinates read or used."
+      ],
+      "checkedOn": "2026-11-28"
     }
   },
   "pointStations": {
